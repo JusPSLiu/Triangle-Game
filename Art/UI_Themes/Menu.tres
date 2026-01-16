@@ -1,4 +1,32 @@
-[gd_resource type="Theme" format=3 uid="uid://dujori2qpgkmw"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dujori2qpgkmw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uug6p"]
+bg_color = Color(0, 1, 0.23921569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 14.0
+expand_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mh4wg"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 16.0
+expand_margin_right = 2.0
+expand_margin_bottom = 16.0
 
 [resource]
-Button/font_sizes/font_size = 40
+Button/font_sizes/font_size = 62
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_uug6p")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_uug6p")
+HSlider/styles/slider = SubResource("StyleBoxFlat_mh4wg")
+Label/font_sizes/font_size = 62

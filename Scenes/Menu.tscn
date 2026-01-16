@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk7n8tgptu6hn"]
+[gd_scene load_steps=3 format=3 uid="uid://dk7n8tgptu6hn"]
 
 [ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="1_3kf3n"]
+[ext_resource type="PackedScene" uid="uid://bxruvlbqqvnbu" path="res://CustomModules/Transition/Scenes/transition.tscn" id="2_6pedr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -33,3 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3kf3n")
 text = "Test Button"
+
+[node name="Transition" parent="." instance=ExtResource("2_6pedr")]
+layout_mode = 1
