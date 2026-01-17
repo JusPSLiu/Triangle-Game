@@ -1,26 +1,31 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkugsq1ltwfeu"]
 
 [ext_resource type="Script" uid="uid://c82n64ljira71" path="res://Scripts/interactible.gd" id="1_rfrcq"]
+[ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="1_u4ty3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj1gb"]
-size = Vector2(19, 5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ign8"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asq42"]
 radius = 6.0
 height = 33.999992
 
-[node name="Interactible" type="Node2D"]
+[node name="Interactible" instance=ExtResource("1_u4ty3")]
+
+[node name="CollisionShape2D" parent="Collision" index="0"]
+z_index = 2
+
+[node name="Interaction" type="Node2D" parent="." index="1"]
 z_index = 1
+position = Vector2(0, 3)
 script = ExtResource("1_rfrcq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Interaction" index="0"]
 offset_left = -9.0
 offset_top = -16.0
 offset_right = 10.0
 offset_bottom = 1.0
 color = Color(0.32558995, 0.00038042545, 0.9597835, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Prompt" type="Label" parent="."]
+[node name="Prompt" type="Label" parent="Interaction" index="1"]
 visible = false
 z_index = 10
 offset_left = -11.0
@@ -31,19 +36,13 @@ scale = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 10
 text = "[E]"
 
-[node name="Collision" type="StaticBody2D" parent="."]
+[node name="Detection" type="Area2D" parent="Interaction" index="2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
-position = Vector2(0.5, -1.5)
-shape = SubResource("RectangleShape2D_qj1gb")
-
-[node name="Detection" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction/Detection" index="0"]
 z_index = -1
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_1ign8")
+shape = SubResource("CapsuleShape2D_asq42")
 debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
 
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
-[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[connection signal="body_entered" from="Interaction/Detection" to="Interaction" method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Interaction/Detection" to="Interaction" method="_on_detection_body_exited"]

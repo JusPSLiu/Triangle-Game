@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bph5j6qdcn1f7"]
+[gd_scene load_steps=13 format=4 uid="uid://bph5j6qdcn1f7"]
 
 [ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="1_ju8va"]
 [ext_resource type="Script" uid="uid://c8scr01y6mpj3" path="res://CustomModules/PauseScreen/Scripts/pause_screen.gd" id="1_q3xb3"]
@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://i4ymhaqhk6eh" path="res://Scripts/floor.gd" id="5_qqjrk"]
 [ext_resource type="Script" uid="uid://blrqcb2xgd803" path="res://Scripts/character_body_2d.gd" id="6_wnaea"]
 [ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/scene_object_controller.gd" id="7_ggrln"]
-[ext_resource type="Script" uid="uid://bgllyhtl7gxr6" path="res://Scripts/scene_object.gd" id="8_qj1gb"]
-[ext_resource type="Script" uid="uid://c82n64ljira71" path="res://Scripts/interactible.gd" id="9_1ign8"]
+[ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="8_1ign8"]
+[ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="9_awfkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqjrk"]
 texture = ExtResource("4_nh7uq")
@@ -33,13 +33,6 @@ sources/0 = SubResource("TileSetAtlasSource_qqjrk")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqjrk"]
 radius = 4.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj1gb"]
-size = Vector2(19, 5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ign8"]
-radius = 6.0
-height = 33.999992
 
 [node name="Test2DScene" type="Node2D"]
 texture_filter = 1
@@ -178,9 +171,8 @@ zoom = Vector2(3, 3)
 script = ExtResource("7_ggrln")
 player = NodePath("../CharacterBody2D")
 
-[node name="chair" type="Node2D" parent="SceneObjects"]
+[node name="chair" parent="SceneObjects" instance=ExtResource("8_1ign8")]
 position = Vector2(6, 55)
-script = ExtResource("8_qj1gb")
 
 [node name="ColorRect" type="ColorRect" parent="SceneObjects/chair"]
 offset_left = -10.0
@@ -188,51 +180,9 @@ offset_top = -25.0
 offset_right = 10.0
 offset_bottom = 4.0
 
-[node name="Collision" type="StaticBody2D" parent="SceneObjects/chair"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/chair/Collision"]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_qj1gb")
-
-[node name="Interactible" type="Node2D" parent="."]
-z_index = 1
-position = Vector2(72, 54)
-script = ExtResource("9_1ign8")
-
-[node name="ColorRect" type="ColorRect" parent="Interactible"]
-offset_left = -9.0
-offset_top = -16.0
-offset_right = 10.0
-offset_bottom = 1.0
-color = Color(0.32558995, 0.00038042545, 0.9597835, 1)
-
-[node name="Prompt" type="Label" parent="Interactible"]
-visible = false
-z_index = 10
-offset_left = -11.0
-offset_top = -19.0
-offset_right = 9.0
-offset_bottom = 4.0
-scale = Vector2(0.5, 0.5)
-theme_override_constants/outline_size = 10
-text = "[E]"
-
-[node name="Collision" type="StaticBody2D" parent="Interactible"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible/Collision"]
-position = Vector2(0.5, -1.5)
-shape = SubResource("RectangleShape2D_qj1gb")
-
-[node name="Detection" type="Area2D" parent="Interactible"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible/Detection"]
-z_index = -1
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_1ign8")
-debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+[node name="Interactible2" parent="SceneObjects" instance=ExtResource("9_awfkq")]
+position = Vector2(71, 52)
 
 [connection signal="pressed" from="PauseMenu/PauseScreen/VBoxContainer/ResumeButton" to="PauseMenu" method="toggle_pause"]
 [connection signal="value_changed" from="PauseMenu/PauseScreen/VBoxContainer/MusicSlider" to="PauseMenu/PauseScreen" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="PauseMenu/PauseScreen/VBoxContainer/SoundSlider" to="PauseMenu/PauseScreen" method="_on_sound_slider_value_changed"]
-[connection signal="body_entered" from="Interactible/Detection" to="Interactible" method="_on_detection_body_entered"]
-[connection signal="body_exited" from="Interactible/Detection" to="Interactible" method="_on_detection_body_exited"]
