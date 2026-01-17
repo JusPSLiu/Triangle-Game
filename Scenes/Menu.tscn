@@ -37,3 +37,5 @@ text = "Test Button"
 
 [node name="Transition" parent="." instance=ExtResource("2_6pedr")]
 layout_mode = 1
+
+[connection signal="pressed" from="Button" to="Transition" method="fadeToScene" binds= ["res://Scenes/Test2DScene.tscn"]]

@@ -107,6 +107,7 @@ script = ExtResource("1_kmpy1")
 libraries = {
 &"": SubResource("AnimationLibrary_ma218")
 }
+autoplay = "FadeIn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

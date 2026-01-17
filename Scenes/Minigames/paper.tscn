@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://q706hi61umbv"]
+[gd_scene load_steps=8 format=3 uid="uid://q706hi61umbv"]
 
 [ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_futqu"]
+[ext_resource type="Script" uid="uid://4gmn2ti7ledb" path="res://Scripts/Minigames/paper.gd" id="2_fwmpk"]
 
 [sub_resource type="Gradient" id="Gradient_sbl0c"]
 colors = PackedColorArray(0.48439813, 0.4843982, 0.48439813, 1, 1, 1, 1, 1)
@@ -48,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.42044833, 1),
 "update": 0,
-"values": [Vector2(1050, 720), Vector2(480, 415)]
+"values": [Vector2(1050, 720), Vector2(315, 85)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -75,15 +76,16 @@ _data = {
 anchors_preset = 0
 offset_left = 759.0
 offset_top = 415.0
-offset_right = 759.0
-offset_bottom = 415.0
+offset_right = 1088.9998
+offset_bottom = 804.99994
+pivot_offset = Vector2(165, 330)
+mouse_default_cursor_shape = 2
+script = ExtResource("2_fwmpk")
 
 [node name="TextureRect" type="TextureRect" parent="Paper" index="0"]
 layout_mode = 0
-offset_left = -164.0
-offset_top = -298.0
-offset_right = 166.0
-offset_bottom = 92.0
+offset_right = 330.0
+offset_bottom = 390.0
 texture = SubResource("GradientTexture1D_fwmpk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -92,3 +94,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_2woqe")
 }
 autoplay = "paper_in"
+
+[connection signal="mouse_entered" from="Paper" to="Paper" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Paper" to="Paper" method="_on_mouse_exited"]
