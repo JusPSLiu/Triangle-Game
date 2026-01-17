@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5a0jyyc2itk"]
+
+[ext_resource type="Script" uid="uid://ckl0vpfimnkp3" path="res://Scenes/Minigames/tile.gd" id="2_dx4bo"]
+[ext_resource type="Texture2D" uid="uid://dwa4qt5vtblhd" path="res://Art/Placeholders/placeholder_slide_puzzle.png" id="2_liaw3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xj5n0"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.31662887, 0.21915492, 0.10491475, 1)
+border_blend = true
+
+[node name="Tile" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_dx4bo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(56.00003, 56.000015)
+scale = Vector2(7, 7)
+texture = ExtResource("2_liaw3")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="Number" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 112.0
+offset_bottom = 112.0
+
+[node name="ColorRect" type="ColorRect" parent="Number"]
+layout_mode = 1
+color = Color(0, 0, 0, 0.5176471)
+
+[node name="Label" type="Label" parent="Number"]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 23.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 112.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xj5n0")
