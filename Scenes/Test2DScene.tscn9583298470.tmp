@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bph5j6qdcn1f7"]
+[gd_scene load_steps=13 format=4 uid="uid://bph5j6qdcn1f7"]
 
 [ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="1_ju8va"]
 [ext_resource type="Script" uid="uid://c8scr01y6mpj3" path="res://CustomModules/PauseScreen/Scripts/pause_screen.gd" id="1_q3xb3"]
@@ -6,10 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://up6vh67qt70f" path="res://Art/Tilesets/test_tile.png" id="4_nh7uq"]
 [ext_resource type="Script" uid="uid://i4ymhaqhk6eh" path="res://Scripts/floor.gd" id="5_qqjrk"]
 [ext_resource type="Script" uid="uid://blrqcb2xgd803" path="res://Scripts/character_body_2d.gd" id="6_wnaea"]
-[ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/objects/scene_object_controller.gd" id="7_ggrln"]
+[ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/scene_object_controller.gd" id="7_ggrln"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="8_1ign8"]
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="9_awfkq"]
-[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="10_awfkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqjrk"]
 texture = ExtResource("4_nh7uq")
@@ -180,14 +179,8 @@ offset_top = -25.0
 offset_right = 10.0
 offset_bottom = 4.0
 
-[node name="Interactible2" parent="SceneObjects" node_paths=PackedStringArray("minigame") instance=ExtResource("9_awfkq")]
+[node name="Interactible2" parent="SceneObjects" instance=ExtResource("9_awfkq")]
 position = Vector2(71, 52)
-minigame = NodePath("../../CanvasLayer/Minigame")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Minigame" parent="CanvasLayer" instance=ExtResource("10_awfkq")]
-visible = false
 
 [connection signal="pressed" from="PauseMenu/PauseScreen/VBoxContainer/ResumeButton" to="PauseMenu" method="toggle_pause"]
 [connection signal="value_changed" from="PauseMenu/PauseScreen/VBoxContainer/MusicSlider" to="PauseMenu/PauseScreen" method="_on_music_slider_value_changed"]

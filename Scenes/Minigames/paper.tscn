@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://q706hi61umbv"]
+
+[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_futqu"]
+
+[sub_resource type="Gradient" id="Gradient_sbl0c"]
+colors = PackedColorArray(0.48439813, 0.4843982, 0.48439813, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fwmpk"]
+gradient = SubResource("Gradient_sbl0c")
+width = 16
+
+[sub_resource type="Animation" id="Animation_ixuig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(759, 415)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lqiv1"]
+resource_name = "paper_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.42044833, 1),
+"update": 0,
+"values": [Vector2(1050, 720), Vector2(480, 415)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.51763225, 1),
+"update": 0,
+"values": [1.6615534478986016, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2woqe"]
+_data = {
+&"RESET": SubResource("Animation_ixuig"),
+&"paper_in": SubResource("Animation_lqiv1")
+}
+
+[node name="Minigame" instance=ExtResource("1_futqu")]
+
+[node name="Paper" type="Control" parent="." index="1"]
+anchors_preset = 0
+offset_left = 759.0
+offset_top = 415.0
+offset_right = 759.0
+offset_bottom = 415.0
+
+[node name="TextureRect" type="TextureRect" parent="Paper" index="0"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = -298.0
+offset_right = 166.0
+offset_bottom = 92.0
+texture = SubResource("GradientTexture1D_fwmpk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+root_node = NodePath("../Paper")
+libraries = {
+&"": SubResource("AnimationLibrary_2woqe")
+}
+autoplay = "paper_in"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctx17gjtqqbk1"]
+
+[ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="1_f6t1e"]
+[ext_resource type="Script" uid="uid://dvfb2khv7e61j" path="res://Scripts/Minigames/base_minigame.gd" id="1_sbl0c"]
+
+[node name="Minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbl0c")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 92.0
+offset_bottom = 110.0
+theme = ExtResource("1_f6t1e")
+text = " < "
+
+[connection signal="pressed" from="Button" to="." method="_exit"]

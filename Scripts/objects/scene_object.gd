@@ -1,4 +1,5 @@
 extends Node2D
+class_name scene_object
 
 var behind : int = true
 @onready var parent = get_parent()
