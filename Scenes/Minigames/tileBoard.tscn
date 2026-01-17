@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddknwqwi3iapb"]
+
+[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_7x7px"]
+[ext_resource type="Script" uid="uid://k0nda4hhxgoy" path="res://Scenes/Minigames/board.gd" id="2_glbf7"]
+
+[node name="Minigame" instance=ExtResource("1_7x7px")]
+
+[node name="Board" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_glbf7")
