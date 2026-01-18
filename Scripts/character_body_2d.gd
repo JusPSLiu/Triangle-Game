@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerpf(velocity.x, 0, 0.5)
 		velocity.y = lerpf(velocity.y, 0, 0.5)
+	print(direction)
 
 	move_and_slide()
 

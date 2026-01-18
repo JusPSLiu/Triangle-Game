@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cymaa8cexmeg5"
-path="res://.godot/imported/livingroom_decorative.png-9a6bbf4eacb0d483273bb719ff0858ae.ctex"
+uid="uid://dprhuyjhhhqy5"
+path="res://.godot/imported/couch.png-b072a298ceef5be55d60d63cc5fc4e34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/livingroom_decorative.png"
-dest_files=["res://.godot/imported/livingroom_decorative.png-9a6bbf4eacb0d483273bb719ff0858ae.ctex"]
+source_file="res://Art/Tilesets/livingroom_objects/couch.png"
+dest_files=["res://.godot/imported/couch.png-b072a298ceef5be55d60d63cc5fc4e34.ctex"]
 
 [params]
 

@@ -5,7 +5,7 @@ extends Node2D
 @export var layerInFront : int = 3
 @export var layerBehind : int = 1
 
-var player_position : int
+var player_position : Vector2
 
 func _process(delta: float) -> void:
-	player_position = player.position.y
+	player_position = player.position
