@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1indge8oo0sm"]
+
+[ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="1_i31ao"]
+[ext_resource type="Texture2D" uid="uid://b0f261yg1yqnq" path="res://Art/Tilesets/livingroom_objects/tv.png" id="2_rxchk"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_c5ch1"]
+points = PackedVector2Array(0, -5, 13, 0, 0, 5, -12, 0)
+
+[node name="Interactible" instance=ExtResource("1_i31ao")]
+
+[node name="CollisionShape2D" parent="Collision" index="0"]
+shape = SubResource("ConvexPolygonShape2D_c5ch1")
+
+[node name="Tv" type="Sprite2D" parent="." index="3"]
+position = Vector2(0.5, -8.5)
+texture = ExtResource("2_rxchk")

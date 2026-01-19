@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://ynid5vi3tdfn"]
+
+[ext_resource type="Script" uid="uid://blrqcb2xgd803" path="res://Scripts/character_body_2d.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://c6uaj6t2mlole" path="res://Art/Player.png" id="2_xpcdj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqjrk"]
+radius = 4.0
+
+[sub_resource type="Curve" id="Curve_pn38e"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.157767, 1), 0.0, 0.0, 0, 0, Vector2(0.6868932, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq7x6"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1opts"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pi3js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq7x6")
+}],
+"loop": true,
+"name": &"stand_d",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1opts")
+}],
+"loop": true,
+"name": &"stand_f",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 2
+motion_mode = 1
+wall_min_slide_angle = 1.0471976
+script = ExtResource("1_a3d8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qqjrk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="DustEffects" type="CPUParticles2D" parent="."]
+amount = 32
+lifetime = 20.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(240, 135)
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_pn38e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -13)
+sprite_frames = SubResource("SpriteFrames_pi3js")
+animation = &"stand_d"

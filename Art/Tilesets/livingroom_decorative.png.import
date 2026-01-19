@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb526u6kpi6v2"
-path="res://.godot/imported/livingroom_decorations.png-4031725e5168ee6f7eb06b2e5f704f08.ctex"
+uid="uid://cymaa8cexmeg5"
+path="res://.godot/imported/livingroom_decorative.png-9a6bbf4eacb0d483273bb719ff0858ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/livingroom_decorations.png"
-dest_files=["res://.godot/imported/livingroom_decorations.png-4031725e5168ee6f7eb06b2e5f704f08.ctex"]
+source_file="res://Art/Tilesets/livingroom_decorative.png"
+dest_files=["res://.godot/imported/livingroom_decorative.png-9a6bbf4eacb0d483273bb719ff0858ae.ctex"]
 
 [params]
 
