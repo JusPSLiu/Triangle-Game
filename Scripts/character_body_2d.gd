@@ -24,7 +24,9 @@ func _physics_process(delta: float) -> void:
 func _ready():
 	SignalBus.connect("entered_minigame", freezeSelf)
 	SignalBus.connect("exited_minigame", unfreezeSelf)
-	$DustEffects.emitting = true
+	$DustEffects.restart()
+	$CloseupDust.restart()
+	$CloseupDust2.restart()
 
 func freezeSelf():
 	freeze = true
