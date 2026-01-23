@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export_range(0.0, 100.0, 1.0, "or_less", "or_greater") var dust_percentage : int = 50
 const SPEED = 50.0
 
 var freeze = false
@@ -28,8 +29,11 @@ func _ready():
 	SignalBus.connect("entered_minigame", freezeSelf)
 	SignalBus.connect("exited_minigame", unfreezeSelf)
 	$DustEffects.restart()
+	$DustEffects.amount = int(dust_percentage * 0.32)
 	$CloseupDust.restart()
+	$CloseupDust.amount = int(dust_percentage * 0.32)
 	$CloseupDust2.restart()
+	$CloseupDust2.amount = int(dust_percentage * 0.16)
 
 func freezeSelf():
 	freeze = true

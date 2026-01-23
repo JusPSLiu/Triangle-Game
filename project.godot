@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Cheap House"
+config/description="Triangle Game"
 run/main_scene="uid://ddknwqwi3iapb"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://c7tc4sdm627qj"
+config/windows_native_icon="res://Art/icon.ico"
 
 [autoload]
 
