@@ -1,3 +1,3 @@
 extends Node
 
-var previousRoom = ""
+var prior_room = ""

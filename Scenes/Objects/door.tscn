@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="1_bw412"]
 [ext_resource type="Texture2D" uid="uid://b3mtq0gxs5ho4" path="res://Art/Tilesets/door.png" id="2_l0b71"]
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ynea2"]
+[ext_resource type="Script" uid="uid://bvu32qyfxhiok" path="res://Scripts/objects/door.gd" id="2_ynea2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gc7pt"]
 animations = [{
@@ -21,12 +20,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Door" instance=ExtResource("1_bw412")]
+[node name="Door" node_paths=PackedStringArray("entrance_point") instance=ExtResource("1_bw412")]
+script = ExtResource("2_ynea2")
+to_room = ""
+entrance_point = NodePath("EntryPoint")
+
+[node name="Collision" parent="." index="0"]
+visible = false
 
 [node name="CollisionShape2D" parent="Collision" index="0"]
-shape = SubResource("ConvexPolygonShape2D_ynea2")
+visible = false
+disabled = true
+
+[node name="Prompt" parent="." index="1"]
+offset_left = -16.0
+offset_top = -33.0
+offset_right = 4.0
+offset_bottom = -10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+z_as_relative = false
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_gc7pt")
 animation = &"closed"
+
+[node name="EntryPoint" type="Node2D" parent="." index="4"]

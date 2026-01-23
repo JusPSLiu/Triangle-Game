@@ -9,6 +9,8 @@ func _ready():
 	# if no minigame give error
 	if (minigame == null):
 		print_debug("ERROR, NO MINIGAME FOUND")
+	# hide prompt and connect signal
+	$Prompt.hide()
 	SignalBus.connect("exited_minigame", show_prompt)
 
 # ACTION. enter the minigame

@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bph5j6qdcn1f7"]
+[gd_scene load_steps=17 format=3 uid="uid://bph5j6qdcn1f7"]
 
+[ext_resource type="Script" uid="uid://dmv3ueygfuqp5" path="res://Scripts/room.gd" id="1_0kgd1"]
 [ext_resource type="PackedScene" uid="uid://bxruvlbqqvnbu" path="res://CustomModules/Transition/Scenes/transition.tscn" id="1_aw2ct"]
 [ext_resource type="Script" uid="uid://c8scr01y6mpj3" path="res://CustomModules/PauseScreen/Scripts/pause_screen.gd" id="2_gmvnb"]
 [ext_resource type="Script" uid="uid://bl1kqr0pawq37" path="res://CustomModules/PauseScreen/Scripts/volume_controller.gd" id="3_ya2gf"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cymaa8cexmeg5" path="res://Art/Tilesets/livingroom_decorative.png" id="6_f2otw"]
 [ext_resource type="Script" uid="uid://i4ymhaqhk6eh" path="res://Scripts/floor.gd" id="7_lika3"]
 [ext_resource type="PackedScene" uid="uid://ynid5vi3tdfn" path="res://Scenes/Player/player.tscn" id="8_dxtyj"]
+[ext_resource type="Texture2D" uid="uid://yqc6cu142w77" path="res://Art/Tilesets/bedroom_carpets.png" id="9_1li6j"]
 [ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/objects/scene_object_controller.gd" id="9_rd1j8"]
 [ext_resource type="AudioStream" uid="uid://df51hgpdghp7d" path="res://Audio/Music/cheap_house_2.mp3" id="17_hou2f"]
 
@@ -117,6 +119,159 @@ texture = ExtResource("6_f2otw")
 8:0/0 = 0
 8:0/0/texture_origin = Vector2i(0, 4)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rg140"]
+texture = ExtResource("9_1li6j")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+0:0/0/terrains_peering_bit/right_corner = 1
+0:0/0/terrains_peering_bit/bottom_right_side = 1
+0:0/0/terrains_peering_bit/bottom_corner = 1
+0:0/0/terrains_peering_bit/bottom_left_side = 1
+0:0/0/terrains_peering_bit/top_right_side = 1
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -4)
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+1:0/0/terrains_peering_bit/bottom_right_side = 1
+1:0/0/terrains_peering_bit/bottom_corner = 1
+1:0/0/terrains_peering_bit/bottom_left_side = 1
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -4)
+2:0/0/terrain_set = 0
+2:0/0/terrain = 1
+2:0/0/terrains_peering_bit/bottom_right_side = 1
+2:0/0/terrains_peering_bit/bottom_corner = 1
+2:0/0/terrains_peering_bit/bottom_left_side = 1
+2:0/0/terrains_peering_bit/left_corner = 1
+2:0/0/terrains_peering_bit/top_left_side = 1
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -4)
+3:0/0/terrain_set = 0
+3:0/0/terrain = 2
+3:0/0/terrains_peering_bit/right_corner = 2
+3:0/0/terrains_peering_bit/bottom_right_side = 2
+3:0/0/terrains_peering_bit/bottom_corner = 2
+3:0/0/terrains_peering_bit/bottom_left_side = 2
+3:0/0/terrains_peering_bit/top_right_side = 2
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -4)
+4:0/0/terrain_set = 0
+4:0/0/terrain = 2
+4:0/0/terrains_peering_bit/bottom_right_side = 2
+4:0/0/terrains_peering_bit/bottom_corner = 2
+4:0/0/terrains_peering_bit/bottom_left_side = 2
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, -4)
+5:0/0/terrain_set = 0
+5:0/0/terrain = 2
+5:0/0/terrains_peering_bit/bottom_right_side = 2
+5:0/0/terrains_peering_bit/bottom_corner = 2
+5:0/0/terrains_peering_bit/bottom_left_side = 2
+5:0/0/terrains_peering_bit/left_corner = 2
+5:0/0/terrains_peering_bit/top_left_side = 2
+5:1/0 = 0
+5:1/0/texture_origin = Vector2i(0, -4)
+5:1/0/terrain_set = 0
+5:1/0/terrain = 2
+5:1/0/terrains_peering_bit/bottom_left_side = 2
+5:1/0/terrains_peering_bit/left_corner = 2
+5:1/0/terrains_peering_bit/top_left_side = 2
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, -4)
+4:1/0/terrain_set = 0
+4:1/0/terrain = 2
+4:1/0/terrains_peering_bit/right_corner = 2
+4:1/0/terrains_peering_bit/bottom_right_side = 2
+4:1/0/terrains_peering_bit/bottom_corner = 2
+4:1/0/terrains_peering_bit/bottom_left_side = 2
+4:1/0/terrains_peering_bit/left_corner = 2
+4:1/0/terrains_peering_bit/top_left_side = 2
+4:1/0/terrains_peering_bit/top_corner = 2
+4:1/0/terrains_peering_bit/top_right_side = 2
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, -4)
+3:1/0/terrain_set = 0
+3:1/0/terrain = 2
+3:1/0/terrains_peering_bit/right_corner = 2
+3:1/0/terrains_peering_bit/bottom_right_side = 2
+3:1/0/terrains_peering_bit/top_right_side = 2
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, -4)
+2:1/0/terrain_set = 0
+2:1/0/terrain = 1
+2:1/0/terrains_peering_bit/bottom_left_side = 1
+2:1/0/terrains_peering_bit/left_corner = 1
+2:1/0/terrains_peering_bit/top_left_side = 1
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, -4)
+1:1/0/terrain_set = 0
+1:1/0/terrain = 1
+1:1/0/terrains_peering_bit/right_corner = 1
+1:1/0/terrains_peering_bit/bottom_right_side = 1
+1:1/0/terrains_peering_bit/bottom_corner = 1
+1:1/0/terrains_peering_bit/bottom_left_side = 1
+1:1/0/terrains_peering_bit/left_corner = 1
+1:1/0/terrains_peering_bit/top_left_side = 1
+1:1/0/terrains_peering_bit/top_corner = 1
+1:1/0/terrains_peering_bit/top_right_side = 1
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, -4)
+1:2/0/terrain_set = 0
+1:2/0/terrain = 1
+1:2/0/terrains_peering_bit/top_left_side = 1
+1:2/0/terrains_peering_bit/top_corner = 1
+1:2/0/terrains_peering_bit/top_right_side = 1
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, -4)
+0:2/0/terrain_set = 0
+0:2/0/terrain = 1
+0:2/0/terrains_peering_bit/top_left_side = 1
+0:2/0/terrains_peering_bit/top_corner = 1
+0:2/0/terrains_peering_bit/top_right_side = 1
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, -4)
+2:2/0/terrain_set = 0
+2:2/0/terrain = 1
+2:2/0/terrains_peering_bit/bottom_left_side = 1
+2:2/0/terrains_peering_bit/left_corner = 1
+2:2/0/terrains_peering_bit/top_left_side = 1
+2:2/0/terrains_peering_bit/top_corner = 1
+2:2/0/terrains_peering_bit/top_right_side = 1
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, -4)
+3:2/0/terrain_set = 0
+3:2/0/terrain = 2
+3:2/0/terrains_peering_bit/right_corner = 2
+3:2/0/terrains_peering_bit/bottom_right_side = 2
+3:2/0/terrains_peering_bit/top_left_side = 2
+3:2/0/terrains_peering_bit/top_corner = 2
+3:2/0/terrains_peering_bit/top_right_side = 2
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, -4)
+0:1/0/terrain_set = 0
+0:1/0/terrain = 1
+0:1/0/terrains_peering_bit/right_corner = 1
+0:1/0/terrains_peering_bit/bottom_right_side = 1
+0:1/0/terrains_peering_bit/top_right_side = 1
+4:2/0 = 0
+4:2/0/texture_origin = Vector2i(0, -4)
+4:2/0/terrain_set = 0
+4:2/0/terrain = 2
+4:2/0/terrains_peering_bit/top_left_side = 2
+4:2/0/terrains_peering_bit/top_corner = 2
+4:2/0/terrains_peering_bit/top_right_side = 2
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, -4)
+5:2/0/terrain_set = 0
+5:2/0/terrain = 2
+5:2/0/terrains_peering_bit/bottom_left_side = 2
+5:2/0/terrains_peering_bit/left_corner = 2
+5:2/0/terrains_peering_bit/top_left_side = 2
+5:2/0/terrains_peering_bit/top_corner = 2
+5:2/0/terrains_peering_bit/top_right_side = 2
+
 [sub_resource type="TileSet" id="TileSet_wnaea"]
 tile_shape = 1
 tile_layout = 4
@@ -125,11 +280,17 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Carpet"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Purple Carpet"
+terrain_set_0/terrain_1/color = Color(0.5761355, 0.37657675, 0.4396689, 1)
+terrain_set_0/terrain_2/name = "Green Carpet"
+terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_m4wpj")
 sources/0 = SubResource("TileSetAtlasSource_lq7x6")
+sources/2 = SubResource("TileSetAtlasSource_rg140")
 
 [node name="Room_Base" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_0kgd1")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3

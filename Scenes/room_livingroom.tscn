@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://baea3toqm3e6m"]
+[gd_scene load_steps=17 format=4 uid="uid://baea3toqm3e6m"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_7o7bu"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="2_ly2m4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://kutx8jgsj6or" path="res://Art/Tilesets/livingroom_objects/decorations/paper_1.png" id="8_guyk8"]
 [ext_resource type="Texture2D" uid="uid://dga03tvhpj5bo" path="res://Art/Tilesets/livingroom_objects/decorations/lamp.png" id="9_1j1ny"]
 [ext_resource type="Texture2D" uid="uid://ses6v3iqiicp" path="res://Art/Tilesets/livingroom_objects/decorations/candles.png" id="10_bd1p0"]
+[ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="12_1j1ny"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guyk8"]
 shader = ExtResource("3_6knsv")
@@ -110,6 +111,23 @@ texture = ExtResource("9_1j1ny")
 position = Vector2(9, -6)
 texture = ExtResource("10_bd1p0")
 
+[node name="KitchenDoor" parent="SceneObjects" index="4" instance=ExtResource("12_1j1ny")]
+position = Vector2(79, -31)
+to_room = "res://Scenes/room_kitchen.tscn"
+
+[node name="EntryPoint" parent="SceneObjects/KitchenDoor" index="4"]
+position = Vector2(-12, 8)
+
+[node name="BedroomDoor" parent="SceneObjects" index="5" instance=ExtResource("12_1j1ny")]
+position = Vector2(-101, -20)
+to_room = "res://Scenes/room_bedroom.tscn"
+
+[node name="AnimatedSprite2D" parent="SceneObjects/BedroomDoor" index="3"]
+flip_h = true
+
+[node name="EntryPoint" parent="SceneObjects/BedroomDoor" index="4"]
+position = Vector2(7, 6)
+
 [node name="Paper" parent="Minigames" index="0" instance=ExtResource("8_6knsv")]
 visible = false
 
@@ -117,3 +135,5 @@ visible = false
 [editable path="SceneObjects/box"]
 [editable path="SceneObjects/Couch"]
 [editable path="SceneObjects/Table"]
+[editable path="SceneObjects/KitchenDoor"]
+[editable path="SceneObjects/BedroomDoor"]
