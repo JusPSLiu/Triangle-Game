@@ -13,6 +13,8 @@ func _ready():
 
 # ACTION. enter the minigame
 func _self_action():
+	# only continue if prompt is visible
+	if (!$Prompt.visible): return
 	# if no minigame give error
 	if (minigame == null):
 		print_debug("ERROR, NO MINIGAME FOUND")

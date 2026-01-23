@@ -1,15 +1,23 @@
 shader_type canvas_item;
 
+uniform float shadopacity : hint_range(0,1,0.05) = 0.2f;
+uniform float shinopacity : hint_range(0,1,0.05) = 0.05f;
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+	// get texture at this pixel and the one above
 	vec4 thisColor = texture(TEXTURE, UV);
 	float colorAbove = texture(TEXTURE, UV+vec2(0,-1)*TEXTURE_PIXEL_SIZE).a;
-	if (thisColor.a < colorAbove) {
-		thisColor = vec4(0, 0, 0, 0.2);
+	// drop shadow
+	if (thisColor.a < colorAbove-0.5) {
+		thisColor = vec4(0, 0, 0, shadopacity);
+	}
+	// shine
+	if (thisColor.a > colorAbove) {
+		thisColor += vec4(1,1,1,1)*shinopacity;
 	}
 	COLOR = thisColor;
 }

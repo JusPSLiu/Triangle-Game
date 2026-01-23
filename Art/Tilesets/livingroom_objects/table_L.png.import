@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bulr1fbghqvty"
-path="res://.godot/imported/mirror.png-e8de56455120a77d15fb87c88c930e2e.ctex"
+uid="uid://bcsm718x23ndo"
+path="res://.godot/imported/table_L.png-f6d2e1e12c54b3292ac0ac25510edc45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/livingroom_objects/mirror.png"
-dest_files=["res://.godot/imported/mirror.png-e8de56455120a77d15fb87c88c930e2e.ctex"]
+source_file="res://Art/Tilesets/livingroom_objects/table_L.png"
+dest_files=["res://.godot/imported/table_L.png-f6d2e1e12c54b3292ac0ac25510edc45.ctex"]
 
 [params]
 

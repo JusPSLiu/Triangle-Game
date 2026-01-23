@@ -17,6 +17,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerpf(velocity.x, 0, 0.5)
 		velocity.y = lerpf(velocity.y, 0, 0.5)
+		# lerp to nearest pixel using velocity
+		position.x = lerpf(position.x, roundf(position.x+velocity.x*0.1), 0.1)
+		position.y = lerpf(position.y, roundf(position.y+velocity.y*0.1), 0.1)
 	move_and_slide()
 	
 	set_animation(direction)
