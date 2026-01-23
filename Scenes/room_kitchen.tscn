@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://d0efuur630wd7"]
+[gd_scene load_steps=15 format=4 uid="uid://d0efuur630wd7"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_8eyq0"]
 [ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="2_srjt8"]
+[ext_resource type="AudioStream" uid="uid://dgq6j7it5mem5" path="res://Audio/Music/cheap_kitchen.mp3" id="2_syp6l"]
 [ext_resource type="TileSet" uid="uid://c8pa57befqwcp" path="res://Art/Tilesets/kitchen_tiles.tres" id="2_xhfix"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="3_0ta1r"]
 [ext_resource type="Texture2D" uid="uid://dkwf2fwry0r0i" path="res://Art/Tilesets/kitchen_objects/counter_L.png" id="5_2g8np"]
@@ -14,7 +15,17 @@ shader = ExtResource("2_srjt8")
 shader_parameter/shadopacity = 0.15000000223518
 shader_parameter/shinopacity = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7v8iy"]
+shader = ExtResource("2_srjt8")
+shader_parameter/shadopacity = 0.2
+shader_parameter/shinopacity = 0.05
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2g8np"]
+shader = ExtResource("2_srjt8")
+shader_parameter/shadopacity = 0.2
+shader_parameter/shinopacity = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8eyq0"]
 shader = ExtResource("2_srjt8")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
@@ -27,6 +38,7 @@ shader_parameter/shinopacity = 0.05
 [node name="Room_Base" instance=ExtResource("1_8eyq0")]
 
 [node name="Music" parent="." index="0"]
+stream = ExtResource("2_syp6l")
 bus = &"Music"
 
 [node name="MusicSlider" parent="PauseMenu/PauseScreen/VBoxContainer" index="3"]
@@ -62,6 +74,7 @@ position = Vector2(2, -68)
 polygon = PackedVector2Array(11, 6, 3, 10, -11, 3, -3, -2)
 
 [node name="CounterL" type="Sprite2D" parent="SceneObjects/Cabinet" index="1"]
+material = SubResource("ShaderMaterial_7v8iy")
 position = Vector2(2, 0)
 texture = ExtResource("5_2g8np")
 
@@ -87,6 +100,7 @@ position = Vector2(32, -52)
 polygon = PackedVector2Array(11, 6, 3, 10, -11, 3, -3, -2)
 
 [node name="CounterL" type="Sprite2D" parent="SceneObjects/Cabinet2" index="1"]
+material = SubResource("ShaderMaterial_8eyq0")
 position = Vector2(2, 0)
 texture = ExtResource("5_2g8np")
 

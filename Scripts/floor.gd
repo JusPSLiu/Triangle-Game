@@ -7,4 +7,3 @@ func _ready() -> void:
 		for neighbor : Vector2i in neighbors:
 			if (get_cell_source_id(neighbor) == -1):
 				set_cell(neighbor, 0, Vector2i.ZERO)
-				print("PLACING")
