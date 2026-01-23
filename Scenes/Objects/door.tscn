@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ukv5frx58e4p"]
+
+[ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="1_bw412"]
+[ext_resource type="Texture2D" uid="uid://b3mtq0gxs5ho4" path="res://Art/Tilesets/door.png" id="2_l0b71"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ynea2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gc7pt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l0b71")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Door" instance=ExtResource("1_bw412")]
+
+[node name="CollisionShape2D" parent="Collision" index="0"]
+shape = SubResource("ConvexPolygonShape2D_ynea2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_gc7pt")
+animation = &"closed"
