@@ -12,9 +12,10 @@ config_version=5
 
 config/name="Cheap House"
 config/description="Triangle Game"
-run/main_scene="uid://ddknwqwi3iapb"
+run/main_scene="uid://bph5j6qdcn1f7"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="uid://c7tc4sdm627qj"
+boot_splash/show_image=false
+config/icon="uid://b84cbyldawi8o"
 config/windows_native_icon="res://Art/icon.ico"
 
 [autoload]

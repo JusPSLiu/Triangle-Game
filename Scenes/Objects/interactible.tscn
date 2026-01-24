@@ -10,9 +10,6 @@ height = 33.999992
 [node name="Interactible" instance=ExtResource("1_u4ty3")]
 script = ExtResource("2_6uox5")
 
-[node name="CollisionShape2D" parent="Collision" index="0"]
-z_index = 2
-
 [node name="Prompt" type="Label" parent="." index="1"]
 visible = false
 z_index = 10
@@ -31,7 +28,7 @@ position = Vector2(0, 3)
 z_index = -1
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_asq42")
-debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+debug_color = Color(5.2943824e-07, 0.6420624, 0.31297117, 0.41960785)
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
