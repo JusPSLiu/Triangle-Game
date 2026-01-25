@@ -13,7 +13,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.06666667, 0.33333334),
-"transitions": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [1.5707964, 3.141592653589793]
 }
@@ -114,11 +114,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -960.0
-offset_right = 135.0
+offset_top = -1108.0
+offset_right = 151.0
 offset_bottom = -540.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5707964
-pivot_offset = Vector2(0, 960)
+pivot_offset = Vector2(0, 1108)
 color = Color(0, 0, 0, 1)

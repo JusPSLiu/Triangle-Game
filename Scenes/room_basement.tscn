@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://bvkga4nokkqlq"]
+[gd_scene load_steps=6 format=4 uid="uid://bvkga4nokkqlq"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_j8xaw"]
-[ext_resource type="AudioStream" uid="uid://dgq6j7it5mem5" path="res://Audio/Music/cheap_kitchen.mp3" id="2_kfvr7"]
 [ext_resource type="TileSet" uid="uid://c8pa57befqwcp" path="res://Art/Tilesets/kitchen_tiles.tres" id="3_7fsya"]
 [ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="4_2dstq"]
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="14_mmqb3"]
@@ -14,7 +13,7 @@ shader_parameter/shinopacity = 0.0
 [node name="Room_Base" instance=ExtResource("1_j8xaw")]
 
 [node name="Music" parent="." index="0"]
-stream = ExtResource("2_kfvr7")
+volume_db = -80.0
 bus = &"Music"
 
 [node name="MusicSlider" parent="PauseMenu/PauseScreen/VBoxContainer" index="3"]

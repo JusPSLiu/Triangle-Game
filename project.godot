@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Cheap House"
 config/description="Triangle Game"
-run/main_scene="uid://bph5j6qdcn1f7"
+run/main_scene="uid://dk7n8tgptu6hn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="uid://b84cbyldawi8o"
@@ -91,4 +91,4 @@ click={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.1428582, 0.14285824, 0.1428582, 1)

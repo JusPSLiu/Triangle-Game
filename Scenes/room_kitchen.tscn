@@ -1,8 +1,8 @@
 [gd_scene load_steps=30 format=4 uid="uid://d0efuur630wd7"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_8eyq0"]
+[ext_resource type="AudioStream" uid="uid://bgoo2u6mf2pvo" path="res://Audio/Music/kitchen.ogg" id="2_7udq2"]
 [ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="2_srjt8"]
-[ext_resource type="AudioStream" uid="uid://dgq6j7it5mem5" path="res://Audio/Music/cheap_kitchen.mp3" id="2_syp6l"]
 [ext_resource type="TileSet" uid="uid://c8pa57befqwcp" path="res://Art/Tilesets/kitchen_tiles.tres" id="2_xhfix"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="3_0ta1r"]
 [ext_resource type="Texture2D" uid="uid://dkwf2fwry0r0i" path="res://Art/Tilesets/kitchen_objects/counter_L.png" id="5_2g8np"]
@@ -69,7 +69,7 @@ shader_parameter/shinopacity = 0.0
 [node name="Room_Base" instance=ExtResource("1_8eyq0")]
 
 [node name="Music" parent="." index="0"]
-stream = ExtResource("2_syp6l")
+stream = ExtResource("2_7udq2")
 bus = &"Music"
 
 [node name="MusicSlider" parent="PauseMenu/PauseScreen/VBoxContainer" index="3"]
@@ -95,10 +95,16 @@ tile_set = ExtResource("2_xhfix")
 
 [node name="Decorations" parent="." index="6"]
 material = SubResource("ShaderMaterial_guyk8")
+tile_map_data = PackedByteArray("AAD+//T/AQAGAAAAABAEAPT/AQADAAAAABA=")
+
+[node name="Carpets" type="TileMapLayer" parent="." index="7"]
+y_sort_enabled = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_guyk8")
 tile_map_data = PackedByteArray("AAAKAPn/AAAEAAIAAAAKAPj/AAACAAEAAAAJAPn/AAADAAIAAAAJAPj/AAACAAAAAAALAPn/AAAEAAAAAAALAPj/AAADAAAAAAALAAIAAAAEAAAAAAALAAEAAAAEAAEAAAALAAAAAAADAAAAAAAKAAIAAAADAAIAAAAKAAEAAAACAAIAAAAKAAAAAAACAAAAAAD6////AAAEAAAAAAD6//7/AAAEAAEAAAD6//3/AAAEAAEAAAD6//z/AAAEAAEAAAD6//v/AAADAAAAAAD5////AAADAAIAAAD5//7/AAACAAIAAAD5//3/AAACAAIAAAD5//z/AAACAAIAAAD5//v/AAACAAAAAAA=")
 tile_set = ExtResource("2_xhfix")
 
-[node name="Player" parent="." index="7"]
+[node name="Player" parent="." index="8"]
 position = Vector2(-76, -12)
 
 [node name="CabinetRow1" parent="SceneObjects" index="0" instance=ExtResource("3_0ta1r")]

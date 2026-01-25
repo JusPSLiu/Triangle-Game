@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkugsq1ltwfeu"]
+[gd_scene load_steps=5 format=3 uid="uid://bkugsq1ltwfeu"]
 
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="1_u4ty3"]
 [ext_resource type="Script" uid="uid://biwwmwuofbypp" path="res://Scripts/objects/scene_object_interactible.gd" id="2_6uox5"]
+[ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="3_6uox5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asq42"]
 radius = 6.0
@@ -10,25 +11,25 @@ height = 33.999992
 [node name="Interactible" instance=ExtResource("1_u4ty3")]
 script = ExtResource("2_6uox5")
 
-[node name="Prompt" type="Label" parent="." index="1"]
-visible = false
-z_index = 10
-offset_left = -11.0
-offset_top = -16.0
-offset_right = 9.0
-offset_bottom = 7.0
-scale = Vector2(0.5, 0.5)
-theme_override_constants/outline_size = 10
-text = "[E]"
-
-[node name="Detection" type="Area2D" parent="." index="2"]
+[node name="Detection" type="Area2D" parent="." index="0"]
 position = Vector2(0, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection" index="0"]
-z_index = -1
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_asq42")
 debug_color = Color(5.2943824e-07, 0.6420624, 0.31297117, 0.41960785)
+
+[node name="Prompt" type="Label" parent="." index="2"]
+z_index = 10
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 7.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_6uox5")
+theme_override_font_sizes/font_size = 20
+text = "[E]"
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

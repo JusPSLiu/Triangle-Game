@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd0phxy4l7q1x"]
+
+[ext_resource type="Script" uid="uid://4gmn2ti7ledb" path="res://Scripts/Minigames/paper.gd" id="1_hahbd"]
+[ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="2_bnbmq"]
+[ext_resource type="Texture2D" uid="uid://cjn8qlbvktbqu" path="res://Art/UI/Paper_blank.png" id="2_fl4h3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qem1c"]
+shader = ExtResource("2_bnbmq")
+shader_parameter/shadopacity = 0.2
+shader_parameter/shinopacity = 0.05
+
+[node name="Paper" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 228.0
+offset_bottom = 324.0
+pivot_offset = Vector2(114, 330)
+mouse_default_cursor_shape = 2
+script = ExtResource("1_hahbd")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qem1c")
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 324.0
+texture = ExtResource("2_fl4h3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

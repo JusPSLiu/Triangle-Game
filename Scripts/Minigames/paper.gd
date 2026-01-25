@@ -4,6 +4,7 @@ class_name papery
 signal inc_state
 
 @export var placement = 0
+@export var rate : float = 0.1
 var mouse_over : bool = false
 var moving : bool = false
 var mouseOffset : Vector2 = Vector2.ZERO
@@ -21,8 +22,9 @@ func start():
 	rotation = randf_range(-0.2,0.2)
 	z_index = 20-placement
 	initState.z = rotation
-	position.x = initState.x
-	position.y = initState.y
+	if (initState == Vector3(0, 0, 0)): return
+	global_position.x = initState.x
+	global_position.y = initState.y
 	update_state()
 
 func update_state():
@@ -30,6 +32,8 @@ func update_state():
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	else:
 		mouse_default_cursor_shape = Control.CURSOR_ARROW
+		if (get_parent().currState > placement and abs(global_position.x - initState.x) <= 200):
+			position.x = 1200.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,25 +43,25 @@ func _process(delta: float) -> void:
 			rotation = initState.z - (0.1)*(initState.x-global_position.x)*0.01
 		else:
 			moving = false
-			if (abs(global_position.x - 315.0) > 200):
+			if (abs(global_position.x - initState.x) > 200):
 				# if dragged far enough away, can shoot it off
 				# to the right if x over 480 or left if under 480
-				if (position.x > 315.0):
-					position.x = lerp(position.x, 1200.0, 0.25)
-				else: position.x = lerp(position.x, -600.0, 0.25)
-				emit_signal("inc_state")
-	elif (abs(global_position.x - 315.0) > 200):
+				if (position.x > initState.x):
+					position.x = lerp(position.x, 1200.0, rate)
+				else: position.x = lerp(position.x, -600.0, rate)
+				inc_state.emit(placement)
+	elif (abs(global_position.x - initState.x) > 200):
 		# if dragged far enough away, can shoot it off
-		if (position.x > 315.0):
-			position.x = lerp(position.x, 1200.0, 0.25)
-		else: position.x = lerp(position.x, -600.0, 0.25)
+		if (position.x > initState.x):
+			position.x = lerp(position.x, 1200.0, rate)
+		else: position.x = lerp(position.x, -600.0, rate)
 	else:
 		if (global_position.x != initState.x):
-			global_position.x = lerp(global_position.x, initState.x, 0.25)
+			global_position.x = lerp(global_position.x, initState.x, rate)
 		if (global_position.y != initState.y):
-			global_position.y = lerp(global_position.y, initState.y, 0.25)
+			global_position.y = lerp(global_position.y, initState.y, rate)
 		if (rotation != initState.z):
-			rotation = lerp(rotation, initState.z, 0.25)
+			rotation = lerp(rotation, initState.z, rate)
 			pivot_offset = init_pivot
 
 func _on_mouse_entered() -> void:

@@ -33,9 +33,9 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3kf3n")
-text = "Test Button"
+text = "Play"
 
 [node name="Transition" parent="." instance=ExtResource("2_6pedr")]
 layout_mode = 1
 
-[connection signal="pressed" from="Button" to="Transition" method="fadeToScene" binds= ["res://Scenes/Test2DScene.tscn"]]
+[connection signal="pressed" from="Button" to="Transition" method="fadeToScene" binds= ["res://Scenes/room_livingroom.tscn"]]

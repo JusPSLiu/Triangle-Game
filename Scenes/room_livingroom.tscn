@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dbwns3wafkh2m" path="res://Art/Tilesets/livingroom_objects/box_big.png" id="4_1j1ny"]
 [ext_resource type="Texture2D" uid="uid://i3xn2m2k1evl" path="res://Art/Tilesets/livingroom_objects/box.png" id="4_780bx"]
 [ext_resource type="Texture2D" uid="uid://bswnulw2xvx51" path="res://Art/Tilesets/livingroom_objects/box_big_L.png" id="5_4y3sw"]
-[ext_resource type="Texture2D" uid="uid://dprhuyjhhhqy5" path="res://Art/Tilesets/livingroom_objects/couch.png" id="6_guyk8"]
 [ext_resource type="Texture2D" uid="uid://bcsm718x23ndo" path="res://Art/Tilesets/livingroom_objects/table_L.png" id="7_6knsv"]
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="7_oswi2"]
 [ext_resource type="Texture2D" uid="uid://c68gjo6yu3txq" path="res://Art/Tilesets/livingroom_objects/desk_L.png" id="8_0a4ww"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://d3askn4qaocqw" path="res://Art/Tilesets/bedroom_objects/vertical_shelf.png" id="16_qjcg1"]
 [ext_resource type="Texture2D" uid="uid://diny7fpur4nqk" path="res://Art/Tilesets/kitchen_objects/decorations/placemat.png" id="17_23ppa"]
 [ext_resource type="Texture2D" uid="uid://xrwckrrel1hd" path="res://Art/Tilesets/livingroom_objects/box_L.png" id="18_p257o"]
+[ext_resource type="Texture2D" uid="uid://b57ew1d320lcu" path="res://Art/Tilesets/livingroom_objects/couch_bacc.png" id="18_sxvrm"]
 [ext_resource type="Texture2D" uid="uid://c7qxv556uk1a7" path="res://Art/Tilesets/kitchen_objects/chair.png" id="20_guc8m"]
 [ext_resource type="Texture2D" uid="uid://wbeamx1y1pkx" path="res://Art/Tilesets/bedroom_objects/fancy_shelf.png" id="20_p257o"]
 
@@ -38,12 +38,12 @@ shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05000000074506
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxw1t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvb7h"]
 shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvb7h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxw1t"]
 shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.0
@@ -148,7 +148,48 @@ position = Vector2(3, -9)
 scale = Vector2(1, 0.99999994)
 texture = ExtResource("4_780bx")
 
-[node name="TV" parent="SceneObjects" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("7_oswi2")]
+[node name="covfefe_table" parent="SceneObjects" index="1" instance=ExtResource("7_oswi2")]
+position = Vector2(4, -25)
+
+[node name="Detection" parent="SceneObjects/covfefe_table" index="0"]
+position = Vector2(-13, -1)
+rotation = -0.54898584
+
+[node name="CollisionShape2D" parent="SceneObjects/covfefe_table/Collision" index="0"]
+polygon = PackedVector2Array(25, 5, 11, 13, -20, -3, -7, -10)
+
+[node name="Prompt" parent="SceneObjects/covfefe_table" index="2"]
+visible = false
+offset_left = -19.0
+offset_top = -24.0
+offset_right = 8.0
+offset_bottom = -1.0
+
+[node name="TableL" type="Sprite2D" parent="SceneObjects/covfefe_table" index="3"]
+position = Vector2(2, -2)
+texture = ExtResource("7_6knsv")
+
+[node name="Paper1" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="0"]
+material = SubResource("ShaderMaterial_rvb7h")
+position = Vector2(-9, -8)
+texture = ExtResource("11_rwees")
+
+[node name="Paper2" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="1"]
+material = SubResource("ShaderMaterial_rvb7h")
+position = Vector2(9, 2)
+texture = ExtResource("12_sxvrm")
+
+[node name="Paper4" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="2"]
+material = SubResource("ShaderMaterial_rvb7h")
+position = Vector2(10, -1)
+texture = ExtResource("13_gx0w8")
+
+[node name="Paper3" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="3"]
+material = SubResource("ShaderMaterial_rvb7h")
+position = Vector2(-2, -6)
+texture = ExtResource("12_sxvrm")
+
+[node name="TV" parent="SceneObjects" index="2" node_paths=PackedStringArray("minigame") instance=ExtResource("7_oswi2")]
 position = Vector2(34, -53)
 minigame = NodePath("../../Minigames/Paper")
 
@@ -164,50 +205,24 @@ texture = ExtResource("8_sxvrm")
 position = Vector2(0, 6)
 texture = ExtResource("8_0a4ww")
 
+[node name="Detection" parent="SceneObjects/TV" index="3"]
+position = Vector2(1, 11)
+rotation = -0.00078722835
+
 [node name="CollisionShape2D" parent="SceneObjects/TV/Collision" index="0"]
 polygon = PackedVector2Array(24, 14, 10, 21, -20, 6, -6, -2)
 
-[node name="Detection" parent="SceneObjects/TV" index="5"]
-position = Vector2(-1, 13)
-rotation = -0.00078722835
-
-[node name="CollisionShape2D" parent="SceneObjects/TV/Detection" index="0"]
-z_index = 0
+[node name="Prompt" parent="SceneObjects/TV" index="5"]
+visible = false
+offset_left = -19.0
+offset_top = -21.0
+offset_right = 8.0
+offset_bottom = 2.0
 
 [node name="Tv" type="Sprite2D" parent="SceneObjects/TV" index="6"]
 material = SubResource("ShaderMaterial_nxw1t")
 position = Vector2(2, -7)
 texture = ExtResource("9_4y3sw")
-
-[node name="covfefetable" parent="SceneObjects" index="2" instance=ExtResource("2_ly2m4")]
-position = Vector2(4, -25)
-
-[node name="CollisionShape2D" parent="SceneObjects/covfefetable/Collision" index="0"]
-polygon = PackedVector2Array(25, 5, 11, 13, -20, -3, -5, -11)
-
-[node name="TableL" type="Sprite2D" parent="SceneObjects/covfefetable" index="1"]
-position = Vector2(2, -2)
-texture = ExtResource("7_6knsv")
-
-[node name="Paper1" type="Sprite2D" parent="SceneObjects/covfefetable" index="2"]
-material = SubResource("ShaderMaterial_rvb7h")
-position = Vector2(-7, -10)
-texture = ExtResource("11_rwees")
-
-[node name="Paper2" type="Sprite2D" parent="SceneObjects/covfefetable" index="3"]
-material = SubResource("ShaderMaterial_rvb7h")
-position = Vector2(11, 0)
-texture = ExtResource("12_sxvrm")
-
-[node name="Paper4" type="Sprite2D" parent="SceneObjects/covfefetable" index="4"]
-material = SubResource("ShaderMaterial_rvb7h")
-position = Vector2(12, -3)
-texture = ExtResource("13_gx0w8")
-
-[node name="Paper3" type="Sprite2D" parent="SceneObjects/covfefetable" index="5"]
-material = SubResource("ShaderMaterial_rvb7h")
-position = Vector2(0, -8)
-texture = ExtResource("12_sxvrm")
 
 [node name="shelves" parent="SceneObjects" index="3" instance=ExtResource("2_ly2m4")]
 position = Vector2(-67, -30)
@@ -233,15 +248,12 @@ texture = ExtResource("16_qjcg1")
 position = Vector2(-19, -13)
 
 [node name="CollisionShape2D" parent="SceneObjects/Couch/Collision" index="0"]
-polygon = PackedVector2Array(30, 10, 15, 17, -24, -3, -10, -10)
+polygon = PackedVector2Array(23, 7, 10, 14, -24, -3, -10, -10)
 
 [node name="Couch" type="Sprite2D" parent="SceneObjects/Couch" index="1"]
 material = SubResource("ShaderMaterial_yt105")
-position = Vector2(-7, -1)
-rotation = -2.3567512
-skew = 0.61784655
-texture = ExtResource("6_guyk8")
-flip_h = true
+position = Vector2(1, 2)
+texture = ExtResource("18_sxvrm")
 
 [node name="Table" parent="SceneObjects" index="5" instance=ExtResource("2_ly2m4")]
 position = Vector2(108, 16)
@@ -271,12 +283,15 @@ texture = ExtResource("10_bd1p0")
 position = Vector2(99, -21)
 to_room = "res://Scenes/room_kitchen.tscn"
 
+[node name="CollisionShape2D" parent="SceneObjects/KitchenDoor/Detection" index="0"]
+z_index = -1
+debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+
 [node name="CollisionShape2D" parent="SceneObjects/KitchenDoor/Collision" index="0"]
 z_index = 2
-scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" parent="SceneObjects/KitchenDoor/Detection" index="0"]
-debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+[node name="Prompt" parent="SceneObjects/KitchenDoor" index="2"]
+visible = false
 
 [node name="EntryPoint" parent="SceneObjects/KitchenDoor" index="4"]
 position = Vector2(-12, 8)
@@ -285,12 +300,15 @@ position = Vector2(-12, 8)
 position = Vector2(-101, -20)
 to_room = "res://Scenes/room_bedroom.tscn"
 
+[node name="CollisionShape2D" parent="SceneObjects/BedroomDoor/Detection" index="0"]
+z_index = -1
+debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+
 [node name="CollisionShape2D" parent="SceneObjects/BedroomDoor/Collision" index="0"]
 z_index = 2
-scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" parent="SceneObjects/BedroomDoor/Detection" index="0"]
-debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+[node name="Prompt" parent="SceneObjects/BedroomDoor" index="2"]
+visible = false
 
 [node name="AnimatedSprite2D" parent="SceneObjects/BedroomDoor" index="3"]
 flip_h = true
@@ -302,12 +320,15 @@ position = Vector2(7, 6)
 position = Vector2(-9, -66)
 to_room = "res://Scenes/room_basement.tscn"
 
+[node name="CollisionShape2D" parent="SceneObjects/BasementStairs/Detection" index="0"]
+z_index = -1
+debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+
 [node name="CollisionShape2D" parent="SceneObjects/BasementStairs/Collision" index="0"]
 z_index = 2
-scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" parent="SceneObjects/BasementStairs/Detection" index="0"]
-debug_color = Color(0.97768945, 0, 0.40584362, 0.41960785)
+[node name="Prompt" parent="SceneObjects/BasementStairs" index="2"]
+visible = false
 
 [node name="AnimatedSprite2D" parent="SceneObjects/BasementStairs" index="3"]
 self_modulate = Color(0, 0, 0, 1)
@@ -423,8 +444,8 @@ visible = false
 
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/BigBox"]
+[editable path="SceneObjects/covfefe_table"]
 [editable path="SceneObjects/TV"]
-[editable path="SceneObjects/covfefetable"]
 [editable path="SceneObjects/shelves"]
 [editable path="SceneObjects/Couch"]
 [editable path="SceneObjects/Table"]
