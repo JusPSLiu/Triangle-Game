@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfp68onj8pln3"]
+
+[ext_resource type="Script" uid="uid://dvfb2khv7e61j" path="res://Scripts/Minigames/base_minigame.gd" id="1_ss6tg"]
+[ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="2_30vq2"]
+[ext_resource type="Texture2D" uid="uid://b7rn22g4iccy8" path="res://Art/UI/buttons/back.png" id="3_a2l7l"]
+[ext_resource type="Texture2D" uid="uid://018he4uow8c6" path="res://Art/UI/buttons/back_hover.png" id="4_5lnbt"]
+[ext_resource type="Script" uid="uid://d4hgr4ypdjjrw" path="res://Scripts/Minigames/free_key.gd" id="5_a2l7l"]
+[ext_resource type="PackedScene" uid="uid://c2niqd8cmf8pk" path="res://Scenes/Minigames/MinigameObjects/key.tscn" id="6_5lnbt"]
+[ext_resource type="Texture2D" uid="uid://diw474pu4434m" path="res://Art/Items/key_copper.png" id="7_5lnbt"]
+
+[node name="Minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ss6tg")
+
+[node name="background" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 32.0
+scale = Vector2(8, 8)
+theme = ExtResource("2_30vq2")
+texture_normal = ExtResource("3_a2l7l")
+texture_hover = ExtResource("4_5lnbt")
+
+[node name="FreeKey" type="Control" parent="." node_paths=PackedStringArray("animator")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_a2l7l")
+key = "copperKey"
+animator = NodePath("../Key/KeyAnimation")
+
+[node name="Key" parent="." instance=ExtResource("6_5lnbt")]
+visible = false
+layout_mode = 0
+offset_left = 532.0
+offset_right = 595.999
+scale = Vector2(1, 1)
+texture = ExtResource("7_5lnbt")
+
+[connection signal="pressed" from="Button" to="." method="_exit"]
+
+[editable path="Key"]

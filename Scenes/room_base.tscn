@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bph5j6qdcn1f7"]
+[gd_scene load_steps=19 format=3 uid="uid://bph5j6qdcn1f7"]
 
 [ext_resource type="Script" uid="uid://dmv3ueygfuqp5" path="res://Scripts/room.gd" id="1_0kgd1"]
 [ext_resource type="PackedScene" uid="uid://bxruvlbqqvnbu" path="res://CustomModules/Transition/Scenes/transition.tscn" id="1_aw2ct"]
+[ext_resource type="Texture2D" uid="uid://bi35cg2e6jh3c" path="res://Art/UI/circle.png" id="2_1li6j"]
 [ext_resource type="Script" uid="uid://c8scr01y6mpj3" path="res://CustomModules/PauseScreen/Scripts/pause_screen.gd" id="2_gmvnb"]
 [ext_resource type="Script" uid="uid://bl1kqr0pawq37" path="res://CustomModules/PauseScreen/Scripts/volume_controller.gd" id="3_ya2gf"]
 [ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="4_u7eat"]
@@ -11,6 +12,21 @@
 [ext_resource type="PackedScene" uid="uid://ynid5vi3tdfn" path="res://Scenes/Player/player.tscn" id="8_dxtyj"]
 [ext_resource type="Texture2D" uid="uid://llx1syfx5q7h" path="res://Art/Tilesets/bedroom_carpets.png" id="9_1li6j"]
 [ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/objects/scene_object_controller.gd" id="9_rd1j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg140"]
+atlas = ExtResource("2_1li6j")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktdpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg140")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lq7x6"]
 texture = ExtResource("5_dn5ij")
@@ -257,6 +273,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 960.0
 offset_bottom = 540.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD/HUD"]
+position = Vector2(15, 70)
+sprite_frames = SubResource("SpriteFrames_ktdpr")
 
 [node name="Transition" parent="HUD" instance=ExtResource("1_aw2ct")]
 

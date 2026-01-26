@@ -64,6 +64,8 @@ func _process(delta: float) -> void:
 		if (position.x > initState.x):
 			position.x = lerp(position.x, 1200.0, rate)
 		else: position.x = lerp(position.x, -600.0, rate)
+		if (abs(global_position.y-initState.y) > 2):
+			global_position.y = lerp(global_position.y, initState.y, rate)
 	else:
 		if (abs(global_position.x-initState.x) > 2):
 			global_position.x = lerp(global_position.x, initState.x, rate)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bvkga4nokkqlq"]
+[gd_scene load_steps=8 format=4 uid="uid://bvkga4nokkqlq"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_j8xaw"]
+[ext_resource type="AudioStream" uid="uid://bkrhv78vp5va" path="res://Audio/Music/lategame.mp3" id="2_ptuge"]
 [ext_resource type="TileSet" uid="uid://c8pa57befqwcp" path="res://Art/Tilesets/kitchen_tiles.tres" id="3_7fsya"]
 [ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="4_2dstq"]
+[ext_resource type="PackedScene" uid="uid://crrvruwo73q6u" path="res://Scenes/Objects/trapdoor.tscn" id="6_k7r2k"]
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="14_mmqb3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guyk8"]
@@ -13,7 +15,7 @@ shader_parameter/shinopacity = 0.0
 [node name="Room_Base" instance=ExtResource("1_j8xaw")]
 
 [node name="Music" parent="." index="0"]
-volume_db = -80.0
+stream = ExtResource("2_ptuge")
 bus = &"Music"
 
 [node name="MusicSlider" parent="PauseMenu/PauseScreen/VBoxContainer" index="3"]
@@ -47,6 +49,7 @@ tile_set = ExtResource("3_7fsya")
 [node name="LivingRoomStairs" parent="SceneObjects" index="0" instance=ExtResource("14_mmqb3")]
 position = Vector2(23, 55)
 to_room = "res://Scenes/room_livingroom.tscn"
+keys = Array[String]([])
 
 [node name="AnimatedSprite2D" parent="SceneObjects/LivingRoomStairs" index="3"]
 modulate = Color(1, 1, 1, 0.6666667)
@@ -56,5 +59,11 @@ flip_h = true
 [node name="EntryPoint" parent="SceneObjects/LivingRoomStairs" index="4"]
 position = Vector2(-19, -19)
 
+[node name="Door" parent="SceneObjects" index="1" instance=ExtResource("6_k7r2k")]
+position = Vector2(2, -3)
+to_room = "res://Scenes/end.tscn"
+keys = Array[String](["silverKey", "copperKey", "goldKey"])
+
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/LivingRoomStairs"]
+[editable path="SceneObjects/Door"]

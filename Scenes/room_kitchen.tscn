@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://d0efuur630wd7"]
+[gd_scene load_steps=35 format=4 uid="uid://d0efuur630wd7"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_8eyq0"]
 [ext_resource type="AudioStream" uid="uid://bgoo2u6mf2pvo" path="res://Audio/Music/kitchen.ogg" id="2_7udq2"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="15_paqdt"]
 [ext_resource type="Texture2D" uid="uid://f2ojnpdqekg7" path="res://Art/Tilesets/kitchen_objects/chair_back_L.png" id="16_kdw0m"]
 [ext_resource type="Texture2D" uid="uid://7mqv4t0fvmt8" path="res://Art/Tilesets/kitchen_objects/chair_back.png" id="17_lsnqw"]
+[ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="23_ttr63"]
+[ext_resource type="Texture2D" uid="uid://cd6pnupmhl32d" path="res://Art/Tilesets/kitchen_objects/scrambled_painting.png" id="24_5scpk"]
+[ext_resource type="PackedScene" uid="uid://baetajtfjdxxm" path="res://Scenes/Minigames/sliding_minigame.tscn" id="24_j2bir"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guyk8"]
 shader = ExtResource("2_srjt8")
@@ -97,7 +100,7 @@ tile_set = ExtResource("2_xhfix")
 
 [node name="Decorations" parent="." index="6"]
 material = SubResource("ShaderMaterial_guyk8")
-tile_map_data = PackedByteArray("AAD+//T/AQAGAAAAABAEAPT/AQADAAAAABA=")
+tile_map_data = PackedByteArray("AAAEAPT/AQADAAAAABA=")
 
 [node name="Carpets" type="TileMapLayer" parent="." index="7"]
 y_sort_enabled = true
@@ -295,6 +298,29 @@ z_index = 4
 [node name="EntryPoint" parent="SceneObjects/Door" index="4"]
 position = Vector2(16, -10)
 
+[node name="SlidingPainting" parent="SceneObjects" index="9" node_paths=PackedStringArray("minigame") instance=ExtResource("23_ttr63")]
+position = Vector2(-104, -43)
+minigame = NodePath("../../Minigames/SlidingMinigame")
+
+[node name="Detection" parent="SceneObjects/SlidingPainting" index="0"]
+position = Vector2(8, 26)
+rotation = -0.4808212
+
+[node name="Collision" parent="SceneObjects/SlidingPainting" index="1"]
+visible = false
+
+[node name="Prompt" parent="SceneObjects/SlidingPainting" index="2"]
+offset_left = -18.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = 11.0
+
+[node name="ScrambledPainting" type="Sprite2D" parent="SceneObjects/SlidingPainting" index="3"]
+position = Vector2(0, 1)
+texture = ExtResource("24_5scpk")
+
+[node name="SlidingMinigame" parent="Minigames" index="0" instance=ExtResource("24_j2bir")]
+
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/CabinetRow1"]
 [editable path="SceneObjects/Sink"]
@@ -305,3 +331,4 @@ position = Vector2(16, -10)
 [editable path="SceneObjects/Chair"]
 [editable path="SceneObjects/Table"]
 [editable path="SceneObjects/Door"]
+[editable path="SceneObjects/SlidingPainting"]

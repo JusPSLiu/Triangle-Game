@@ -1,52 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://q706hi61umbv"]
+[gd_scene load_steps=2 format=3 uid="uid://q706hi61umbv"]
 
 [ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_futqu"]
-[ext_resource type="Texture2D" uid="uid://btmvx8c5t713f" path="res://Art/UI/Paper_newspaper.png" id="3_56d23"]
-[ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="3_m2rna"]
-[ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="3_op48j"]
 
 [node name="Minigame" instance=ExtResource("1_futqu")]
-
-[node name="Button" parent="." index="0"]
-text = " <"
-
-[node name="Paper" parent="." index="1" instance=ExtResource("3_m2rna")]
-layout_mode = 0
-offset_left = 362.0
-offset_top = 136.0
-offset_right = 590.0
-offset_bottom = 460.0
-
-[node name="Paper2" parent="." index="2" instance=ExtResource("3_m2rna")]
-layout_mode = 0
-offset_left = 367.0
-offset_top = 128.0
-offset_right = 595.0
-offset_bottom = 452.0
-placement = 1
-
-[node name="TextureRect2" parent="Paper2" index="0"]
-texture = ExtResource("3_56d23")
-
-[node name="Paper3" parent="." index="3" instance=ExtResource("3_m2rna")]
-layout_mode = 0
-offset_left = 371.0
-offset_top = 132.0
-offset_right = 599.0
-offset_bottom = 456.0
-placement = 2
-
-[node name="Label" type="Label" parent="Paper3" index="1"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 226.0
-offset_bottom = 210.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_op48j")
-theme_override_font_sizes/font_size = 28
-text = "Remember to ask landlord about insurance"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[editable path="Paper2"]

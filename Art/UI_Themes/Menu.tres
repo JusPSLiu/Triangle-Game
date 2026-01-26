@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b67lqh6qupq8a" path="res://Art/UI_Themes/slider_handle_hover.png" id="3_kefrg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an6q6"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rluxy"]
 bg_color = Color(0, 0, 0, 1)

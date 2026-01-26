@@ -2,6 +2,7 @@ extends scene_object
 class_name interactible_object
 
 @export var minigame : Control
+@export var disappearWhen : String
 var player_in : bool = false
 
 # setup
@@ -14,6 +15,9 @@ func _ready():
 	SignalBus.connect("exited_minigame", show_prompt)
 	
 	calculateBoundary()
+	if (disappearWhen.length() > 0):
+		if (GlobalVariables.in_inventory(disappearWhen)):
+			hide()
 
 # ACTION. enter the minigame
 func _self_action():
@@ -49,3 +53,6 @@ func _on_detection_body_exited(body: Node2D) -> void:
 func show_prompt():
 	if (player_in):
 		$Prompt.show()
+	if (disappearWhen.length() > 0):
+		if (GlobalVariables.in_inventory(disappearWhen)):
+			hide()

@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://baetajtfjdxxm"]
+
+[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_o2af1"]
+[ext_resource type="Script" uid="uid://chpri30vb0amy" path="res://Scripts/Minigames/sliding_blocks.gd" id="2_lph77"]
+[ext_resource type="PackedScene" uid="uid://c2niqd8cmf8pk" path="res://Scenes/Minigames/MinigameObjects/key.tscn" id="3_lph77"]
+
+[node name="SlidingMinigame" instance=ExtResource("1_o2af1")]
+
+[node name="GridContainer" type="GridContainer" parent="." index="1" node_paths=PackedStringArray("key")]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 70.0
+offset_right = 416.0
+offset_bottom = 171.0
+scale = Vector2(4, 4)
+columns = 3
+script = ExtResource("2_lph77")
+completeKey = "silverKey"
+key = NodePath("../Key/KeyAnimation")
+
+[node name="Button" type="Button" parent="GridContainer" index="0"]
+layout_mode = 2
+focus_mode = 0
+text = "1"
+
+[node name="Button2" type="Button" parent="GridContainer" index="1"]
+layout_mode = 2
+focus_mode = 0
+text = "2"
+
+[node name="Button3" type="Button" parent="GridContainer" index="2"]
+layout_mode = 2
+focus_mode = 0
+text = "3"
+
+[node name="Button4" type="Button" parent="GridContainer" index="3"]
+layout_mode = 2
+focus_mode = 0
+text = "4"
+
+[node name="Button5" type="Button" parent="GridContainer" index="4"]
+layout_mode = 2
+focus_mode = 0
+text = "5"
+
+[node name="Button6" type="Button" parent="GridContainer" index="5"]
+layout_mode = 2
+focus_mode = 0
+text = "6
+"
+
+[node name="Button7" type="Button" parent="GridContainer" index="6"]
+layout_mode = 2
+focus_mode = 0
+text = "7"
+
+[node name="Button8" type="Button" parent="GridContainer" index="7"]
+layout_mode = 2
+focus_mode = 0
+text = "8"
+
+[node name="Button9" type="Button" parent="GridContainer" index="8"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "_"
+
+[node name="Key" parent="." index="2" instance=ExtResource("3_lph77")]
+visible = false
+layout_mode = 0
+offset_left = 532.0
+offset_right = 595.999
+scale = Vector2(1, 1)
+
+[editable path="Key"]

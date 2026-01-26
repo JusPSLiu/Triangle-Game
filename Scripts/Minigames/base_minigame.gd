@@ -13,11 +13,14 @@ func _ready() -> void:
 		if (child is papery):
 			resettableChildren.push_front(child)
 			child.inc_state.connect(increment_state)
+		if (child is griddy or child is freekey):
+			resettableChildren.push_front(child)
 	# give each child a state index (will only be movable when "currState" matches the "placement")
 	var curr_indx = 0
 	for child in resettableChildren:
-		child.placement = curr_indx
-		curr_indx += 1
+		if (child is papery):
+			child.placement = curr_indx
+			curr_indx += 1
 	
 	# if in game, hide
 	if get_parent() is not Window:

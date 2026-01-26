@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://5yjpnu7xyt5h"]
+
+[ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="1_xmt8n"]
+[ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="2_02kpm"]
+[ext_resource type="Texture2D" uid="uid://b7rn22g4iccy8" path="res://Art/UI/buttons/back.png" id="3_q5l5q"]
+[ext_resource type="Texture2D" uid="uid://018he4uow8c6" path="res://Art/UI/buttons/back_hover.png" id="4_t3us6"]
+[ext_resource type="PackedScene" uid="uid://bxruvlbqqvnbu" path="res://CustomModules/Transition/Scenes/transition.tscn" id="5_d0yn4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 965.0
+offset_bottom = 375.0
+theme = ExtResource("1_xmt8n")
+theme_override_fonts/font = ExtResource("2_02kpm")
+theme_override_font_sizes/font_size = 42
+text = "so uh you make it under the house and there's a deep pit and a bunch of papers you can read that say that theres a monster that eats people so it can dig for oil. and the landlord has been feeding it for a while.
+
+then it comes out of the pit and eats you.
+
+
+ok yeah we ran out of time. This is the last time i trust my team to do anything T-T"
+autowrap_mode = 2
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 418.0
+offset_top = 198.0
+offset_right = 432.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme = ExtResource("1_xmt8n")
+texture_normal = ExtResource("3_q5l5q")
+texture_hover = ExtResource("4_t3us6")
+flip_h = true
+
+[node name="Transition" parent="." instance=ExtResource("5_d0yn4")]
+layout_mode = 1
+
+[connection signal="pressed" from="Button" to="Transition" method="fadeToScene" binds= ["res://Scenes/Menu.tscn"]]

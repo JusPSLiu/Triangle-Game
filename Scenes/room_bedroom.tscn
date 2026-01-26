@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://v5i4xirk5c02"]
+[gd_scene load_steps=33 format=4 uid="uid://v5i4xirk5c02"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_fs8pi"]
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="2_ng27i"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="18_pkwlg"]
 [ext_resource type="Texture2D" uid="uid://kutx8jgsj6or" path="res://Art/Tilesets/livingroom_objects/decorations/paper_1.png" id="19_pkwlg"]
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="20_fcx55"]
+[ext_resource type="PackedScene" uid="uid://cfp68onj8pln3" path="res://Scenes/Minigames/free_key_minigame.tscn" id="22_pkwlg"]
+[ext_resource type="PackedScene" uid="uid://q706hi61umbv" path="res://Scenes/Minigames/paper.tscn" id="23_fcx55"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gi4kj"]
 shader = ExtResource("4_w8q3o")
@@ -91,6 +93,8 @@ position = Vector2(24, -8)
 [node name="Door" parent="SceneObjects" index="0" instance=ExtResource("2_ng27i")]
 position = Vector2(42, 37)
 to_room = "res://Scenes/room_livingroom.tscn"
+keys = Array[String]([])
+disappearWhen = ""
 
 [node name="Collision" parent="SceneObjects/Door" index="1"]
 visible = true
@@ -237,8 +241,10 @@ polygon = PackedVector2Array(8, 1, 0, 5, -8, 1, 0, -3)
 position = Vector2(0, -7)
 texture = ExtResource("17_gi4kj")
 
-[node name="Interactible" parent="SceneObjects" index="8" instance=ExtResource("18_pkwlg")]
+[node name="Interactible" parent="SceneObjects" index="8" node_paths=PackedStringArray("minigame") instance=ExtResource("18_pkwlg")]
 position = Vector2(88, 8)
+minigame = NodePath("../../Minigames/Minigame2")
+disappearWhen = ""
 
 [node name="Detection" parent="SceneObjects/Interactible" index="0"]
 position = Vector2(-7, 0)
@@ -272,6 +278,21 @@ material = SubResource("ShaderMaterial_of3pc")
 position = Vector2(-5, -4)
 texture = ExtResource("20_fcx55")
 
+[node name="Interactible2" parent="SceneObjects" index="9" node_paths=PackedStringArray("minigame") instance=ExtResource("18_pkwlg")]
+position = Vector2(-110, -24)
+minigame = NodePath("../../Minigames/Minigame")
+disappearWhen = ""
+
+[node name="Detection" parent="SceneObjects/Interactible2" index="0"]
+position = Vector2(16, 21)
+rotation = -0.47875255
+
+[node name="Minigame" parent="Minigames" index="0" instance=ExtResource("22_pkwlg")]
+visible = false
+
+[node name="Minigame2" parent="Minigames" index="1" instance=ExtResource("23_fcx55")]
+visible = false
+
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/Door"]
 [editable path="SceneObjects/Bed"]
@@ -281,3 +302,4 @@ texture = ExtResource("20_fcx55")
 [editable path="SceneObjects/Boxstack"]
 [editable path="SceneObjects/object"]
 [editable path="SceneObjects/Interactible"]
+[editable path="SceneObjects/Interactible2"]

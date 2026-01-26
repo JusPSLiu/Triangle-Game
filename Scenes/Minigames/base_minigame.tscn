@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctx17gjtqqbk1"]
+[gd_scene load_steps=5 format=3 uid="uid://ctx17gjtqqbk1"]
 
 [ext_resource type="Theme" uid="uid://dujori2qpgkmw" path="res://Art/UI_Themes/Menu.tres" id="1_f6t1e"]
 [ext_resource type="Script" uid="uid://dvfb2khv7e61j" path="res://Scripts/Minigames/base_minigame.gd" id="1_sbl0c"]
+[ext_resource type="Texture2D" uid="uid://b7rn22g4iccy8" path="res://Art/UI/buttons/back.png" id="3_lqiv1"]
+[ext_resource type="Texture2D" uid="uid://018he4uow8c6" path="res://Art/UI/buttons/back_hover.png" id="4_ixuig"]
 
 [node name="Minigame" type="Control"]
 layout_mode = 3
@@ -12,13 +14,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sbl0c")
 
-[node name="Button" type="Button" parent="."]
+[node name="background" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="Button" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 92.0
-offset_bottom = 110.0
+offset_right = 30.0
+offset_bottom = 32.0
+scale = Vector2(8, 8)
 theme = ExtResource("1_f6t1e")
-text = " < "
+texture_normal = ExtResource("3_lqiv1")
+texture_hover = ExtResource("4_ixuig")
 
 [connection signal="pressed" from="Button" to="." method="_exit"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://crrvruwo73q6u"]
+
+[ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="1_2e713"]
+[ext_resource type="Script" uid="uid://bvu32qyfxhiok" path="res://Scripts/objects/door.gd" id="2_2i2di"]
+[ext_resource type="Texture2D" uid="uid://ct6vnttt36juk" path="res://Art/Tilesets/Trapdoor.png" id="3_2e713"]
+[ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="4_2i2di"]
+
+[sub_resource type="Animation" id="Animation_0fmfl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2i2di"]
+resource_name = "needkey"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.3, 1.0666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ag57v"]
+_data = {
+&"RESET": SubResource("Animation_0fmfl"),
+&"needkey": SubResource("Animation_2i2di")
+}
+
+[node name="Door" node_paths=PackedStringArray("entrance_point") instance=ExtResource("1_2e713")]
+script = ExtResource("2_2i2di")
+to_room = ""
+entrance_point = NodePath("EntryPoint")
+keys = Array[String]([])
+disappearWhen = ""
+
+[node name="Collision" parent="." index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Collision" index="0"]
+visible = false
+disabled = true
+
+[node name="Prompt" parent="." index="2"]
+visible = false
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 3.0
+offset_bottom = 6.0
+
+[node name="EntryPoint" type="Node2D" parent="." index="3"]
+
+[node name="Trapdoor" type="Sprite2D" parent="." index="4"]
+position = Vector2(0, 8)
+texture = ExtResource("3_2e713")
+
+[node name="Prompt2" type="Label" parent="." index="5"]
+visible = false
+z_index = 10
+offset_left = -33.0
+offset_top = -28.0
+offset_right = 103.0
+offset_bottom = -5.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_2i2di")
+theme_override_font_sizes/font_size = 20
+text = "YOU NEED KEYS"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Prompt2" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_ag57v")
+}
