@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://baea3toqm3e6m"]
+[gd_scene load_steps=53 format=4 uid="uid://baea3toqm3e6m"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_7o7bu"]
 [ext_resource type="AudioStream" uid="uid://bt2i3lh4sxna" path="res://Audio/Music/livingroom.ogg" id="2_bd1p0"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="12_1j1ny"]
 [ext_resource type="Texture2D" uid="uid://bmbdendl7wgcm" path="res://Art/Tilesets/livingroom_objects/decorations/paper_2.png" id="12_sxvrm"]
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="13_gx0w8"]
+[ext_resource type="Texture2D" uid="uid://dq8gv74kcf20n" path="res://Art/Tilesets/livingroom_objects/tv_on.png" id="14_20pco"]
 [ext_resource type="Texture2D" uid="uid://b482smuf8jax5" path="res://Art/Tilesets/bedroom_objects/shelf_L.png" id="15_p257o"]
 [ext_resource type="Texture2D" uid="uid://dnfvgkias82mb" path="res://Art/Tilesets/livingroom_objects/stair.png" id="15_qjcg1"]
 [ext_resource type="Texture2D" uid="uid://d3askn4qaocqw" path="res://Art/Tilesets/bedroom_objects/vertical_shelf.png" id="16_qjcg1"]
@@ -27,16 +28,22 @@
 [ext_resource type="Texture2D" uid="uid://b57ew1d320lcu" path="res://Art/Tilesets/livingroom_objects/couch_bacc.png" id="18_sxvrm"]
 [ext_resource type="Texture2D" uid="uid://c7qxv556uk1a7" path="res://Art/Tilesets/kitchen_objects/chair.png" id="20_guc8m"]
 [ext_resource type="Texture2D" uid="uid://wbeamx1y1pkx" path="res://Art/Tilesets/bedroom_objects/fancy_shelf.png" id="20_p257o"]
+[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="28_23ppa"]
+[ext_resource type="Texture2D" uid="uid://dhlm6yphdcw5m" path="res://Art/UI/TVOn.png" id="29_rvb7h"]
+[ext_resource type="Script" uid="uid://cai0dkd3jjqcp" path="res://Scripts/objects/tv_closeup.gd" id="30_2x7q2"]
+[ext_resource type="AudioStream" uid="uid://pu70f4eoax3b" path="res://Audio/tv/crt_noise.ogg" id="30_rvb7h"]
+[ext_resource type="Texture2D" uid="uid://qlynaxk4wdg8" path="res://Art/UI/TVCloseUp.png" id="31_vcfhn"]
+[ext_resource type="AudioStream" uid="uid://b8rntmnj1183" path="res://Audio/tv/tvbutton.wav" id="33_20pco"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guyk8"]
 shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.15000000223518
 shader_parameter/shinopacity = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bd1p0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxvrm"]
 shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.2
-shader_parameter/shinopacity = 0.05000000074506
+shader_parameter/shinopacity = 0.05
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvb7h"]
 shader = ExtResource("3_6knsv")
@@ -98,6 +105,20 @@ shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvb7h"]
+bg_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2x7q2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcfhn"]
+bg_color = Color(0, 0, 0, 0.24313726)
+
+[sub_resource type="Theme" id="Theme_20pco"]
+Button/styles/hover = SubResource("StyleBoxFlat_rvb7h")
+Button/styles/normal = SubResource("StyleBoxFlat_2x7q2")
+Button/styles/pressed = SubResource("StyleBoxFlat_vcfhn")
+
 [node name="Room_Base" instance=ExtResource("1_7o7bu")]
 
 [node name="Music" parent="." index="0"]
@@ -140,23 +161,25 @@ position = Vector2(-1, 0)
 polygon = PackedVector2Array(14, 3, -1, 11, -14, 4, -2, -3)
 
 [node name="BoxBig" type="Sprite2D" parent="SceneObjects/BigBox" index="1"]
+material = SubResource("ShaderMaterial_sxvrm")
 texture = ExtResource("5_4y3sw")
 
 [node name="Box" type="Sprite2D" parent="SceneObjects/BigBox" index="2"]
-material = SubResource("ShaderMaterial_bd1p0")
+material = SubResource("ShaderMaterial_sxvrm")
 position = Vector2(3, -9)
 scale = Vector2(1, 0.99999994)
 texture = ExtResource("4_780bx")
 
-[node name="covfefe_table" parent="SceneObjects" index="1" instance=ExtResource("7_oswi2")]
+[node name="covfefe_table" parent="SceneObjects" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("7_oswi2")]
 position = Vector2(4, -25)
+minigame = NodePath("../../Minigames/Paper")
 
 [node name="Detection" parent="SceneObjects/covfefe_table" index="0"]
 position = Vector2(-13, -1)
 rotation = -0.54898584
 
 [node name="CollisionShape2D" parent="SceneObjects/covfefe_table/Collision" index="0"]
-polygon = PackedVector2Array(25, 5, 11, 13, -20, -3, -7, -10)
+polygon = PackedVector2Array(24, 5, 11, 13, -20, -3, -7, -10)
 
 [node name="Prompt" parent="SceneObjects/covfefe_table" index="2"]
 visible = false
@@ -191,7 +214,7 @@ texture = ExtResource("12_sxvrm")
 
 [node name="TV" parent="SceneObjects" index="2" node_paths=PackedStringArray("minigame") instance=ExtResource("7_oswi2")]
 position = Vector2(34, -53)
-minigame = NodePath("../../Minigames/Paper")
+minigame = NodePath("../../Minigames/TV")
 
 [node name="SideTableL" type="Sprite2D" parent="SceneObjects/TV" index="0"]
 position = Vector2(-13, 3)
@@ -222,7 +245,10 @@ offset_bottom = 2.0
 [node name="Tv" type="Sprite2D" parent="SceneObjects/TV" index="6"]
 material = SubResource("ShaderMaterial_nxw1t")
 position = Vector2(2, -7)
-texture = ExtResource("9_4y3sw")
+texture = ExtResource("14_20pco")
+script = ExtResource("30_2x7q2")
+onSprite = ExtResource("14_20pco")
+offSprite = ExtResource("9_4y3sw")
 
 [node name="shelves" parent="SceneObjects" index="3" instance=ExtResource("2_ly2m4")]
 position = Vector2(-67, -30)
@@ -441,6 +467,42 @@ texture = ExtResource("5_4y3sw")
 
 [node name="Paper" parent="Minigames" index="0" instance=ExtResource("8_6knsv")]
 visible = false
+
+[node name="TV" parent="Minigames" index="1" node_paths=PackedStringArray("sounds") instance=ExtResource("28_23ppa")]
+visible = false
+sounds = [NodePath("eeeee")]
+
+[node name="TvCloseUp" type="Sprite2D" parent="Minigames/TV" index="1" node_paths=PackedStringArray("onsound", "eeeeeee")]
+position = Vector2(483, 250)
+scale = Vector2(4, 4)
+texture = ExtResource("29_rvb7h")
+script = ExtResource("30_2x7q2")
+onSprite = ExtResource("29_rvb7h")
+offSprite = ExtResource("31_vcfhn")
+onsound = NodePath("../onbutton/tap")
+eeeeeee = NodePath("../eeeee")
+
+[node name="eeeee" type="AudioStreamPlayer" parent="Minigames/TV" index="2"]
+stream = ExtResource("30_rvb7h")
+volume_db = -10.0
+bus = &"Sounds"
+
+[node name="onbutton" type="Button" parent="Minigames/TV" index="3"]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 488.0
+offset_right = 601.0
+offset_bottom = 512.0
+focus_mode = 0
+theme = SubResource("Theme_20pco")
+
+[node name="tap" type="AudioStreamPlayer" parent="Minigames/TV/onbutton" index="0"]
+stream = ExtResource("33_20pco")
+volume_db = -15.0
+pitch_scale = 0.8
+bus = &"Sounds"
+
+[connection signal="pressed" from="Minigames/TV/onbutton" to="Minigames/TV/TvCloseUp" method="_toggle"]
 
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/BigBox"]

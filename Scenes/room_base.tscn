@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bph5j6qdcn1f7"]
+[gd_scene load_steps=16 format=3 uid="uid://bph5j6qdcn1f7"]
 
 [ext_resource type="Script" uid="uid://dmv3ueygfuqp5" path="res://Scripts/room.gd" id="1_0kgd1"]
 [ext_resource type="PackedScene" uid="uid://bxruvlbqqvnbu" path="res://CustomModules/Transition/Scenes/transition.tscn" id="1_aw2ct"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://ynid5vi3tdfn" path="res://Scenes/Player/player.tscn" id="8_dxtyj"]
 [ext_resource type="Texture2D" uid="uid://llx1syfx5q7h" path="res://Art/Tilesets/bedroom_carpets.png" id="9_1li6j"]
 [ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/objects/scene_object_controller.gd" id="9_rd1j8"]
-[ext_resource type="AudioStream" uid="uid://df51hgpdghp7d" path="res://Audio/Music/cheap_house_2.mp3" id="17_hou2f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lq7x6"]
 texture = ExtResource("5_dn5ij")
@@ -248,7 +247,6 @@ script = ExtResource("1_0kgd1")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("17_hou2f")
 autoplay = true
 
 [node name="HUD" type="CanvasLayer" parent="."]

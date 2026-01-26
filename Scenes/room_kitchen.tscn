@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://d0efuur630wd7"]
+[gd_scene load_steps=32 format=4 uid="uid://d0efuur630wd7"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_8eyq0"]
 [ext_resource type="AudioStream" uid="uid://bgoo2u6mf2pvo" path="res://Audio/Music/kitchen.ogg" id="2_7udq2"]
@@ -9,10 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://x3foqqanbk1g" path="res://Art/Tilesets/kitchen_objects/cabinet_L.png" id="5_s17g6"]
 [ext_resource type="Texture2D" uid="uid://bcqbms1utjxny" path="res://Art/Tilesets/kitchen_objects/fridge.png" id="6_jgn0b"]
 [ext_resource type="Texture2D" uid="uid://boml5xujdtg0u" path="res://Art/Tilesets/kitchen_objects/sink.png" id="7_2g8np"]
+[ext_resource type="Texture2D" uid="uid://dnk6stgk82wx3" path="res://Art/Tilesets/kitchen_objects/counter_L_stove.png" id="8_kw60q"]
 [ext_resource type="Texture2D" uid="uid://70c85evxjlu1" path="res://Art/Tilesets/kitchen_objects/chair_L.png" id="9_0d0bx"]
 [ext_resource type="Texture2D" uid="uid://dwkejbf6u2dph" path="res://Art/Tilesets/kitchen_objects/table.png" id="9_7v8iy"]
 [ext_resource type="Texture2D" uid="uid://diny7fpur4nqk" path="res://Art/Tilesets/kitchen_objects/decorations/placemat.png" id="10_0ta1r"]
 [ext_resource type="Texture2D" uid="uid://nhknqi58ft6x" path="res://Art/Tilesets/kitchen_objects/counter.png" id="10_npglf"]
+[ext_resource type="Texture2D" uid="uid://bpyc48d3xfe1x" path="res://Art/Tilesets/kitchen_objects/cabinet_L_hood.png" id="10_yynas"]
 [ext_resource type="Texture2D" uid="uid://dfqtx23v7upbi" path="res://Art/Tilesets/kitchen_objects/decorations/cup.png" id="11_0d0bx"]
 [ext_resource type="Texture2D" uid="uid://t6m4bl181ms4" path="res://Art/Tilesets/kitchen_objects/cabinet.png" id="11_xrh3p"]
 [ext_resource type="Texture2D" uid="uid://6joywna3f57u" path="res://Art/Tilesets/kitchen_objects/counter_L_nocabinets.png" id="12_7udq2"]
@@ -126,7 +128,7 @@ texture = ExtResource("5_2g8np")
 [node name="CounterL3" type="Sprite2D" parent="SceneObjects/CabinetRow1/CounterL" index="1"]
 material = SubResource("ShaderMaterial_8eyq0")
 position = Vector2(32, 16)
-texture = ExtResource("5_2g8np")
+texture = ExtResource("8_kw60q")
 
 [node name="CounterL4" type="Sprite2D" parent="SceneObjects/CabinetRow1/CounterL" index="2"]
 material = SubResource("ShaderMaterial_8eyq0")
@@ -148,7 +150,7 @@ texture = ExtResource("5_s17g6")
 
 [node name="CabinetL3" type="Sprite2D" parent="SceneObjects/CabinetRow1/CabinetL" index="1"]
 position = Vector2(32, 16)
-texture = ExtResource("5_s17g6")
+texture = ExtResource("10_yynas")
 
 [node name="CabinetL4" type="Sprite2D" parent="SceneObjects/CabinetRow1/CabinetL" index="2"]
 position = Vector2(48, 24)

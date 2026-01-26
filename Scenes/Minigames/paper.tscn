@@ -12,10 +12,10 @@ text = " <"
 
 [node name="Paper" parent="." index="1" instance=ExtResource("3_m2rna")]
 layout_mode = 0
-offset_left = 367.0
-offset_top = 128.0
-offset_right = 595.0
-offset_bottom = 452.0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
 
 [node name="Paper2" parent="." index="2" instance=ExtResource("3_m2rna")]
 layout_mode = 0
@@ -30,10 +30,10 @@ texture = ExtResource("3_56d23")
 
 [node name="Paper3" parent="." index="3" instance=ExtResource("3_m2rna")]
 layout_mode = 0
-offset_left = 367.0
-offset_top = 128.0
-offset_right = 595.0
-offset_bottom = 452.0
+offset_left = 371.0
+offset_top = 132.0
+offset_right = 599.0
+offset_bottom = 456.0
 placement = 2
 
 [node name="Label" type="Label" parent="Paper3" index="1"]

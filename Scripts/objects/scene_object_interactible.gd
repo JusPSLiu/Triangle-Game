@@ -12,6 +12,8 @@ func _ready():
 	# hide prompt and connect signal
 	$Prompt.hide()
 	SignalBus.connect("exited_minigame", show_prompt)
+	
+	calculateBoundary()
 
 # ACTION. enter the minigame
 func _self_action():
@@ -34,8 +36,8 @@ func _input(event: InputEvent) -> void:
 # player detection
 func _on_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
-		show_prompt()
 		player_in = true
+		show_prompt()
 
 # player detection
 func _on_detection_body_exited(body: Node2D) -> void:
@@ -45,4 +47,5 @@ func _on_detection_body_exited(body: Node2D) -> void:
 
 # function for signal use only
 func show_prompt():
-	$Prompt.show()
+	if (player_in):
+		$Prompt.show()

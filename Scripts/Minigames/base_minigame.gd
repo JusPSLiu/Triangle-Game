@@ -1,6 +1,7 @@
 extends Control
 
 var resettableChildren : Array[Node]
+@export var sounds : Array[AudioStreamPlayer]
 var currState = 0
 
 
@@ -19,7 +20,7 @@ func _ready() -> void:
 		curr_indx += 1
 	
 	# if in game, hide
-	if get_parent() is Node:
+	if get_parent() is not Window:
 		hide()
 	else:
 		# if in debug mode, load properly
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 func _exit() -> void:
 	SignalBus.emit_signal("exited_minigame")
+	stop_sound()
 	hide()
 	currState = 0
 
@@ -36,6 +38,7 @@ func _enter():
 	currState = 0
 	show()
 	reset_kids()
+	start_sound()
 
 func increment_state(newState : int):
 	currState = newState + 1
@@ -45,3 +48,10 @@ func increment_state(newState : int):
 func reset_kids():
 	for child in resettableChildren:
 		child.start()
+
+func start_sound():
+	for sound in sounds:
+		sound.play()
+func stop_sound():
+	for sound in sounds:
+		sound.stop()
