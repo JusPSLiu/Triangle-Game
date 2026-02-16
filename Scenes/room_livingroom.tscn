@@ -1,7 +1,7 @@
 [gd_scene load_steps=59 format=4 uid="uid://baea3toqm3e6m"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_7o7bu"]
-[ext_resource type="AudioStream" uid="uid://bt2i3lh4sxna" path="res://Audio/Music/livingroom.ogg" id="2_bd1p0"]
+[ext_resource type="AudioStream" uid="uid://bn1ah8irg3dyk" path="res://Audio/Music/livingroom.ogg" id="2_bd1p0"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="2_ly2m4"]
 [ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="3_6knsv"]
 [ext_resource type="Texture2D" uid="uid://dbwns3wafkh2m" path="res://Art/Tilesets/livingroom_objects/box_big.png" id="4_1j1ny"]
@@ -19,26 +19,26 @@
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="12_1j1ny"]
 [ext_resource type="Texture2D" uid="uid://bmbdendl7wgcm" path="res://Art/Tilesets/livingroom_objects/decorations/paper_2.png" id="12_sxvrm"]
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="13_gx0w8"]
-[ext_resource type="Texture2D" uid="uid://dq8gv74kcf20n" path="res://Art/Tilesets/livingroom_objects/tv_on.png" id="14_20pco"]
-[ext_resource type="Texture2D" uid="uid://b482smuf8jax5" path="res://Art/Tilesets/bedroom_objects/shelf_L.png" id="15_p257o"]
+[ext_resource type="Texture2D" uid="uid://dsuml6xmiedas" path="res://Art/Tilesets/livingroom_objects/tv_on.png" id="14_20pco"]
+[ext_resource type="Texture2D" uid="uid://dcvdd7fpccfv8" path="res://Art/Tilesets/bedroom_objects/shelf_L.png" id="15_p257o"]
 [ext_resource type="Texture2D" uid="uid://dnfvgkias82mb" path="res://Art/Tilesets/livingroom_objects/stair.png" id="15_qjcg1"]
-[ext_resource type="Texture2D" uid="uid://d3askn4qaocqw" path="res://Art/Tilesets/bedroom_objects/vertical_shelf.png" id="16_qjcg1"]
-[ext_resource type="Texture2D" uid="uid://diny7fpur4nqk" path="res://Art/Tilesets/kitchen_objects/decorations/placemat.png" id="17_23ppa"]
+[ext_resource type="Texture2D" uid="uid://wqhytaewitg1" path="res://Art/Tilesets/bedroom_objects/vertical_shelf.png" id="16_qjcg1"]
+[ext_resource type="Texture2D" uid="uid://cu45686vcckcg" path="res://Art/Tilesets/kitchen_objects/decorations/placemat.png" id="17_23ppa"]
 [ext_resource type="Texture2D" uid="uid://xrwckrrel1hd" path="res://Art/Tilesets/livingroom_objects/box_L.png" id="18_p257o"]
 [ext_resource type="Texture2D" uid="uid://b57ew1d320lcu" path="res://Art/Tilesets/livingroom_objects/couch_bacc.png" id="18_sxvrm"]
-[ext_resource type="Texture2D" uid="uid://c7qxv556uk1a7" path="res://Art/Tilesets/kitchen_objects/chair.png" id="20_guc8m"]
-[ext_resource type="Texture2D" uid="uid://wbeamx1y1pkx" path="res://Art/Tilesets/bedroom_objects/fancy_shelf.png" id="20_p257o"]
+[ext_resource type="Texture2D" uid="uid://vy2olu132el7" path="res://Art/Tilesets/kitchen_objects/chair.png" id="20_guc8m"]
+[ext_resource type="Texture2D" uid="uid://r52g1o714gya" path="res://Art/Tilesets/bedroom_objects/fancy_shelf.png" id="20_p257o"]
 [ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="28_23ppa"]
-[ext_resource type="Texture2D" uid="uid://dhlm6yphdcw5m" path="res://Art/UI/TVOn.png" id="29_rvb7h"]
+[ext_resource type="Texture2D" uid="uid://753wlpwm6uw4" path="res://Art/UI/TVOn.png" id="29_rvb7h"]
 [ext_resource type="Script" uid="uid://cai0dkd3jjqcp" path="res://Scripts/objects/tv_closeup.gd" id="30_2x7q2"]
 [ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="30_r2sso"]
-[ext_resource type="AudioStream" uid="uid://pu70f4eoax3b" path="res://Audio/tv/crt_noise.ogg" id="30_rvb7h"]
-[ext_resource type="Texture2D" uid="uid://btmvx8c5t713f" path="res://Art/UI/Paper_newspaper.png" id="31_agqoq"]
-[ext_resource type="Texture2D" uid="uid://qlynaxk4wdg8" path="res://Art/UI/TVCloseUp.png" id="31_vcfhn"]
+[ext_resource type="AudioStream" uid="uid://dccwravhbr60e" path="res://Audio/tv/crt_noise.ogg" id="30_rvb7h"]
+[ext_resource type="Texture2D" uid="uid://6lno2g4t2u5w" path="res://Art/UI/Paper_newspaper.png" id="31_agqoq"]
+[ext_resource type="Texture2D" uid="uid://ch08seaiv56ww" path="res://Art/UI/TVCloseUp.png" id="31_vcfhn"]
 [ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="32_tvs82"]
 [ext_resource type="AudioStream" uid="uid://b8rntmnj1183" path="res://Audio/tv/tvbutton.wav" id="33_20pco"]
 [ext_resource type="PackedScene" uid="uid://cfp68onj8pln3" path="res://Scenes/Minigames/free_key_minigame.tscn" id="35_leaem"]
-[ext_resource type="Texture2D" uid="uid://ddplve52f2brp" path="res://Art/Items/key_gold.png" id="36_ipx8f"]
+[ext_resource type="Texture2D" uid="uid://birb4gxsnyj24" path="res://Art/Items/key_gold.png" id="36_ipx8f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guyk8"]
 shader = ExtResource("3_6knsv")
@@ -544,8 +544,9 @@ text = "Remember to ask landlord about insurance"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="TV" parent="Minigames" index="1" instance=ExtResource("28_23ppa")]
+[node name="TV" parent="Minigames" index="1" node_paths=PackedStringArray("sounds") instance=ExtResource("28_23ppa")]
 visible = false
+sounds = [NodePath("eeeee")]
 
 [node name="TvCloseUp" type="Sprite2D" parent="Minigames/TV" index="1" node_paths=PackedStringArray("onsound", "eeeeeee")]
 position = Vector2(483, 250)
@@ -559,7 +560,7 @@ eeeeeee = NodePath("../eeeee")
 
 [node name="eeeee" type="AudioStreamPlayer" parent="Minigames/TV" index="2"]
 stream = ExtResource("30_rvb7h")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"Sounds"
 
 [node name="onbutton" type="Button" parent="Minigames/TV" index="3"]
