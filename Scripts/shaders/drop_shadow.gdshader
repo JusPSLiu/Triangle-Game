@@ -3,13 +3,15 @@ shader_type canvas_item;
 uniform float shadopacity : hint_range(0,1,0.05) = 0.2f;
 uniform float shinopacity : hint_range(0,1,0.05) = 0.05f;
 
+// save the Modulated color
+varying vec4 modulation;
 void vertex() {
-	// Called for every vertex the material is visible on.
+	modulation = COLOR;
 }
 
 void fragment() {
 	// get texture at this pixel and the one above
-	vec4 thisColor = texture(TEXTURE, UV);
+	vec4 thisColor = modulation * texture(TEXTURE, UV);
 	float colorAbove = texture(TEXTURE, UV+vec2(0,-1)*TEXTURE_PIXEL_SIZE).a;
 	// drop shadow
 	if (thisColor.a < colorAbove-0.5) {
