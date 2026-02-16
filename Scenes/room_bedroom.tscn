@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://v5i4xirk5c02"]
+[gd_scene load_steps=35 format=4 uid="uid://v5i4xirk5c02"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_fs8pi"]
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="2_ng27i"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="20_fcx55"]
 [ext_resource type="PackedScene" uid="uid://cfp68onj8pln3" path="res://Scenes/Minigames/free_key_minigame.tscn" id="22_pkwlg"]
 [ext_resource type="PackedScene" uid="uid://q706hi61umbv" path="res://Scenes/Minigames/paper.tscn" id="23_fcx55"]
+[ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="24_of3pc"]
+[ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="25_8lcm3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gi4kj"]
 shader = ExtResource("4_w8q3o")
@@ -243,7 +245,7 @@ texture = ExtResource("17_gi4kj")
 
 [node name="Interactible" parent="SceneObjects" index="8" node_paths=PackedStringArray("minigame") instance=ExtResource("18_pkwlg")]
 position = Vector2(88, 8)
-minigame = NodePath("../../Minigames/Minigame2")
+minigame = NodePath("../../Minigames/papers")
 disappearWhen = ""
 
 [node name="Detection" parent="SceneObjects/Interactible" index="0"]
@@ -280,18 +282,158 @@ texture = ExtResource("20_fcx55")
 
 [node name="Interactible2" parent="SceneObjects" index="9" node_paths=PackedStringArray("minigame") instance=ExtResource("18_pkwlg")]
 position = Vector2(-110, -24)
-minigame = NodePath("../../Minigames/Minigame")
+minigame = NodePath("../../Minigames/key")
 disappearWhen = ""
 
 [node name="Detection" parent="SceneObjects/Interactible2" index="0"]
 position = Vector2(16, 21)
 rotation = -0.47875255
 
-[node name="Minigame" parent="Minigames" index="0" instance=ExtResource("22_pkwlg")]
+[node name="key" parent="Minigames" index="0" instance=ExtResource("22_pkwlg")]
 visible = false
 
-[node name="Minigame2" parent="Minigames" index="1" instance=ExtResource("23_fcx55")]
+[node name="papers" parent="Minigames" index="1" instance=ExtResource("23_fcx55")]
 visible = false
+
+[node name="Paper3" parent="Minigames/papers" index="2" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 2
+
+[node name="Label" type="Label" parent="Minigames/papers/Paper3" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 223.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "THEY THINK I'VE GONE CRAZY!
+WHAT DO THEY KNOW? NOTHING!
+THE POLICE HAVE DONE NOTHING, AND NOW THE LANDLORD IS OUTSIDE.
+
+IF YOU'RE READING THIS NOTE, GET OUT OF HERE."
+autowrap_mode = 2
+
+[node name="Paper6" parent="Minigames/papers" index="3" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 2
+
+[node name="Label" type="Label" parent="Minigames/papers/Paper6" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 223.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "They're not listening. THEY'RE NOT LISTENING.
+
+Tried sending letters to family, friends... ANYONE, but still no response.
+
+I'm going to look for the police station."
+autowrap_mode = 2
+
+[node name="Paper5" parent="Minigames/papers" index="4" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 2
+
+[node name="TextureRect2" parent="Minigames/papers/Paper5" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 278.0
+offset_right = 506.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/papers/Paper5" index="1"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 9.0
+offset_right = 273.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "S T R U C K   O I L   A T   L A S T !
+
+
+WE HAVE MADE HISTORY WITH THIS ONE. COUSIN JOE KNOWS WHO WE CAN SELL THIS TO."
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/papers/Paper5/Label" index="0"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 284.0
+offset_bottom = 23.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Minigames/papers/Paper5/Label/ColorRect" index="0"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 284.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="Paper2" parent="Minigames/papers" index="5" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 1
+
+[node name="Label" type="Label" parent="Minigames/papers/Paper2" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 217.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "March 19th, 199X
+
+
+Found some weird note. I think it's the landlord's handwriting..."
+autowrap_mode = 2
+
+[node name="Paper4" parent="Minigames/papers" index="6" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+
+[node name="Label" type="Label" parent="Minigames/papers/Paper4" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 217.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "March 18th, 199X
+
+Oh man this house is old. Pretty crummy place too but it's cheap, even if the landlord is a freak
+
+            xoxo Melanie"
+autowrap_mode = 2
 
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/Door"]
@@ -303,3 +445,4 @@ visible = false
 [editable path="SceneObjects/object"]
 [editable path="SceneObjects/Interactible"]
 [editable path="SceneObjects/Interactible2"]
+[editable path="Minigames/papers/Paper5"]

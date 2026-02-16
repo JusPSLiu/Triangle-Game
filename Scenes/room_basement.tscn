@@ -46,10 +46,14 @@ tile_set = ExtResource("3_7fsya")
 material = SubResource("ShaderMaterial_guyk8")
 tile_set = ExtResource("3_7fsya")
 
+[node name="Player" parent="." index="7"]
+dust_percentage = 150
+
 [node name="LivingRoomStairs" parent="SceneObjects" index="0" instance=ExtResource("14_mmqb3")]
 position = Vector2(23, 55)
 to_room = "res://Scenes/room_livingroom.tscn"
 keys = Array[String]([])
+disappearWhen = ""
 
 [node name="AnimatedSprite2D" parent="SceneObjects/LivingRoomStairs" index="3"]
 modulate = Color(1, 1, 1, 0.6666667)
@@ -63,6 +67,14 @@ position = Vector2(-19, -19)
 position = Vector2(2, -3)
 to_room = "res://Scenes/end.tscn"
 keys = Array[String](["silverKey", "copperKey", "goldKey"])
+
+[node name="Collision" parent="SceneObjects/Door" index="1"]
+visible = true
+
+[node name="CollisionShape2D" parent="SceneObjects/Door/Collision" index="0"]
+visible = true
+polygon = PackedVector2Array(16, 1, 0, 10, -16, 1, 0, -8)
+disabled = false
 
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/LivingRoomStairs"]
