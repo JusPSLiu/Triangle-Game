@@ -14,13 +14,18 @@ var initState : Vector3 = Vector3.ZERO
 
 @onready var init_pivot : Vector2 = pivot_offset
 
+# use a bool as a mutex to stop the _process from interfering with the start()
+var starting_mutex : bool = false
+
 func _ready():
 	startState.x = global_position.x
 	startState.y = global_position.y
 
 # starting, pick random rotation
 func start():
+	starting_mutex = true
 	# reset to init state
+	rotation = 0
 	set_global_position(Vector2(startState.x, startState.y))
 	# rotate randomly
 	rotation = randf_range(-0.2,0.2)
@@ -32,6 +37,7 @@ func start():
 	
 	# update state
 	update_state()
+	starting_mutex = false
 
 func update_state():
 	if (get_parent().currState == placement):
@@ -43,6 +49,7 @@ func update_state():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if starting_mutex: return # skip if still starting
 	if (moving):
 		if (Input.is_action_pressed("click")):
 			global_position = get_global_mouse_position() + mouseOffset
