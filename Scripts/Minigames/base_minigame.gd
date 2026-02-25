@@ -13,7 +13,7 @@ func _ready() -> void:
 		if (child is papery):
 			resettableChildren.push_front(child)
 			child.inc_state.connect(increment_state)
-		if (child is griddy or child is freekey):
+		if (child is griddy or child is freekey or child is target):
 			resettableChildren.push_front(child)
 	# give each child a state index (will only be movable when "currState" matches the "placement")
 	var curr_indx = 0

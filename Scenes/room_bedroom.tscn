@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="18_pkwlg"]
 [ext_resource type="Texture2D" uid="uid://kutx8jgsj6or" path="res://Art/Tilesets/livingroom_objects/decorations/paper_1.png" id="19_pkwlg"]
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="20_fcx55"]
-[ext_resource type="PackedScene" uid="uid://cfp68onj8pln3" path="res://Scenes/Minigames/free_key_minigame.tscn" id="22_pkwlg"]
+[ext_resource type="PackedScene" uid="uid://bv6jkyh1mxahy" path="res://Scenes/Minigames/safe_opening.tscn" id="22_of3pc"]
 [ext_resource type="PackedScene" uid="uid://q706hi61umbv" path="res://Scenes/Minigames/paper.tscn" id="23_fcx55"]
 [ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="24_of3pc"]
 [ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="25_8lcm3"]
@@ -282,14 +282,14 @@ texture = ExtResource("20_fcx55")
 
 [node name="Interactible2" parent="SceneObjects" index="9" node_paths=PackedStringArray("minigame") instance=ExtResource("18_pkwlg")]
 position = Vector2(-110, -24)
-minigame = NodePath("../../Minigames/key")
+minigame = NodePath("../../Minigames/Safe")
 disappearWhen = ""
 
 [node name="Detection" parent="SceneObjects/Interactible2" index="0"]
 position = Vector2(16, 21)
 rotation = -0.47875255
 
-[node name="key" parent="Minigames" index="0" instance=ExtResource("22_pkwlg")]
+[node name="Safe" parent="Minigames" index="0" instance=ExtResource("22_of3pc")]
 visible = false
 
 [node name="papers" parent="Minigames" index="1" instance=ExtResource("23_fcx55")]
