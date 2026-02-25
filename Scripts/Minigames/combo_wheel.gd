@@ -10,12 +10,12 @@ var mouseOnMe = false
 
 @onready var myTexture = self.texture
 
-
+signal updateCombo
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (Input.is_action_pressed("click")):
-		if (mouseOnMe and !clicked):
+		if (mouseOnMe and !clicked and Input.is_action_just_pressed("click")):
 			clicked = true
 			clickPos = myTexture.region.position.y / spinRate + get_global_mouse_position().y
 		elif clicked:
@@ -27,18 +27,21 @@ func _process(delta: float) -> void:
 		var nearest = roundi(curr_pos/27.0)*27.0
 		myTexture.region.position.y = lerp(curr_pos, nearest, delta*10)
 		if (abs(curr_pos-nearest) < 1):
-			print(nearest/27.0)
-			print(values.size())
-			print(fposmod((nearest/27.0), float(values.size())))
 			nearest = fposmod((nearest/27.0), float(values.size()))
 			currValue = values[nearest]
-			print(currValue)
 			myTexture.region.position.y = nearest*27
+			
+			emit_signal("updateCombo")
+
+func set_combo(number : int):
+	var idx = values.find(number)
+	idx = fposmod(idx, float(values.size()))
+	myTexture.region.position.y = idx*27
+	currValue = values[idx]
 
 
 func _on_mouse_entered() -> void:
 	mouseOnMe = true
-
 
 func _on_mouse_exited() -> void:
 	mouseOnMe = false

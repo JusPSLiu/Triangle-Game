@@ -2,6 +2,7 @@ extends Control
 
 var resettableChildren : Array[Node]
 @export var sounds : Array[AudioStreamPlayer]
+@export var DoNotExitWhilePlaying : Array[AnimationPlayer]
 var currState = 0
 
 
@@ -13,7 +14,7 @@ func _ready() -> void:
 		if (child is papery):
 			resettableChildren.push_front(child)
 			child.inc_state.connect(increment_state)
-		if (child is griddy or child is freekey or child is target):
+		if (child is griddy or child is freekey or child is target or child is combo_lock):
 			resettableChildren.push_front(child)
 	# give each child a state index (will only be movable when "currState" matches the "placement")
 	var curr_indx = 0
@@ -31,6 +32,8 @@ func _ready() -> void:
 		_enter()
 
 func _exit() -> void:
+	for player in DoNotExitWhilePlaying:
+		if player.is_playing(): return
 	SignalBus.emit_signal("exited_minigame")
 	stop_sound()
 	hide()

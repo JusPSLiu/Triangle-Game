@@ -3,20 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_fb6m0"]
 [ext_resource type="Texture2D" uid="uid://bohklatm1dbf1" path="res://Art/UI/minigames/target_smol.png" id="2_d1lye"]
 [ext_resource type="Script" uid="uid://ii5aalgvjsbj" path="res://Scripts/Minigames/target.gd" id="3_toxqf"]
-[ext_resource type="Texture2D" uid="uid://tsk1dq3v0orb" path="res://Art/UI/minigames/target_outergren.png" id="4_18w20"]
+[ext_resource type="Texture2D" uid="uid://kovgvivaqvvy" path="res://Art/UI/minigames/target_outergren.png" id="4_18w20"]
 [ext_resource type="Script" uid="uid://cuihd3rbxlgic" path="res://Scripts/Minigames/spinnypart.gd" id="5_ucntm"]
-[ext_resource type="Texture2D" uid="uid://c1qlg0mssp114" path="res://Art/UI/minigames/target_mid.png" id="6_55tem"]
-[ext_resource type="Texture2D" uid="uid://bm82kxjtru3c1" path="res://Art/UI/minigames/target_in.png" id="7_11os5"]
+[ext_resource type="Texture2D" uid="uid://rd6e5784xng6" path="res://Art/UI/minigames/target_mid.png" id="6_55tem"]
+[ext_resource type="Texture2D" uid="uid://diindwsgqtreb" path="res://Art/UI/minigames/target_in.png" id="7_11os5"]
 [ext_resource type="Texture2D" uid="uid://bid0u4byvp2pc" path="res://Art/UI/minigames/target_cover.png" id="8_aae7f"]
 [ext_resource type="Shader" uid="uid://cxv3juvtedhl6" path="res://Scripts/shaders/pixelator.gdshader" id="9_o8cmn"]
 [ext_resource type="Texture2D" uid="uid://c6o47xmqniww4" path="res://Art/Items/paperclip.png" id="10_5dkxq"]
 [ext_resource type="Script" uid="uid://c50buuj3wb1do" path="res://Scripts/Minigames/paperclip.gd" id="11_ojxfv"]
-[ext_resource type="Texture2D" uid="uid://7p3qha8ruxre" path="res://Art/UI/minigames/safe_back.png" id="12_mohcm"]
+[ext_resource type="Texture2D" uid="uid://cahiipafieldk" path="res://Art/UI/minigames/safe_back.png" id="12_mohcm"]
 [ext_resource type="Texture2D" uid="uid://bfbaupjwwb2b1" path="res://Art/UI/SafeSprite.png" id="13_6up7x"]
 [ext_resource type="Texture2D" uid="uid://bv4qai7y1pdv1" path="res://Art/UI/minigames/tutorial/spacebar.png" id="13_toxqf"]
 [ext_resource type="Texture2D" uid="uid://jnk2kt3gsarr" path="res://Art/UI/minigames/tutorial/spacebar_pressed.png" id="14_18w20"]
 [ext_resource type="Texture2D" uid="uid://d3paeiecwtjay" path="res://Art/UI/minigames/safe_lid.png" id="14_xg64h"]
-[ext_resource type="Texture2D" uid="uid://bg22pb2kp5mqh" path="res://Art/Items/key_copper.png" id="15_jx4fs"]
+[ext_resource type="Texture2D" uid="uid://diw474pu4434m" path="res://Art/Items/key_copper.png" id="15_jx4fs"]
 
 [sub_resource type="Gradient" id="Gradient_7ta7i"]
 offsets = PackedFloat32Array(0, 0.7638889)
@@ -82,6 +82,68 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1lye"]
+resource_name = "done"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("target:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interior/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"OpenSafe", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_aae7f"]
+resource_name = "nothing"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("target:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interior/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Opened", -1, 1.0, false],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_qc7p5"]
@@ -190,68 +252,6 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_d1lye"]
-resource_name = "done"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("target:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.22),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Interior/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"OpenSafe", -1, 1.0, false],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_aae7f"]
-resource_name = "nothing"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("target:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Interior/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"Opened", -1, 1.0, false],
-"method": &"play"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8xrs"]
 _data = {
 &"RESET": SubResource("Animation_3k2sn"),
@@ -259,6 +259,21 @@ _data = {
 &"nothing": SubResource("Animation_aae7f"),
 &"restart": SubResource("Animation_qc7p5"),
 &"start": SubResource("Animation_i8xrs")
+}
+
+[sub_resource type="Animation" id="Animation_55tem"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_toxqf")]
 }
 
 [sub_resource type="Animation" id="Animation_ucntm"]
@@ -277,40 +292,10 @@ tracks/0/keys = {
 "values": [ExtResource("13_toxqf"), ExtResource("14_18w20")]
 }
 
-[sub_resource type="Animation" id="Animation_55tem"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_toxqf")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_11os5"]
 _data = {
 &"RESET": SubResource("Animation_55tem"),
 &"spacebarpress": SubResource("Animation_ucntm")
-}
-
-[sub_resource type="Animation" id="Animation_toxqf"]
-resource_name = "fadein"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_18w20"]
@@ -326,6 +311,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_toxqf"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_11os5"]
@@ -472,6 +472,71 @@ tracks/8/keys = {
 "values": [-55.0, -57.0, -56.0]
 }
 
+[sub_resource type="Animation" id="Animation_fb6m0"]
+resource_name = "Opened"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OpenSafeLid:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(122, 0, 61, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Safelid:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OpenSafeLid:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("key:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
 [sub_resource type="Animation" id="Animation_ndaro"]
 length = 0.001
 tracks/0/type = "value"
@@ -583,71 +648,6 @@ tracks/8/keys = {
 "values": [-55.0]
 }
 
-[sub_resource type="Animation" id="Animation_fb6m0"]
-resource_name = "Opened"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OpenSafeLid:texture:region")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Rect2(122, 0, 61, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Safelid:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("OpenSafeLid:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("key:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [100.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25xb2"]
 _data = {
 &"OpenSafe": SubResource("Animation_nsn66"),
@@ -655,7 +655,8 @@ _data = {
 &"RESET": SubResource("Animation_ndaro")
 }
 
-[node name="Minigame" instance=ExtResource("1_fb6m0")]
+[node name="Minigame" node_paths=PackedStringArray("DoNotExitWhilePlaying") instance=ExtResource("1_fb6m0")]
+DoNotExitWhilePlaying = [NodePath("Interior/AnimationPlayer")]
 
 [node name="Safe" type="TextureRect" parent="background" index="0"]
 layout_mode = 0
