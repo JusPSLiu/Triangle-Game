@@ -35,7 +35,6 @@ func start():
 		current_combination = [0, 0, 0, 0, 0]
 		for i in range(5):
 			current_combination[i] = randi_range(0, 9)
-	print(current_combination)
 	
 	set_kids(current_combination)
 

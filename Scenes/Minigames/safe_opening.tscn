@@ -201,7 +201,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_i8xrs"]
 resource_name = "start"
-length = 0.4
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -210,7 +209,7 @@ tracks/0/path = NodePath("target/Paperclip:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.29999998, 0.4),
+"times": PackedFloat32Array(0.4, 0.6, 0.70000005, 0.8000001),
 "transitions": PackedFloat32Array(0.5, 2, 0.5, 1),
 "update": 0,
 "values": [176.0, 40.0, 44.0, 48.0]
@@ -234,7 +233,7 @@ tracks/2/path = NodePath("target/Paperclip:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.010000005),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
@@ -246,7 +245,7 @@ tracks/3/path = NodePath("target:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.20000002),
+"times": PackedFloat32Array(0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -656,7 +655,7 @@ _data = {
 }
 
 [node name="Minigame" node_paths=PackedStringArray("DoNotExitWhilePlaying") instance=ExtResource("1_fb6m0")]
-DoNotExitWhilePlaying = [NodePath("Interior/AnimationPlayer")]
+DoNotExitWhilePlaying = [NodePath("Interior/AnimationPlayer"), NodePath("target/Paperclip/paperanimator")]
 
 [node name="Safe" type="TextureRect" parent="background" index="0"]
 layout_mode = 0
@@ -785,7 +784,7 @@ layout_mode = 0
 offset_left = -212.0
 offset_top = 48.0
 offset_right = -158.0
-offset_bottom = 94.00012
+offset_bottom = 94.00017
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_j4w1b")
 expand_mode = 1

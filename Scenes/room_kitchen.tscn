@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d0efuur630wd7"]
+[gd_scene load_steps=40 format=4 uid="uid://d0efuur630wd7"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_8eyq0"]
 [ext_resource type="AudioStream" uid="uid://bgoo2u6mf2pvo" path="res://Audio/Music/kitchen.ogg" id="2_7udq2"]
@@ -25,6 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="23_ttr63"]
 [ext_resource type="Texture2D" uid="uid://cd6pnupmhl32d" path="res://Art/Tilesets/kitchen_objects/scrambled_painting.png" id="24_5scpk"]
 [ext_resource type="PackedScene" uid="uid://baetajtfjdxxm" path="res://Scenes/Minigames/sliding_minigame.tscn" id="24_j2bir"]
+[ext_resource type="PackedScene" uid="uid://q706hi61umbv" path="res://Scenes/Minigames/paper.tscn" id="26_8lbgm"]
+[ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="27_itje2"]
+[ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="28_wefru"]
+[ext_resource type="Texture2D" uid="uid://cnljth4h5fsh2" path="res://Art/Tilesets/livingroom_objects/decorations/paper_3.png" id="29_itje2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_guyk8"]
 shader = ExtResource("2_srjt8")
@@ -52,6 +56,11 @@ shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsnqw"]
+shader = ExtResource("2_srjt8")
+shader_parameter/shadopacity = 0.2
+shader_parameter/shinopacity = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wefru"]
 shader = ExtResource("2_srjt8")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
@@ -106,7 +115,7 @@ tile_map_data = PackedByteArray("AAAEAPT/AQADAAAAABA=")
 y_sort_enabled = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_guyk8")
-tile_map_data = PackedByteArray("AAAKAPn/AAAEAAIAAAAKAPj/AAACAAEAAAAJAPn/AAADAAIAAAAJAPj/AAACAAAAAAALAPn/AAAEAAAAAAALAPj/AAADAAAAAAALAAIAAAAEAAAAAAALAAEAAAAEAAEAAAALAAAAAAADAAAAAAAKAAIAAAADAAIAAAAKAAEAAAACAAIAAAAKAAAAAAACAAAAAAD6////AAAEAAAAAAD6//7/AAAEAAEAAAD6//3/AAAEAAEAAAD6//z/AAAEAAEAAAD6//v/AAADAAAAAAD5////AAADAAIAAAD5//7/AAACAAIAAAD5//3/AAACAAIAAAD5//z/AAACAAIAAAD5//v/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAKAPn/AAADAAEAAAAKAPj/AAACAAEAAAAJAPn/AAACAAIAAAAJAPj/AAACAAAAAAALAPn/AAAEAAEAAAALAPj/AAADAAAAAAALAAIAAAAEAAAAAAALAAEAAAAEAAEAAAALAAAAAAADAAAAAAAKAAIAAAADAAIAAAAKAAEAAAACAAIAAAAKAAAAAAACAAAAAAD6////AAAEAAAAAAD6//7/AAAEAAEAAAD6//3/AAAEAAEAAAD6//z/AAAEAAEAAAD6//v/AAADAAAAAAD5////AAADAAIAAAD5//7/AAACAAIAAAD5//3/AAACAAIAAAD5//z/AAACAAIAAAD5//v/AAACAAAAAAAJAPr/AAADAAIAAAAKAPr/AAAEAAIAAAALAPr/AAAEAAAAAAA=")
 tile_set = ExtResource("2_xhfix")
 
 [node name="Player" parent="." index="8"]
@@ -219,23 +228,37 @@ polygon = PackedVector2Array(11, 7, 3, 12, -11, 4, -3, -1)
 material = SubResource("ShaderMaterial_7v8iy")
 texture = ExtResource("12_7udq2")
 
-[node name="Cabinet3" parent="SceneObjects" index="4" instance=ExtResource("3_0ta1r")]
-position = Vector2(27, -49)
+[node name="CabinetInt" parent="SceneObjects" index="4" node_paths=PackedStringArray("minigame") instance=ExtResource("23_ttr63")]
+position = Vector2(26, -43)
+minigame = NodePath("../../Minigames/paper")
+disappearWhen = ""
+
+[node name="CollisionShape2D" parent="SceneObjects/CabinetInt/Collision" index="0"]
+polygon = PackedVector2Array(12, 1, 4, 6, -10, -2, -2, -7)
+
+[node name="Prompt" parent="SceneObjects/CabinetInt" index="2"]
+offset_left = -15.0
+offset_top = -28.0
+offset_right = 12.0
+offset_bottom = -5.0
+
+[node name="CounterL" type="Sprite2D" parent="SceneObjects/CabinetInt" index="3"]
+material = SubResource("ShaderMaterial_7v8iy")
+position = Vector2(1, -6)
+texture = ExtResource("12_7udq2")
+
+[node name="Paper3" type="Sprite2D" parent="SceneObjects/CabinetInt/CounterL" index="0"]
+material = SubResource("ShaderMaterial_wefru")
+position = Vector2(0, -7)
+texture = ExtResource("29_itje2")
+
+[node name="Cabinet3" parent="SceneObjects" index="5" instance=ExtResource("3_0ta1r")]
+position = Vector2(43, -41)
 
 [node name="CollisionShape2D" parent="SceneObjects/Cabinet3/Collision" index="0"]
 polygon = PackedVector2Array(11, 7, 3, 12, -11, 4, -3, -1)
 
 [node name="CounterL" type="Sprite2D" parent="SceneObjects/Cabinet3" index="1"]
-material = SubResource("ShaderMaterial_7v8iy")
-texture = ExtResource("12_7udq2")
-
-[node name="Cabinet4" parent="SceneObjects" index="5" instance=ExtResource("3_0ta1r")]
-position = Vector2(43, -41)
-
-[node name="CollisionShape2D" parent="SceneObjects/Cabinet4/Collision" index="0"]
-polygon = PackedVector2Array(11, 7, 3, 12, -11, 4, -3, -1)
-
-[node name="CounterL" type="Sprite2D" parent="SceneObjects/Cabinet4" index="1"]
 material = SubResource("ShaderMaterial_7v8iy")
 texture = ExtResource("12_7udq2")
 
@@ -290,6 +313,8 @@ texture = ExtResource("17_lsnqw")
 [node name="Door" parent="SceneObjects" index="8" instance=ExtResource("15_paqdt")]
 position = Vector2(-81, 26)
 to_room = "res://Scenes/room_livingroom.tscn"
+keys = Array[String]([])
+disappearWhen = ""
 
 [node name="AnimatedSprite2D" parent="SceneObjects/Door" index="3"]
 modulate = Color(1, 1, 1, 0.6666667)
@@ -301,6 +326,7 @@ position = Vector2(16, -10)
 [node name="SlidingPainting" parent="SceneObjects" index="9" node_paths=PackedStringArray("minigame") instance=ExtResource("23_ttr63")]
 position = Vector2(-104, -43)
 minigame = NodePath("../../Minigames/SlidingMinigame")
+disappearWhen = ""
 
 [node name="Detection" parent="SceneObjects/SlidingPainting" index="0"]
 position = Vector2(8, 26)
@@ -320,15 +346,71 @@ position = Vector2(0, 1)
 texture = ExtResource("24_5scpk")
 
 [node name="SlidingMinigame" parent="Minigames" index="0" instance=ExtResource("24_j2bir")]
+visible = false
+
+[node name="paper" parent="Minigames" index="1" instance=ExtResource("26_8lbgm")]
+visible = false
+
+[node name="Paper2" parent="Minigames/paper" index="1" instance=ExtResource("27_itje2")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 2
+
+[node name="TextureRect2" parent="Minigames/paper/Paper2" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 278.0
+offset_right = 506.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/paper/Paper2" index="1"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 11.0
+offset_right = 285.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("28_wefru")
+theme_override_font_sizes/font_size = 42
+text = "ANOTHER HUMAN SOUL,
+PLEASE"
+autowrap_mode = 2
+
+[node name="Paper" parent="Minigames/paper" index="2" instance=ExtResource("27_itje2")]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 108.0
+offset_right = 594.0
+offset_bottom = 432.0
+
+[node name="Label" type="Label" parent="Minigames/paper/Paper" index="1"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 156.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("28_wefru")
+theme_override_font_sizes/font_size = 42
+text = "Milk
+Eggs
+Cheese"
 
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/CabinetRow1"]
 [editable path="SceneObjects/Sink"]
 [editable path="SceneObjects/Cabinet"]
 [editable path="SceneObjects/Cabinet2"]
+[editable path="SceneObjects/CabinetInt"]
 [editable path="SceneObjects/Cabinet3"]
-[editable path="SceneObjects/Cabinet4"]
 [editable path="SceneObjects/Chair"]
 [editable path="SceneObjects/Table"]
 [editable path="SceneObjects/Door"]
 [editable path="SceneObjects/SlidingPainting"]
+[editable path="Minigames/paper"]
+[editable path="Minigames/paper/Paper2"]

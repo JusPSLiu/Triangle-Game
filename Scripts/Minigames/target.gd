@@ -25,13 +25,14 @@ func self_initialize(completed=false):
 	if (completed):
 		layer = kids.size()
 		animator.play("nothing")
+		return
 	else:
 		animator.play("start")
 		if (!tutorialed):
 			tutorial.play("fadein")
 	
-	for child in kids:
-		child.reset(completed)
+	for i in kids.size():
+		kids[i].reset(i<layer)
 
 func _input(event: InputEvent) -> void:
 	if (event is InputEventKey):

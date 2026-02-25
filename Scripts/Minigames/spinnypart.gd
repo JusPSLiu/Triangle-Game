@@ -28,6 +28,8 @@ func reset(completed = false):
 	if (completed):
 		state = 1
 		self_modulate = Color.BLACK
+		rotation_degrees = stopAtDegree
+		return
 	state = 0
 	self_modulate = Color.WHITE
 
