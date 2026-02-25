@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkwf2fwry0r0i"
-path="res://.godot/imported/counter_l.png-7778f08c3fb9d0de9a45808cdb677dee.ctex"
+path="res://.godot/imported/counter_L.png-00825c3ff2b3d2e31fccddfe3608eb6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/kitchen_objects/counter_l.png"
-dest_files=["res://.godot/imported/counter_l.png-7778f08c3fb9d0de9a45808cdb677dee.ctex"]
+source_file="res://Art/Tilesets/kitchen_objects/counter_L.png"
+dest_files=["res://.godot/imported/counter_L.png-00825c3ff2b3d2e31fccddfe3608eb6f.ctex"]
 
 [params]
 

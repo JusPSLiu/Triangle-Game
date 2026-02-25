@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2a3v3pwf4oh1"]
+
+[ext_resource type="Texture2D" uid="uid://c427wyrku4bk4" path="res://Art/UI/minigames/number_wheel.png" id="1_t16n8"]
+[ext_resource type="Script" uid="uid://c56jda3ke27xb" path="res://Scripts/Minigames/combo_wheel.gd" id="2_7jr4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe38g"]
+atlas = ExtResource("1_t16n8")
+region = Rect2(0, 0, 0, 27)
+
+[node name="Wheel1" type="TextureRect"]
+show_behind_parent = true
+texture_repeat = 2
+offset_right = 18.0
+offset_bottom = 27.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = SubResource("AtlasTexture_oe38g")
+script = ExtResource("2_7jr4x")
+values = Array[int]([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
