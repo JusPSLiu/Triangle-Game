@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://kutx8jgsj6or" path="res://Art/Tilesets/livingroom_objects/decorations/paper_1.png" id="11_rwees"]
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="12_1j1ny"]
 [ext_resource type="Texture2D" uid="uid://bmbdendl7wgcm" path="res://Art/Tilesets/livingroom_objects/decorations/paper_2.png" id="12_sxvrm"]
-[ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="13_gx0w8"]
 [ext_resource type="Texture2D" uid="uid://dq8gv74kcf20n" path="res://Art/Tilesets/livingroom_objects/tv_on.png" id="14_20pco"]
 [ext_resource type="Texture2D" uid="uid://b482smuf8jax5" path="res://Art/Tilesets/bedroom_objects/shelf_L.png" id="15_p257o"]
 [ext_resource type="Texture2D" uid="uid://dnfvgkias82mb" path="res://Art/Tilesets/livingroom_objects/stair.png" id="15_qjcg1"]
@@ -54,6 +53,11 @@ shader_parameter/shinopacity = 0.05
 shader = ExtResource("3_6knsv")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2sso"]
+shader = ExtResource("3_6knsv")
+shader_parameter/shadopacity = 0.2
+shader_parameter/shinopacity = 0.05
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxw1t"]
 shader = ExtResource("3_6knsv")
@@ -213,15 +217,15 @@ material = SubResource("ShaderMaterial_rvb7h")
 position = Vector2(9, 2)
 texture = ExtResource("12_sxvrm")
 
-[node name="Paper4" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="2"]
-material = SubResource("ShaderMaterial_rvb7h")
-position = Vector2(10, -1)
-texture = ExtResource("13_gx0w8")
-
-[node name="Paper3" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="3"]
+[node name="Paper3" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="2"]
 material = SubResource("ShaderMaterial_rvb7h")
 position = Vector2(-2, -6)
 texture = ExtResource("12_sxvrm")
+
+[node name="Candles2" type="Sprite2D" parent="SceneObjects/covfefe_table/TableL" index="3"]
+material = SubResource("ShaderMaterial_r2sso")
+position = Vector2(10, -2)
+texture = ExtResource("10_bd1p0")
 
 [node name="TV" parent="SceneObjects" index="2" node_paths=PackedStringArray("minigame") instance=ExtResource("7_oswi2")]
 position = Vector2(34, -53)
@@ -306,16 +310,12 @@ texture = ExtResource("7_6knsv")
 
 [node name="Placemat" type="Sprite2D" parent="SceneObjects/Table" index="2"]
 material = SubResource("ShaderMaterial_2x7q2")
-position = Vector2(-7, -12)
+position = Vector2(7, -5)
 texture = ExtResource("17_23ppa")
 
 [node name="Lamp" type="Sprite2D" parent="SceneObjects/Table" index="3"]
-position = Vector2(-7, -19)
+position = Vector2(7, -12)
 texture = ExtResource("9_1j1ny")
-
-[node name="Candles" type="Sprite2D" parent="SceneObjects/Table" index="4"]
-position = Vector2(9, -6)
-texture = ExtResource("10_bd1p0")
 
 [node name="KitchenDoor" parent="SceneObjects" index="6" instance=ExtResource("12_1j1ny")]
 position = Vector2(99, -21)
@@ -503,7 +503,6 @@ position = Vector2(7, -5)
 texture = ExtResource("29_tvs82")
 
 [node name="Paper" parent="Minigames" index="0" instance=ExtResource("8_6knsv")]
-visible = false
 
 [node name="Paper" parent="Minigames/Paper" index="1" instance=ExtResource("30_r2sso")]
 layout_mode = 0

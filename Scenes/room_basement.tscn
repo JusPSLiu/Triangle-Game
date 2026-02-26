@@ -65,7 +65,7 @@ position = Vector2(-19, -19)
 
 [node name="Door" parent="SceneObjects" index="1" instance=ExtResource("6_k7r2k")]
 position = Vector2(2, -3)
-to_room = "res://Scenes/end.tscn"
+to_room = "res://Scenes/room_underground.tscn"
 keys = Array[String](["silverKey", "copperKey", "goldKey"])
 
 [node name="Collision" parent="SceneObjects/Door" index="1"]

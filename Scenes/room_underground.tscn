@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_87u7a"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="2_guotd"]
 [ext_resource type="Shader" uid="uid://bvnwnivufrbau" path="res://Scripts/shaders/drop_shadow.gdshader" id="3_gq4ce"]
-[ext_resource type="Texture2D" uid="uid://3md1k5e1jvrb" path="res://Art/Tilesets/under_basement/oil_drum.png" id="4_1jraj"]
+[ext_resource type="Texture2D" uid="uid://c618t8jaapren" path="res://Art/Tilesets/under_basement/oil_drum.png" id="4_1jraj"]
 [ext_resource type="Texture2D" uid="uid://wtqey4wnl2p0" path="res://Art/Tilesets/livingroom_objects/desk.png" id="5_es4al"]
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="5_guotd"]
 [ext_resource type="Texture2D" uid="uid://kutx8jgsj6or" path="res://Art/Tilesets/livingroom_objects/decorations/paper_1.png" id="7_sl55y"]
@@ -178,9 +178,9 @@ material = SubResource("ShaderMaterial_sl55y")
 position = Vector2(48, 20)
 texture = ExtResource("4_1jraj")
 
-[node name="Paper1" type="Sprite2D" parent="SceneObjects" index="4"]
+[node name="Paper1" type="Sprite2D" parent="SceneObjects/euler/OilDrum" index="7"]
 material = SubResource("ShaderMaterial_tsu73")
-position = Vector2(66, -7)
+position = Vector2(14, 4)
 texture = ExtResource("7_sl55y")
 
 [node name="Deskpapers" parent="Minigames" index="0" instance=ExtResource("10_k6k0u")]

@@ -146,17 +146,25 @@ position = Vector2(31, 5)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SceneObjects/Bed/Bed2/SideTableR/SideBarrier" index="0"]
 polygon = PackedVector2Array(-24, -1, -31, 2, -42, -3, -36, -7)
 
-[node name="shelves" parent="SceneObjects" index="3" instance=ExtResource("3_rxfsm")]
+[node name="shelves" parent="SceneObjects" index="3" node_paths=PackedStringArray("minigame") instance=ExtResource("18_pkwlg")]
 position = Vector2(33, -39)
+minigame = NodePath("../../Minigames/shelfpapers")
+disappearWhen = ""
 
 [node name="CollisionShape2D" parent="SceneObjects/shelves/Collision" index="0"]
 polygon = PackedVector2Array(29, 9, 20, 16, -29, -10, -10, -16, 32, -11)
 
-[node name="VerticalShelfL2" type="Sprite2D" parent="SceneObjects/shelves" index="1"]
+[node name="Prompt" parent="SceneObjects/shelves" index="2"]
+offset_left = -17.0
+offset_top = -35.0
+offset_right = 10.0
+offset_bottom = -12.0
+
+[node name="VerticalShelfL2" type="Sprite2D" parent="SceneObjects/shelves" index="3"]
 position = Vector2(-20, -22)
 texture = ExtResource("8_wswlw")
 
-[node name="Shelf2" type="Sprite2D" parent="SceneObjects/shelves" index="2"]
+[node name="Shelf2" type="Sprite2D" parent="SceneObjects/shelves" index="4"]
 material = SubResource("ShaderMaterial_8mqgq")
 position = Vector2(-1, -9)
 texture = ExtResource("7_kcnna")
@@ -166,7 +174,7 @@ material = SubResource("ShaderMaterial_klbq4")
 position = Vector2(-4, -11)
 texture = ExtResource("16_ocs2h")
 
-[node name="VerticalShelfL" type="Sprite2D" parent="SceneObjects/shelves" index="3"]
+[node name="VerticalShelfL" type="Sprite2D" parent="SceneObjects/shelves" index="5"]
 position = Vector2(19, -2)
 texture = ExtResource("8_wswlw")
 
@@ -409,7 +417,7 @@ theme_override_font_sizes/font_size = 21
 text = "March 19th, 199X
 
 
-Found some weird note. I think it's the landlord's handwriting..."
+Found some weird note in the basement. I think it's the landlord's handwriting..."
 autowrap_mode = 2
 
 [node name="Paper4" parent="Minigames/papers" index="6" instance=ExtResource("24_of3pc")]
@@ -435,6 +443,226 @@ Oh man this house is old. Pretty crummy place too but it's cheap, even if the la
             xoxo Melanie"
 autowrap_mode = 2
 
+[node name="shelfpapers" parent="Minigames" index="2" instance=ExtResource("23_fcx55")]
+visible = false
+
+[node name="Paper5" parent="Minigames/shelfpapers" index="1" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 2
+
+[node name="TextureRect2" parent="Minigames/shelfpapers/Paper5" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 278.0
+offset_right = 506.0
+rotation = 1.5707964
+
+[node name="Tally" type="ColorRect" parent="Minigames/shelfpapers/Paper5" index="1"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 162.0
+offset_right = 100.0
+offset_bottom = 164.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally" index="0"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/Shadow" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/Shadow/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/Shadow/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/Shadow/ColorRect/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally/ColorRect/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="Tally2" type="ColorRect" parent="Minigames/shelfpapers/Paper5" index="2"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 162.0
+offset_right = 146.0
+offset_bottom = 164.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="Shadow" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2" index="0"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/Shadow" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/Shadow/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/Shadow/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/Shadow/ColorRect/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Minigames/shelfpapers/Paper5/Tally2/ColorRect/ColorRect/ColorRect" index="0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 4.0
+color = Color(0.76862746, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Minigames/shelfpapers/Paper5" index="3"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 9.0
+offset_right = 273.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "USUAL LOCATIONS HAVE BEEN COMPROMISED.
+
+ATTEMPTING RENTING OUT THE HOUSE INSTEAD.
+
+SUCCESSES:  | | | |   | | | |   | | |
+FAILURES:"
+autowrap_mode = 2
+
+[node name="Paper3" parent="Minigames/shelfpapers" index="2" instance=ExtResource("24_of3pc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 136.0
+offset_right = 590.0
+offset_bottom = 460.0
+placement = 2
+
+[node name="TextureRect2" parent="Minigames/shelfpapers/Paper3" index="0"]
+flip_h = true
+
+[node name="Label" type="Label" parent="Minigames/shelfpapers/Paper3" index="1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 223.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("25_8lcm3")
+theme_override_font_sizes/font_size = 21
+text = "Landlord dropped this.
+
+reminder to return it."
+autowrap_mode = 2
+
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/Door"]
 [editable path="SceneObjects/Bed"]
@@ -446,3 +674,6 @@ autowrap_mode = 2
 [editable path="SceneObjects/Interactible"]
 [editable path="SceneObjects/Interactible2"]
 [editable path="Minigames/papers/Paper5"]
+[editable path="Minigames/shelfpapers"]
+[editable path="Minigames/shelfpapers/Paper5"]
+[editable path="Minigames/shelfpapers/Paper3"]

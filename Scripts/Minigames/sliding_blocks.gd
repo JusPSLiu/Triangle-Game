@@ -26,7 +26,14 @@ func _ready() -> void:
 	displayed_grid = internal_grid.duplicate_deep()
 	# scramble
 	if (!GlobalVariables.in_inventory(completeKey)):
+		# NO KEY, SCRAMBLE
 		scramble()
+	else:
+		# HAS KEY ALREADY, DISPLAY COMPLETED STATE
+		displayed_grid = internal_grid
+		update_display()
+		if (key is AnimationPlayer):
+			key.play("Opened")
 
 func scramble():
 	var i = 1
