@@ -7,6 +7,7 @@ class_name griddy
 @export var rows = 3
 @export var completeKey : String = ""
 @export var key : AnimationPlayer
+@export var scrambleOffset = 0
 
 @onready var null_num = cols*rows-1
 var null_button : Control
@@ -36,7 +37,7 @@ func _ready() -> void:
 			key.play("Opened")
 
 func scramble():
-	var i = 1
+	var i = 1 + scrambleOffset
 	var curr = 0
 	for button in internal_grid:
 		curr+=1

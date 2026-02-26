@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://d0efuur630wd7"]
+[gd_scene load_steps=41 format=4 uid="uid://d0efuur630wd7"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_8eyq0"]
 [ext_resource type="AudioStream" uid="uid://bgoo2u6mf2pvo" path="res://Audio/Music/kitchen.ogg" id="2_7udq2"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="23_ttr63"]
 [ext_resource type="Texture2D" uid="uid://cd6pnupmhl32d" path="res://Art/Tilesets/kitchen_objects/scrambled_painting.png" id="24_5scpk"]
 [ext_resource type="PackedScene" uid="uid://baetajtfjdxxm" path="res://Scenes/Minigames/sliding_minigame.tscn" id="24_j2bir"]
+[ext_resource type="Texture2D" uid="uid://bifhq6ljljjyo" path="res://Art/Tilesets/kitchen_objects/scrambled_painting_complete.png" id="25_wefru"]
 [ext_resource type="PackedScene" uid="uid://q706hi61umbv" path="res://Scenes/Minigames/paper.tscn" id="26_8lbgm"]
 [ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="27_itje2"]
 [ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="28_wefru"]
@@ -323,10 +324,14 @@ z_index = 4
 [node name="EntryPoint" parent="SceneObjects/Door" index="4"]
 position = Vector2(16, -10)
 
-[node name="SlidingPainting" parent="SceneObjects" index="9" node_paths=PackedStringArray("minigame") instance=ExtResource("23_ttr63")]
+[node name="ScrambledPaintingComplete" type="Sprite2D" parent="SceneObjects" index="9"]
+position = Vector2(-104, -42)
+texture = ExtResource("25_wefru")
+
+[node name="SlidingPainting" parent="SceneObjects" index="10" node_paths=PackedStringArray("minigame") instance=ExtResource("23_ttr63")]
 position = Vector2(-104, -43)
 minigame = NodePath("../../Minigames/SlidingMinigame")
-disappearWhen = ""
+disappearWhen = "silverKey"
 
 [node name="Detection" parent="SceneObjects/SlidingPainting" index="0"]
 position = Vector2(8, 26)

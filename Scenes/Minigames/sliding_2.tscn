@@ -1,0 +1,180 @@
+[gd_scene load_steps=18 format=3 uid="uid://cxlmehkq1u15k"]
+
+[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_hld1c"]
+[ext_resource type="Texture2D" uid="uid://10kvmipnv7ht" path="res://Art/UI/minigames/wires_bg.png" id="2_hld1c"]
+[ext_resource type="Script" uid="uid://chpri30vb0amy" path="res://Scripts/Minigames/sliding_blocks.gd" id="3_ol0yj"]
+[ext_resource type="Texture2D" uid="uid://ctrx00dtqm2c7" path="res://Art/UI/minigames/wires.png" id="4_lucni"]
+[ext_resource type="Texture2D" uid="uid://b5jq7rib3rxd3" path="res://Art/UI/minigames/wires_bright.png" id="5_hld1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol0yj"]
+atlas = ExtResource("4_lucni")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hld1c"]
+atlas = ExtResource("4_lucni")
+region = Rect2(35, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lucni"]
+atlas = ExtResource("4_lucni")
+region = Rect2(70, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18kat"]
+atlas = ExtResource("4_lucni")
+region = Rect2(0, 35, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u75b7"]
+atlas = ExtResource("4_lucni")
+region = Rect2(35, 35, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dnp2"]
+atlas = ExtResource("4_lucni")
+region = Rect2(70, 35, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hog3p"]
+atlas = ExtResource("4_lucni")
+region = Rect2(0, 70, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlumj"]
+atlas = ExtResource("4_lucni")
+region = Rect2(35, 70, 33, 33)
+
+[sub_resource type="Animation" id="Animation_fsrai"]
+resource_name = "Opened"
+length = 0.5
+step = 0.01
+
+[sub_resource type="Animation" id="Animation_6b3v6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7q8ho"]
+resource_name = "key_get"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.75),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2p4bg"]
+_data = {
+&"Opened": SubResource("Animation_fsrai"),
+&"RESET": SubResource("Animation_6b3v6"),
+&"key_get": SubResource("Animation_7q8ho")
+}
+
+[node name="SlidingMinigame" node_paths=PackedStringArray("DoNotExitWhilePlaying") instance=ExtResource("1_hld1c")]
+DoNotExitWhilePlaying = [NodePath("Cutscene/KeyAnimator")]
+
+[node name="TextureRect" type="TextureRect" parent="background" index="0"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 135.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_hld1c")
+
+[node name="GridContainer" type="GridContainer" parent="." index="1" node_paths=PackedStringArray("key")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 68.0
+offset_right = 383.0
+offset_bottom = 171.0
+scale = Vector2(4, 4)
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 3
+script = ExtResource("3_ol0yj")
+completeKey = "silverKey"
+key = NodePath("../Cutscene/KeyAnimator")
+scrambleOffset = 3
+
+[node name="Button" type="TextureButton" parent="GridContainer" index="0"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_ol0yj")
+
+[node name="Button2" type="TextureButton" parent="GridContainer" index="1"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_hld1c")
+
+[node name="Button3" type="TextureButton" parent="GridContainer" index="2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_lucni")
+
+[node name="Button4" type="TextureButton" parent="GridContainer" index="3"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_18kat")
+
+[node name="Button5" type="TextureButton" parent="GridContainer" index="4"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_u75b7")
+
+[node name="Button6" type="TextureButton" parent="GridContainer" index="5"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_1dnp2")
+
+[node name="Button7" type="TextureButton" parent="GridContainer" index="6"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_hog3p")
+
+[node name="Button8" type="TextureButton" parent="GridContainer" index="7"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_xlumj")
+
+[node name="Button9" type="Button" parent="GridContainer" index="8"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "_"
+
+[node name="Cutscene" type="Control" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Cutscene" index="0"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 135.0
+mouse_filter = 2
+texture = ExtResource("5_hld1c")
+
+[node name="KeyAnimator" type="AnimationPlayer" parent="Cutscene" index="1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_2p4bg")
+}

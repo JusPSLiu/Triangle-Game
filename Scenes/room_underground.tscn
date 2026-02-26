@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c2fu3lylb6x6t"]
+[gd_scene load_steps=23 format=4 uid="uid://c2fu3lylb6x6t"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_87u7a"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="2_guotd"]
@@ -8,11 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://bkugsq1ltwfeu" path="res://Scenes/Objects/interactible.tscn" id="5_guotd"]
 [ext_resource type="Texture2D" uid="uid://kutx8jgsj6or" path="res://Art/Tilesets/livingroom_objects/decorations/paper_1.png" id="7_sl55y"]
 [ext_resource type="Texture2D" uid="uid://bmbdendl7wgcm" path="res://Art/Tilesets/livingroom_objects/decorations/paper_2.png" id="8_k6k0u"]
+[ext_resource type="Texture2D" uid="uid://cnljth4h5fsh2" path="res://Art/Tilesets/livingroom_objects/decorations/paper_3.png" id="10_dild0"]
 [ext_resource type="PackedScene" uid="uid://ukv5frx58e4p" path="res://Scenes/Objects/door.tscn" id="10_dvquf"]
 [ext_resource type="PackedScene" uid="uid://q706hi61umbv" path="res://Scenes/Minigames/paper.tscn" id="10_k6k0u"]
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="10_tsu73"]
 [ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="11_6taxj"]
 [ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="12_6taxj"]
+[ext_resource type="Texture2D" uid="uid://byn0cj0g6lmb4" path="res://Art/Tilesets/under_basement/wires.png" id="14_dvquf"]
+[ext_resource type="PackedScene" uid="uid://cxlmehkq1u15k" path="res://Scenes/Minigames/sliding_2.tscn" id="16_kxofi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl55y"]
 shader = ExtResource("3_gq4ce")
@@ -20,9 +23,14 @@ shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gq4ce"]
-radius = 14.764823
+radius = 12.0415945
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dvquf"]
+shader = ExtResource("3_gq4ce")
+shader_parameter/shadopacity = 0.2
+shader_parameter/shinopacity = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dild0"]
 shader = ExtResource("3_gq4ce")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
@@ -32,11 +40,22 @@ shader = ExtResource("3_gq4ce")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dild0"]
+radius = 11.0
+
 [node name="Room_Base" instance=ExtResource("1_87u7a")]
 
 [node name="Floor" parent="." index="3"]
 modulate = Color(0.8797265, 0.41936257, 1.92523e-07, 1)
-tile_map_data = PackedByteArray("AAD4/wYAAAABAAAAAAD4/wcAAAABAAAAAAD4/wgAAAABAAAAAAD4/wkAAAABAAAAAAD4/woAAAABAAAAAAD5/wMAAAABAAAAAAD5/wQAAAABAAAAAAD5/wUAAAABAAAAAAD5/wYAAAABAAAAAAD5/wcAAAABAAAAAAD5/wgAAAABAAAAAAD5/wkAAAABAAAAAAD5/woAAAABAAAAAAD5/wsAAAABAAAAAAD6/wIAAAABAAAAAAD6/wMAAAABAAAAAAD6/wQAAAABAAAAAAD6/wUAAAABAAAAAAD6/wYAAAABAAAAAAD6/wcAAAABAAAAAAD6/wgAAAABAAAAAAD6/wkAAAABAAAAAAD6/woAAAABAAAAAAD6/wsAAAABAAAAAAD7/wIAAAABAAAAAAD7/wMAAAABAAAAAAD7/wQAAAABAAAAAAD7/wUAAAABAAAAAAD7/wYAAAABAAAAAAD7/wcAAAABAAAAAAD7/wgAAAABAAAAAAD7/wkAAAABAAAAAAD7/woAAAABAAAAAAD7/wsAAAABAAAAAAD7/wwAAAABAAAAAAD8/wIAAAABAAAAAAD8/wMAAAABAAAAAAD8/wQAAAABAAAAAAD8/wUAAAABAAAAAAD8/wYAAAABAAAAAAD8/wcAAAABAAAAAAD8/wgAAAABAAAAAAD8/wkAAAABAAAAAAD8/woAAAABAAAAAAD8/wsAAAABAAAAAAD9/wIAAAABAAAAAAD9/wMAAAABAAAAAAD9/wQAAAABAAAAAAD9/wUAAAABAAAAAAD9/wYAAAABAAAAAAD9/wcAAAABAAAAAAD9/wgAAAABAAAAAAD9/wkAAAABAAAAAAD9/woAAAABAAAAAAD9/wsAAAABAAAAAAD+/wIAAAABAAAAAAD+/wMAAAABAAAAAAD+/wQAAAABAAAAAAD+/wUAAAABAAAAAAD+/wYAAAABAAAAAAD+/wcAAAABAAAAAAD+/wgAAAABAAAAAAD+/wkAAAABAAAAAAD+/woAAAABAAAAAAD+/wsAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wgAAAABAAAAAAD//wkAAAABAAAAAAD//woAAAABAAAAAAD//wsAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAAAAAYAAAABAAAAAAAAAAcAAAABAAAAAAAAAAgAAAABAAAAAAAAAAkAAAABAAAAAAAAAAoAAAABAAAAAAAAAAsAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAABAAoAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAACAAgAAAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAD9/wEAAAABAAAAAAD8/wAAAAABAAAAAAD8/wEAAAABAAAAAAD9/wAAAAABAAAAAAADAAIAAAABAAAAAAADAAEAAAABAAAAAAADAAAAAAABAAAAAAACAAEAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAADAAYAAAABAAAAAAADAAcAAAABAAAAAAAEAAQAAAABAAAAAAACAAYAAAABAAAAAAACAAcAAAABAAAAAAABAAcAAAABAAAAAAABAAgAAAABAAAAAAABAAkAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAABAAwAAAABAAAAAAACAAwAAAABAAAAAAACAAoAAAABAAAAAAACAAkAAAABAAAAAAAEAAMAAAABAAAAAAADAAgAAAABAAAAAAADAAkAAAABAAAAAAADAAoAAAABAAAAAAADAAMAAAABAAAAAAADAAsAAAABAAAAAAAEAAwAAAABAAAAAAAEAAsAAAABAAAAAAAEAAoAAAABAAAAAAAEAAkAAAABAAAAAAAFAA0AAAABAAAAAAAGAA0AAAABAAAAAAAGAA4AAAABAAAAAAAGAAwAAAABAAAAAAAGAAsAAAABAAAAAAAFAAwAAAABAAAAAAAFAAsAAAABAAAAAAAEAA0AAAABAAAAAAADAAwAAAABAAAAAAADAA0AAAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAACAA4AAAABAAAAAAACAA8AAAABAAAAAAABAA8AAAABAAAAAAAAAA8AAAABAAAAAAD//w8AAAABAAAAAAD//xAAAAABAAAAAAD+/xAAAAABAAAAAAD+/w8AAAABAAAAAAD+/w4AAAABAAAAAAD//w4AAAABAAAAAAD//w0AAAABAAAAAAAAAA0AAAABAAAAAAAAAAwAAAABAAAAAAD+/w0AAAABAAAAAAD9/w0AAAABAAAAAAD9/w4AAAABAAAAAAD8/w4AAAABAAAAAAABAA0AAAABAAAAAAACAA0AAAABAAAAAAAAAA4AAAABAAAAAAD8/w8AAAABAAAAAAD7/w8AAAABAAAAAAD6/w8AAAABAAAAAAD6/w4AAAABAAAAAAD7/w4AAAABAAAAAAD7/w0AAAABAAAAAAD8/w0AAAABAAAAAAD+/wwAAAABAAAAAAD//wwAAAABAAAAAAD5/w4AAAABAAAAAAD4/w4AAAABAAAAAAD4/w8AAAABAAAAAAD3/w8AAAABAAAAAAD2/w8AAAABAAAAAAD1/w8AAAABAAAAAAD1/w4AAAABAAAAAAD2/w4AAAABAAAAAAD3/w4AAAABAAAAAAD3/w0AAAABAAAAAAD4/w0AAAABAAAAAAD4/wwAAAABAAAAAAD5/wwAAAABAAAAAAD6/wwAAAABAAAAAAD6/w0AAAABAAAAAAD5/w0AAAABAAAAAAD2/w0AAAABAAAAAAD1/w0AAAABAAAAAAD0/w0AAAABAAAAAADz/w0AAAABAAAAAAD0/wwAAAABAAAAAAD1/wwAAAABAAAAAAD2/wwAAAABAAAAAAD3/wwAAAABAAAAAAD0/wsAAAABAAAAAADz/wsAAAABAAAAAADz/woAAAABAAAAAADz/wkAAAABAAAAAAD0/wkAAAABAAAAAAD0/wgAAAABAAAAAAD1/wgAAAABAAAAAAD1/wcAAAABAAAAAAD2/wcAAAABAAAAAAD2/wYAAAABAAAAAAD3/wYAAAABAAAAAAD3/wUAAAABAAAAAAD4/wUAAAABAAAAAAD4/wQAAAABAAAAAAD4/wsAAAABAAAAAAD3/wsAAAABAAAAAAD3/woAAAABAAAAAAD2/woAAAABAAAAAAD1/woAAAABAAAAAAD0/woAAAABAAAAAADy/wkAAAABAAAAAADx/wgAAAABAAAAAADy/wgAAAABAAAAAADy/wcAAAABAAAAAADz/wcAAAABAAAAAAD0/wcAAAABAAAAAAD0/wYAAAABAAAAAAD1/wYAAAABAAAAAAD2/wgAAAABAAAAAAD1/wkAAAABAAAAAAD1/wUAAAABAAAAAAD1/wQAAAABAAAAAAD1/wMAAAABAAAAAAD2/wMAAAABAAAAAAD2/wIAAAABAAAAAAD3/wIAAAABAAAAAAD3/wMAAAABAAAAAAD3/wQAAAABAAAAAAD2/wQAAAABAAAAAAD2/wUAAAABAAAAAAD4/wIAAAABAAAAAAD4/wMAAAABAAAAAAD0/wUAAAABAAAAAADz/wQAAAABAAAAAAD0/wQAAAABAAAAAAD4/wEAAAABAAAAAAD5/wIAAAABAAAAAADz/wYAAAABAAAAAADz/wUAAAABAAAAAAD3/wEAAAABAAAAAAD4/wAAAAABAAAAAAD5/wAAAAABAAAAAAD5////AAABAAAAAAD6////AAABAAAAAAD6//7/AAABAAAAAAD7//7/AAABAAAAAAD8//7/AAABAAAAAAD7////AAABAAAAAAD7/wAAAAABAAAAAAD6/wAAAAABAAAAAAD6/wEAAAABAAAAAAD5/wEAAAABAAAAAAD1/wIAAAABAAAAAAD1/wEAAAABAAAAAAD2/wEAAAABAAAAAAD8////AAABAAAAAAD9//7/AAABAAAAAAD+//7/AAABAAAAAAD+////AAABAAAAAAD9////AAABAAAAAAD7/wEAAAABAAAAAAD///7/AAABAAAAAAAAAP//AAABAAAAAAD3/wgAAAABAAAAAAD2/wkAAAABAAAAAADz/wgAAAABAAAAAAD3/wcAAAABAAAAAAD3/wkAAAABAAAAAAD1/wsAAAABAAAAAAD2/wsAAAABAAAAAAD8/wwAAAABAAAAAAD9/wwAAAABAAAAAAABAA4AAAABAAAAAAADAA8AAAABAAAAAAADAA4AAAABAAAAAAAEAA4AAAABAAAAAAAFAAkAAAABAAAAAAAFAAgAAAABAAAAAAAFAAcAAAABAAAAAAAEAAcAAAABAAAAAAAEAAYAAAABAAAAAAAEAAUAAAABAAAAAAAEAAIAAAABAAAAAAAGAAoAAAABAAAAAAAFAAoAAAABAAAAAAAEAAgAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD4/wYAAAABAAAAAAD4/wcAAAABAAAAAAD4/wgAAAABAAAAAAD4/wkAAAABAAAAAAD4/woAAAABAAAAAAD5/wMAAAABAAAAAAD5/wQAAAABAAAAAAD5/wUAAAABAAAAAAD5/wYAAAABAAAAAAD5/wcAAAABAAAAAAD5/wgAAAABAAAAAAD5/wkAAAABAAAAAAD5/woAAAABAAAAAAD5/wsAAAABAAAAAAD6/wIAAAABAAAAAAD6/wMAAAABAAAAAAD6/wQAAAABAAAAAAD6/wUAAAABAAAAAAD6/wYAAAABAAAAAAD6/wcAAAABAAAAAAD6/wgAAAABAAAAAAD6/wkAAAABAAAAAAD6/woAAAABAAAAAAD6/wsAAAABAAAAAAD7/wIAAAABAAAAAAD7/wMAAAABAAAAAAD7/wQAAAABAAAAAAD7/wUAAAABAAAAAAD7/wYAAAABAAAAAAD7/wcAAAABAAAAAAD7/wgAAAABAAAAAAD7/wkAAAABAAAAAAD7/woAAAABAAAAAAD7/wsAAAABAAAAAAD7/wwAAAABAAAAAAD8/wIAAAABAAAAAAD8/wMAAAABAAAAAAD8/wQAAAABAAAAAAD8/wUAAAABAAAAAAD8/wYAAAABAAAAAAD8/wcAAAABAAAAAAD8/wgAAAABAAAAAAD8/wkAAAABAAAAAAD8/woAAAABAAAAAAD8/wsAAAABAAAAAAD9/wIAAAABAAAAAAD9/wMAAAABAAAAAAD9/wQAAAABAAAAAAD9/wUAAAABAAAAAAD9/wYAAAABAAAAAAD9/wcAAAABAAAAAAD9/wgAAAABAAAAAAD9/wkAAAABAAAAAAD9/woAAAABAAAAAAD9/wsAAAABAAAAAAD+/wIAAAABAAAAAAD+/wMAAAABAAAAAAD+/wQAAAABAAAAAAD+/wUAAAABAAAAAAD+/wYAAAABAAAAAAD+/wcAAAABAAAAAAD+/wgAAAABAAAAAAD+/wkAAAABAAAAAAD+/woAAAABAAAAAAD+/wsAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAD//wYAAAABAAAAAAD//wcAAAABAAAAAAD//wgAAAABAAAAAAD//wkAAAABAAAAAAD//woAAAABAAAAAAD//wsAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAAAAAYAAAABAAAAAAAAAAcAAAABAAAAAAAAAAgAAAABAAAAAAAAAAkAAAABAAAAAAAAAAoAAAABAAAAAAAAAAsAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAABAAoAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAACAAgAAAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAD9/wEAAAABAAAAAAD8/wAAAAABAAAAAAD8/wEAAAABAAAAAAD9/wAAAAABAAAAAAADAAIAAAABAAAAAAADAAEAAAABAAAAAAADAAAAAAABAAAAAAACAAEAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAADAAYAAAABAAAAAAADAAcAAAABAAAAAAAEAAQAAAABAAAAAAACAAYAAAABAAAAAAACAAcAAAABAAAAAAABAAcAAAABAAAAAAABAAgAAAABAAAAAAABAAkAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAABAAwAAAABAAAAAAACAAwAAAABAAAAAAACAAoAAAABAAAAAAACAAkAAAABAAAAAAAEAAMAAAABAAAAAAADAAgAAAABAAAAAAADAAkAAAABAAAAAAADAAoAAAABAAAAAAADAAMAAAABAAAAAAADAAsAAAABAAAAAAAEAAwAAAABAAAAAAAEAAsAAAABAAAAAAAEAAoAAAABAAAAAAAEAAkAAAABAAAAAAAFAA0AAAABAAAAAAAGAA0AAAABAAAAAAAGAA4AAAABAAAAAAAGAAwAAAABAAAAAAAGAAsAAAABAAAAAAAFAAwAAAABAAAAAAAFAAsAAAABAAAAAAAEAA0AAAABAAAAAAADAAwAAAABAAAAAAADAA0AAAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAABAAAAAAACAA4AAAABAAAAAAACAA8AAAABAAAAAAABAA8AAAABAAAAAAAAAA8AAAABAAAAAAD//w8AAAABAAAAAAD//xAAAAABAAAAAAD+/xAAAAABAAAAAAD+/w8AAAABAAAAAAD+/w4AAAABAAAAAAD//w4AAAABAAAAAAD//w0AAAABAAAAAAAAAA0AAAABAAAAAAAAAAwAAAABAAAAAAD+/w0AAAABAAAAAAD9/w0AAAABAAAAAAD9/w4AAAABAAAAAAD8/w4AAAABAAAAAAABAA0AAAABAAAAAAACAA0AAAABAAAAAAAAAA4AAAABAAAAAAD8/w8AAAABAAAAAAD7/w8AAAABAAAAAAD6/w8AAAABAAAAAAD6/w4AAAABAAAAAAD7/w4AAAABAAAAAAD7/w0AAAABAAAAAAD8/w0AAAABAAAAAAD+/wwAAAABAAAAAAD//wwAAAABAAAAAAD5/w4AAAABAAAAAAD4/w4AAAABAAAAAAD4/w8AAAABAAAAAAD3/w8AAAABAAAAAAD2/w8AAAABAAAAAAD1/w8AAAABAAAAAAD1/w4AAAABAAAAAAD2/w4AAAABAAAAAAD3/w4AAAABAAAAAAD3/w0AAAABAAAAAAD4/w0AAAABAAAAAAD4/wwAAAABAAAAAAD5/wwAAAABAAAAAAD6/wwAAAABAAAAAAD6/w0AAAABAAAAAAD5/w0AAAABAAAAAAD2/w0AAAABAAAAAAD1/w0AAAABAAAAAAD0/w0AAAABAAAAAADz/w0AAAABAAAAAAD0/wwAAAABAAAAAAD1/wwAAAABAAAAAAD2/wwAAAABAAAAAAD3/wwAAAABAAAAAAD0/wsAAAABAAAAAADz/wsAAAABAAAAAADz/woAAAABAAAAAADz/wkAAAABAAAAAAD0/wkAAAABAAAAAAD0/wgAAAABAAAAAAD1/wgAAAABAAAAAAD1/wcAAAABAAAAAAD2/wcAAAABAAAAAAD2/wYAAAABAAAAAAD3/wYAAAABAAAAAAD3/wUAAAABAAAAAAD4/wUAAAABAAAAAAD4/wQAAAABAAAAAAD4/wsAAAABAAAAAAD3/wsAAAABAAAAAAD3/woAAAABAAAAAAD2/woAAAABAAAAAAD1/woAAAABAAAAAAD0/woAAAABAAAAAADy/wkAAAABAAAAAADx/wgAAAABAAAAAADy/wgAAAABAAAAAADy/wcAAAABAAAAAADz/wcAAAABAAAAAAD0/wcAAAABAAAAAAD0/wYAAAABAAAAAAD1/wYAAAABAAAAAAD2/wgAAAABAAAAAAD1/wkAAAABAAAAAAD1/wUAAAABAAAAAAD1/wQAAAABAAAAAAD1/wMAAAABAAAAAAD2/wMAAAABAAAAAAD2/wIAAAABAAAAAAD3/wIAAAABAAAAAAD3/wMAAAABAAAAAAD3/wQAAAABAAAAAAD2/wQAAAABAAAAAAD2/wUAAAABAAAAAAD4/wIAAAABAAAAAAD4/wMAAAABAAAAAAD0/wUAAAABAAAAAADz/wQAAAABAAAAAAD0/wQAAAABAAAAAAD4/wEAAAABAAAAAAD5/wIAAAABAAAAAADz/wYAAAABAAAAAADz/wUAAAABAAAAAAD3/wEAAAABAAAAAAD4/wAAAAABAAAAAAD5/wAAAAABAAAAAAD5////AAABAAAAAAD6////AAABAAAAAAD6//7/AAABAAAAAAD7//7/AAABAAAAAAD8//7/AAABAAAAAAD7////AAABAAAAAAD7/wAAAAABAAAAAAD6/wAAAAABAAAAAAD6/wEAAAABAAAAAAD5/wEAAAABAAAAAAD1/wIAAAABAAAAAAD1/wEAAAABAAAAAAD2/wEAAAABAAAAAAD8////AAABAAAAAAD9//7/AAABAAAAAAD+//7/AAABAAAAAAD+////AAABAAAAAAD9////AAABAAAAAAD7/wEAAAABAAAAAAD///7/AAABAAAAAAAAAP//AAABAAAAAAD3/wgAAAABAAAAAAD2/wkAAAABAAAAAADz/wgAAAABAAAAAAD3/wcAAAABAAAAAAD3/wkAAAABAAAAAAD1/wsAAAABAAAAAAD2/wsAAAABAAAAAAD8/wwAAAABAAAAAAD9/wwAAAABAAAAAAABAA4AAAABAAAAAAADAA8AAAABAAAAAAADAA4AAAABAAAAAAAEAA4AAAABAAAAAAAFAAkAAAABAAAAAAAFAAgAAAABAAAAAAAFAAcAAAABAAAAAAAEAAcAAAABAAAAAAAEAAYAAAABAAAAAAAEAAUAAAABAAAAAAAEAAIAAAABAAAAAAAGAAoAAAABAAAAAAAFAAoAAAABAAAAAAAEAAgAAAABAAAAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAD/////AAABAAAAAAAAAP3/AAABAAAAAAAAAP7/AAABAAAAAAABAP3/AAABAAAAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAACAP3/AAABAAAAAAACAP7/AAABAAAAAAACAP//AAABAAAAAAACAAAAAAABAAAAAAADAP3/AAABAAAAAAADAP7/AAABAAAAAAADAP//AAABAAAAAAAEAP3/AAABAAAAAAAEAP7/AAABAAAAAAAEAP//AAABAAAAAAAFAP3/AAABAAAAAAAFAP7/AAABAAAAAAAFAP//AAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAFAAYAAAABAAAAAAAGAP3/AAABAAAAAAAGAP7/AAABAAAAAAAGAP//AAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAGAAYAAAABAAAAAAAGAAcAAAABAAAAAAAGAAgAAAABAAAAAAAGAAkAAAABAAAAAAAHAP3/AAACAAAAAAA=")
+
+[node name="WallsR" parent="." index="4"]
+modulate = Color(0.4366679, 0.18226403, 0, 1)
+tile_map_data = PackedByteArray("AAAKAPr/AAACAAAAAAAKAPv/AAACAAAAAAAKAPz/AAACAAAAAAAKAP3/AAACAAAAAAAKAP7/AAACAAAAAAAKAP//AAACAAAAAAAKAAAAAAACAAAAAAAKAAEAAAACAAAAAAAKAAIAAAACAAAAAAAKAAMAAAACAAAAAAAKAAQAAAACAAAAAAAKAAUAAAACAAAAAAAKAAYAAAACAAAAAAAKAAcAAAACAAAAAAAKAAgAAAACAAAAAAAKAAkAAAACAAAAAAAKAAoAAAACAAAAAAAKAAsAAAACAAAAAAALAPn/AAACAAAAAAALAPr/AAACAAAAAAALAPv/AAACAAAAAAALAPz/AAACAAAAAAALAP3/AAACAAAAAAALAP7/AAACAAAAAAALAP//AAACAAAAAAALAAAAAAACAAAAAAALAAEAAAACAAAAAAALAAIAAAACAAAAAAALAAMAAAACAAAAAAALAAQAAAACAAAAAAALAAUAAAACAAAAAAALAAYAAAACAAAAAAALAAcAAAACAAAAAAALAAgAAAACAAAAAAALAAkAAAACAAAAAAALAAoAAAACAAAAAAAJAPv/AAACAAAAAAAJAPz/AAACAAAAAAAJAP3/AAACAAAAAAAJAP7/AAACAAAAAAAJAP//AAACAAAAAAAJAAAAAAACAAAAAAAJAAEAAAACAAAAAAAJAAIAAAACAAAAAAAJAAMAAAACAAAAAAAJAAQAAAACAAAAAAAJAAUAAAACAAAAAAAJAAYAAAACAAAAAAAJAAcAAAACAAAAAAAJAAgAAAACAAAAAAAJAAkAAAACAAAAAAAJAAoAAAACAAAAAAAJAAsAAAACAAAAAAAJAAwAAAACAAAAAAAMAPj/AAACAAAAAAAMAPn/AAACAAAAAAAMAPr/AAACAAAAAAAMAPv/AAACAAAAAAAMAPz/AAACAAAAAAAMAP3/AAACAAAAAAAMAP7/AAACAAAAAAAMAP//AAACAAAAAAAMAAAAAAACAAAAAAAMAAEAAAACAAAAAAAMAAIAAAACAAAAAAAMAAMAAAACAAAAAAAMAAQAAAACAAAAAAAMAAUAAAACAAAAAAAMAAYAAAACAAAAAAAMAAcAAAACAAAAAAAMAAgAAAACAAAAAAAMAAkAAAACAAAAAAAIAPz/AAACAAAAAAAIAP3/AAACAAAAAAAIAP7/AAACAAAAAAAIAP//AAACAAAAAAAIAAAAAAACAAAAAAAIAAEAAAACAAAAAAAIAAIAAAACAAAAAAAIAAMAAAACAAAAAAAIAAQAAAACAAAAAAAIAAUAAAACAAAAAAAIAAYAAAACAAAAAAAIAAcAAAACAAAAAAAIAAgAAAACAAAAAAAIAAkAAAACAAAAAAAIAAoAAAACAAAAAAAIAAsAAAACAAAAAAAIAAwAAAACAAAAAAAIAA0AAAACAAAAAAA=")
+
+[node name="WallsL" parent="." index="5"]
+modulate = Color(0.39315128, 0.16015941, 1.2032687e-07, 1)
+tile_map_data = PackedByteArray("AAAEAPv/AAADAAAAAAAFAPv/AAADAAAAAAAGAPv/AAADAAAAAAAHAPv/AAADAAAAAAAEAPr/AAADAAAAAAAFAPr/AAADAAAAAAAGAPr/AAADAAAAAAAHAPr/AAADAAAAAAAIAPr/AAADAAAAAAAEAPn/AAADAAAAAAAFAPn/AAADAAAAAAAGAPn/AAADAAAAAAAHAPn/AAADAAAAAAAIAPn/AAADAAAAAAAJAPn/AAADAAAAAAAEAPj/AAADAAAAAAAFAPj/AAADAAAAAAAGAPj/AAADAAAAAAAHAPj/AAADAAAAAAAIAPj/AAADAAAAAAAJAPj/AAADAAAAAAAKAPj/AAADAAAAAAADAPf/AAADAAAAAAAEAPf/AAADAAAAAAAFAPf/AAADAAAAAAAGAPf/AAADAAAAAAAHAPf/AAADAAAAAAAIAPf/AAADAAAAAAAJAPf/AAADAAAAAAAKAPf/AAADAAAAAAALAPf/AAADAAAAAAD+//z/AAADAAAAAAD///v/AAADAAAAAAAAAPr/AAADAAAAAAAAAPv/AAADAAAAAAABAPn/AAADAAAAAAABAPr/AAADAAAAAAABAPv/AAADAAAAAAACAPj/AAADAAAAAAACAPn/AAADAAAAAAACAPr/AAADAAAAAAACAPv/AAADAAAAAAADAPj/AAADAAAAAAADAPn/AAADAAAAAAADAPr/AAADAAAAAAADAPv/AAADAAAAAAD9//z/AAADAAAAAAD+//v/AAADAAAAAAD///r/AAADAAAAAAAAAPn/AAADAAAAAAABAPj/AAADAAAAAAD8//z/AAADAAAAAAD9//v/AAADAAAAAAD+//r/AAADAAAAAAD///n/AAADAAAAAAAAAPj/AAADAAAAAAD7//z/AAADAAAAAAD8//v/AAADAAAAAAD9//r/AAADAAAAAAD+//n/AAADAAAAAAD///j/AAADAAAAAAD6//3/AAADAAAAAAD5//7/AAADAAAAAAD4////AAADAAAAAAD3////AAADAAAAAAD4//7/AAADAAAAAAD5//3/AAADAAAAAAD6//z/AAADAAAAAAD7//v/AAADAAAAAAA=")
 
 [node name="oils" parent="SceneObjects" index="0" instance=ExtResource("2_guotd")]
 position = Vector2(128, 52)
@@ -80,7 +99,7 @@ minigame = NodePath("../../Minigames/Deskpapers")
 disappearWhen = ""
 
 [node name="Detection" parent="SceneObjects/desk" index="0"]
-position = Vector2(0, 0)
+position = Vector2(11, -6)
 
 [node name="CollisionShape2D" parent="SceneObjects/desk/Detection" index="0"]
 shape = SubResource("CircleShape2D_gq4ce")
@@ -89,10 +108,10 @@ shape = SubResource("CircleShape2D_gq4ce")
 polygon = PackedVector2Array(21, -4, -10, 12, -20, 6, 10, -9)
 
 [node name="Prompt" parent="SceneObjects/desk" index="2"]
-offset_left = -20.0
-offset_top = -21.0
-offset_right = 8.0
-offset_bottom = 2.0
+offset_left = -1.0
+offset_top = -29.0
+offset_right = 27.0
+offset_bottom = -6.0
 theme_override_font_sizes/font_size = 21
 
 [node name="Desk" type="Sprite2D" parent="SceneObjects/desk" index="3"]
@@ -102,18 +121,32 @@ texture = ExtResource("5_es4al")
 
 [node name="Paper1" type="Sprite2D" parent="SceneObjects/desk" index="4"]
 material = SubResource("ShaderMaterial_dvquf")
-position = Vector2(0, -10)
+position = Vector2(6, -14)
 texture = ExtResource("7_sl55y")
 
-[node name="Paper2" type="Sprite2D" parent="SceneObjects/desk" index="5"]
+[node name="Paper2" type="Sprite2D" parent="SceneObjects/desk/Paper1" index="0"]
 material = SubResource("ShaderMaterial_dvquf")
-position = Vector2(4, -10)
+position = Vector2(4, 0)
 texture = ExtResource("8_k6k0u")
 
-[node name="Paper4" type="Sprite2D" parent="SceneObjects/desk" index="6"]
+[node name="Paper4" type="Sprite2D" parent="SceneObjects/desk/Paper1" index="1"]
 material = SubResource("ShaderMaterial_dvquf")
-position = Vector2(0, -10)
 texture = ExtResource("10_tsu73")
+
+[node name="Paper3" type="Sprite2D" parent="SceneObjects/desk" index="5"]
+material = SubResource("ShaderMaterial_dild0")
+position = Vector2(-10, -6)
+texture = ExtResource("10_dild0")
+
+[node name="Paper5" type="Sprite2D" parent="SceneObjects/desk/Paper3" index="0"]
+material = SubResource("ShaderMaterial_dild0")
+position = Vector2(-1, 1)
+texture = ExtResource("10_tsu73")
+
+[node name="Paper2" type="Sprite2D" parent="SceneObjects/desk/Paper3" index="1"]
+material = SubResource("ShaderMaterial_dild0")
+position = Vector2(2, 0)
+texture = ExtResource("8_k6k0u")
 
 [node name="Door" parent="SceneObjects" index="2" instance=ExtResource("10_dvquf")]
 position = Vector2(145, 18)
@@ -121,7 +154,7 @@ keys = Array[String](["Power", "Wires", "Code"])
 disappearWhen = ""
 
 [node name="euler" parent="SceneObjects" index="3" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
-position = Vector2(67, 9)
+position = Vector2(64, -7)
 minigame = NodePath("../../Minigames/BarrelPaper")
 disappearWhen = ""
 
@@ -182,6 +215,38 @@ texture = ExtResource("4_1jraj")
 material = SubResource("ShaderMaterial_tsu73")
 position = Vector2(14, 4)
 texture = ExtResource("7_sl55y")
+
+[node name="log" parent="SceneObjects" index="4" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+position = Vector2(-31, 42)
+minigame = NodePath("../../Minigames/Log")
+disappearWhen = ""
+
+[node name="Detection" parent="SceneObjects/log" index="0"]
+position = Vector2(-2, 2)
+
+[node name="CollisionShape2D" parent="SceneObjects/log/Detection" index="0"]
+shape = SubResource("CircleShape2D_dild0")
+
+[node name="Prompt" parent="SceneObjects/log" index="2"]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 12.0
+offset_bottom = -1.0
+
+[node name="wires" parent="SceneObjects" index="5" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+position = Vector2(118, 2)
+minigame = NodePath("../../Minigames/SlidingMinigame")
+disappearWhen = ""
+
+[node name="Prompt" parent="SceneObjects/wires" index="2"]
+offset_left = -16.0
+offset_top = -34.0
+offset_right = 11.0
+offset_bottom = -11.0
+
+[node name="Wires" type="Sprite2D" parent="SceneObjects/wires" index="3"]
+position = Vector2(-1, -19)
+texture = ExtResource("14_dvquf")
 
 [node name="Deskpapers" parent="Minigames" index="0" instance=ExtResource("10_k6k0u")]
 visible = false
@@ -322,7 +387,241 @@ text = "STEPS TO FEED IT:
 4. LEAVE REMAINS TO DECOMPOSE."
 autowrap_mode = 2
 
-[node name="BarrelPaper" parent="Minigames" index="1" instance=ExtResource("10_k6k0u")]
+[node name="Log" parent="Minigames" index="1" instance=ExtResource("10_k6k0u")]
+visible = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Paper7" parent="Minigames/Log" index="0" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 109.0
+offset_right = 595.0
+offset_bottom = 433.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper7" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 501.0
+offset_bottom = 325.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/Log/Paper7" index="1"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 22
+text = "THOSE GOOD FOR NOTHING POLICE WERE   N O   H E L P
+
+AT LEAST THE LANDLORD BUSINESS IS TURNING A NEW PROFIT.
+
+HA"
+autowrap_mode = 2
+
+[node name="Paper6" parent="Minigames/Log" index="1" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 109.0
+offset_right = 595.0
+offset_bottom = 433.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper6" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 501.0
+offset_bottom = 325.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/Log/Paper6" index="1"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 22
+text = "FOUND MORE FUEL, GOT MORE OIL, FIXED MY BACK.
+
+PAID SOME POLICE TO LOOK AWAY FROM SOME AREAS."
+autowrap_mode = 2
+
+[node name="Paper5" parent="Minigames/Log" index="2" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 109.0
+offset_right = 595.0
+offset_bottom = 433.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper5" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 501.0
+offset_bottom = 325.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/Log/Paper5" index="1"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 22
+text = "THE CREATURE STOPPED DIGGING. WHAT'S GOING ON?
+
+OH. GUESS COUSIN JOE'S GONE NOW.
+BUT LOOKS LIKE THE BEAST'S GOTTEN LOTS OF ENERGY FROM HIM."
+autowrap_mode = 2
+
+[node name="Paper4" parent="Minigames/Log" index="3" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 109.0
+offset_right = 595.0
+offset_bottom = 433.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper4" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 501.0
+offset_bottom = 325.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/Log/Paper4" index="1"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 13.0
+offset_right = 274.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 22
+text = "CAN'T BELIEVE IT TOOK SO LONG TO HIT OIL.
+
+
+AH WELL....
+COUSIN JOE ARRIVES TOMORROW"
+autowrap_mode = 2
+
+[node name="Paper2" parent="Minigames/Log" index="6" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 109.0
+offset_right = 595.0
+offset_bottom = 433.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper2" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 501.0
+offset_bottom = 325.0
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Minigames/Log/Paper2" index="1"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 13.0
+offset_right = 275.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 22
+text = "FINALLY CAUGHT ONE!
+
+\"INCOMPREHENSIBLE CRYPTID\" MY ASS!
+
+ALL THIS STUPID THING DOES IS DIG!"
+autowrap_mode = 2
+
+[node name="Paper3" parent="Minigames/Log" index="7" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 110.0
+offset_right = 601.0
+offset_bottom = 434.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper3" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 267.0
+offset_right = 495.0
+rotation = 1.5707964
+
+[node name="Label2" type="Label" parent="Minigames/Log/Paper3" index="1"]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 4.0
+offset_right = 267.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 22
+text = "WE GOTTA MAKE SOME BOOK OR SOMETHING OUT OF THIS SO LET'S RECORD EVERYTHING.
+NOT THAT ANYONE WOULD BELIEVE IT, THANKFULLY.
+
+REMEMBER TO ASK COUSIN JOE IF HE LIKES THE TITLE"
+autowrap_mode = 2
+
+[node name="Paper" parent="Minigames/Log" index="8" instance=ExtResource("11_6taxj")]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 109.0
+offset_right = 595.0
+offset_bottom = 433.0
+
+[node name="TextureRect2" parent="Minigames/Log/Paper" index="0"]
+modulate = Color(0.8392157, 0.9137255, 1, 1)
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 501.0
+offset_bottom = 325.0
+rotation = 1.5707964
+
+[node name="Label2" type="Label" parent="Minigames/Log/Paper" index="1"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 23.0
+offset_right = 224.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.76862746, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 42
+text = "JOURNAL OF THE FORTUNATE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BarrelPaper" parent="Minigames" index="2" instance=ExtResource("10_k6k0u")]
 visible = false
 
 [node name="Paper" parent="Minigames/BarrelPaper" index="2" instance=ExtResource("11_6taxj")]
@@ -395,11 +694,23 @@ offset_right = 210.0
 offset_bottom = 46.0
 color = Color(0.76862746, 0, 0, 1)
 
+[node name="SlidingMinigame" parent="Minigames" index="3" instance=ExtResource("16_kxofi")]
+visible = false
+
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/oils"]
 [editable path="SceneObjects/desk"]
 [editable path="SceneObjects/euler"]
+[editable path="SceneObjects/log"]
+[editable path="SceneObjects/wires"]
 [editable path="Minigames/Deskpapers/Paper"]
 [editable path="Minigames/Deskpapers/Paper3"]
 [editable path="Minigames/Deskpapers/Paper2"]
+[editable path="Minigames/Log/Paper7"]
+[editable path="Minigames/Log/Paper6"]
+[editable path="Minigames/Log/Paper5"]
+[editable path="Minigames/Log/Paper4"]
+[editable path="Minigames/Log/Paper2"]
+[editable path="Minigames/Log/Paper3"]
+[editable path="Minigames/Log/Paper"]
 [editable path="Minigames/BarrelPaper/Paper"]
