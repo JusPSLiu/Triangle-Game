@@ -232,3 +232,11 @@ texture = ExtResource("8_kd6tv")
 libraries = {
 &"": SubResource("AnimationLibrary_25xb2")
 }
+
+[node name="BLOCKER" type="ColorRect" parent="Interior" index="1"]
+layout_mode = 0
+offset_left = -9.25
+offset_top = 7.0
+offset_right = 107.0
+offset_bottom = 54.5
+color = Color(1, 1, 1, 0)
