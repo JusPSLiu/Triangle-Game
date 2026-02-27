@@ -4,6 +4,7 @@ class_name combo_lock
 @export var key : String
 @export var combination : String = "12345"
 @export var opening_animator : AnimationPlayer
+@export var fail_animator : AnimationPlayer
 
 var array_combination : Array
 
@@ -49,3 +50,5 @@ func combo_updated():
 	if (current_combination == array_combination):
 		GlobalVariables.add_to_inventory(key)
 		opening_animator.play("OpenSafe")
+	elif (fail_animator != null):
+		fail_animator.play("wrong")

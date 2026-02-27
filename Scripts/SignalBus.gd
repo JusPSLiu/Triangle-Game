@@ -6,3 +6,4 @@ signal exited_minigame
 signal fade_to_level
 
 signal updateTv
+signal inventoryUpdate

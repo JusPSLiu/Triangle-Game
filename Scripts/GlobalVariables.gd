@@ -13,3 +13,7 @@ func add_to_inventory(check : String):
 		dict[check] = true
 	else:
 		dict.set(check, true)
+		SignalBus.inventoryUpdate.emit()
+
+func clear_inventory():
+	dict.clear()

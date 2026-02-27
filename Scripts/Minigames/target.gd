@@ -56,4 +56,4 @@ func _input(event: InputEvent) -> void:
 			
 			if (layer >= kids.size()):
 				animator.play("done")
-				GlobalVariables.add_to_inventory("copperKey")
+				GlobalVariables.add_to_inventory(key)

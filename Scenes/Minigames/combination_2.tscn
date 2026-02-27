@@ -1,0 +1,234 @@
+[gd_scene load_steps=21 format=3 uid="uid://bdap0ta7e5355"]
+
+[ext_resource type="PackedScene" uid="uid://ctx17gjtqqbk1" path="res://Scenes/Minigames/base_minigame.tscn" id="1_vtuul"]
+[ext_resource type="Texture2D" uid="uid://cdkjog6msmp07" path="res://Art/UI/minigames/combo.png" id="2_q5h0p"]
+[ext_resource type="Texture2D" uid="uid://bpha4oby1xser" path="res://Art/UI/minigames/combowires.png" id="3_kd6tv"]
+[ext_resource type="Script" uid="uid://cumfocnrlf03p" path="res://Scripts/Minigames/combo_lock.gd" id="4_gwss4"]
+[ext_resource type="PackedScene" uid="uid://c2a3v3pwf4oh1" path="res://Scenes/Minigames/MinigameObjects/wheel.tscn" id="5_nhkxb"]
+[ext_resource type="Texture2D" uid="uid://br85acqlh55ty" path="res://Art/UI/minigames/letter_wheel.png" id="5_vtuul"]
+[ext_resource type="Texture2D" uid="uid://dponyym3klwip" path="res://Art/UI/minigames/combo_red.png" id="6_kd6tv"]
+[ext_resource type="Texture2D" uid="uid://jvnpka601dek" path="res://Art/UI/minigames/combo_gren.png" id="8_kd6tv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d3s7"]
+atlas = ExtResource("5_vtuul")
+region = Rect2(0, 0, 0, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvokq"]
+atlas = ExtResource("5_vtuul")
+region = Rect2(0, 0, 0, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emcsj"]
+atlas = ExtResource("5_vtuul")
+region = Rect2(0, 0, 0, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pms1m"]
+atlas = ExtResource("5_vtuul")
+region = Rect2(0, 0, 0, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpajx"]
+atlas = ExtResource("5_vtuul")
+region = Rect2(0, 0, 0, 27)
+
+[sub_resource type="Animation" id="Animation_kd6tv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vtuul"]
+resource_name = "wrong"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7fkk"]
+_data = {
+&"RESET": SubResource("Animation_kd6tv"),
+&"wrong": SubResource("Animation_vtuul")
+}
+
+[sub_resource type="Animation" id="Animation_nsn66"]
+resource_name = "OpenSafe"
+length = 2.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fb6m0"]
+resource_name = "Opened"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ndaro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25xb2"]
+_data = {
+&"OpenSafe": SubResource("Animation_nsn66"),
+&"Opened": SubResource("Animation_fb6m0"),
+&"RESET": SubResource("Animation_ndaro")
+}
+
+[node name="Minigame" node_paths=PackedStringArray("DoNotExitWhilePlaying") instance=ExtResource("1_vtuul")]
+DoNotExitWhilePlaying = [NodePath("Interior/AnimationPlayer")]
+
+[node name="Safe" type="TextureRect" parent="background" index="0"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 126.0
+offset_right = 347.0
+offset_bottom = 199.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_q5h0p")
+
+[node name="TextureRect" type="TextureRect" parent="background/Safe" index="0"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 53.0
+offset_bottom = 61.0
+texture = ExtResource("3_kd6tv")
+
+[node name="TextureRect" type="TextureRect" parent="background/Safe/TextureRect" index="0"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 3.0
+offset_right = 0.25
+offset_bottom = 11.0
+texture = ExtResource("3_kd6tv")
+
+[node name="ComboLock" type="TextureRect" parent="." index="1" node_paths=PackedStringArray("opening_animator", "fail_animator")]
+clip_contents = true
+layout_mode = 0
+offset_left = 244.0
+offset_top = 142.0
+offset_right = 361.0
+offset_bottom = 206.0
+scale = Vector2(4, 4)
+script = ExtResource("4_gwss4")
+key = "Code"
+combination = "40982"
+opening_animator = NodePath("../Interior/AnimationPlayer")
+fail_animator = NodePath("../red_light/fail")
+
+[node name="Wheel1" parent="ComboLock" index="0" instance=ExtResource("5_nhkxb")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 18.0
+offset_right = 28.0
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_1d3s7")
+
+[node name="Wheel2" parent="ComboLock" index="1" instance=ExtResource("5_nhkxb")]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 18.0
+offset_right = 48.0
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_rvokq")
+
+[node name="Wheel3" parent="ComboLock" index="2" instance=ExtResource("5_nhkxb")]
+layout_mode = 0
+offset_left = 49.75
+offset_top = 18.0
+offset_right = 67.75
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_emcsj")
+
+[node name="Wheel4" parent="ComboLock" index="3" instance=ExtResource("5_nhkxb")]
+layout_mode = 0
+offset_left = 69.75
+offset_top = 18.0
+offset_right = 87.75
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_pms1m")
+
+[node name="Wheel5" parent="ComboLock" index="4" instance=ExtResource("5_nhkxb")]
+layout_mode = 0
+offset_left = 89.75
+offset_top = 18.0
+offset_right = 107.75
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_rpajx")
+
+[node name="red_light" type="TextureRect" parent="." index="2"]
+visible = false
+layout_mode = 0
+offset_left = 288.0
+offset_top = 146.0
+offset_right = 384.0
+offset_bottom = 154.0
+scale = Vector2(4, 4)
+texture = ExtResource("6_kd6tv")
+
+[node name="fail" type="AnimationPlayer" parent="red_light" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_u7fkk")
+}
+
+[node name="Interior" type="TextureRect" parent="." index="3"]
+visible = false
+layout_mode = 0
+offset_left = 288.0
+offset_top = 146.0
+offset_right = 384.0
+offset_bottom = 154.0
+scale = Vector2(4, 4)
+texture = ExtResource("8_kd6tv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interior" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_25xb2")
+}

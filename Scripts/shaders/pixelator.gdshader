@@ -4,6 +4,7 @@ uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_nearest;
 
 uniform vec2 offset = vec2(0.0, 0.0);
 uniform int pixel_size : hint_range(1, 64) = 4; // Pixel size
+uniform float actual_legit_offset = 0.0;
 uniform vec2 screen_size = vec2(960, 540);
 uniform bool FLOOR_IT = false;
 
@@ -13,7 +14,7 @@ void fragment() {
 	if (FLOOR_IT) {
 		pixelated = floor((FRAGCOORD.xy+offset) / float(pixel_size)) * float(pixel_size) - offset;
 	} else {
-		pixelated = round((FRAGCOORD.xy+offset) / float(pixel_size)) * float(pixel_size) - offset;
+		pixelated = round((FRAGCOORD.xy+offset+vec2(0,actual_legit_offset)) / float(pixel_size)) * float(pixel_size) - offset;
 	}
     // Convert pixel coordinates to UVs for screen texture
     vec2 uv = pixelated / screen_size;

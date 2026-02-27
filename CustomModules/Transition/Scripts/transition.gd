@@ -1,4 +1,5 @@
 extends Control
+class_name transition
 
 # grab the child animation player
 @onready var transitionPlayer = $AnimationPlayer

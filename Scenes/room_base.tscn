@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bph5j6qdcn1f7"]
+[gd_scene load_steps=21 format=3 uid="uid://bph5j6qdcn1f7"]
 
 [ext_resource type="Script" uid="uid://dmv3ueygfuqp5" path="res://Scripts/room.gd" id="1_0kgd1"]
 [ext_resource type="PackedScene" uid="uid://bxruvlbqqvnbu" path="res://CustomModules/Transition/Scenes/transition.tscn" id="1_aw2ct"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ynid5vi3tdfn" path="res://Scenes/Player/player.tscn" id="8_dxtyj"]
 [ext_resource type="Texture2D" uid="uid://llx1syfx5q7h" path="res://Art/Tilesets/bedroom_carpets.png" id="9_1li6j"]
 [ext_resource type="Script" uid="uid://dyx8mucmxb5oo" path="res://Scripts/objects/scene_object_controller.gd" id="9_rd1j8"]
+[ext_resource type="Texture2D" uid="uid://dywmkw5svxplg" path="res://Art/Tilesets/underground_decorative.png" id="10_rg140"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rg140"]
 atlas = ExtResource("2_1li6j")
@@ -241,6 +242,11 @@ texture = ExtResource("9_1li6j")
 5:2/0/terrains_peering_bit/top_left_side = 2
 5:2/0/terrains_peering_bit/top_right_side = 2
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktdpr"]
+texture = ExtResource("10_rg140")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+
 [sub_resource type="TileSet" id="TileSet_wnaea"]
 tile_shape = 1
 tile_layout = 4
@@ -256,6 +262,7 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_m4wpj")
 sources/0 = SubResource("TileSetAtlasSource_lq7x6")
 sources/2 = SubResource("TileSetAtlasSource_rg140")
+sources/3 = SubResource("TileSetAtlasSource_ktdpr")
 
 [node name="Room_Base" type="Node2D"]
 texture_filter = 1

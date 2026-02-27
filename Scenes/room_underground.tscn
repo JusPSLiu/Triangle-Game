@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c2fu3lylb6x6t"]
+[gd_scene load_steps=35 format=4 uid="uid://c2fu3lylb6x6t"]
 
 [ext_resource type="PackedScene" uid="uid://bph5j6qdcn1f7" path="res://Scenes/room_base.tscn" id="1_87u7a"]
 [ext_resource type="PackedScene" uid="uid://dr48ywdf3uf5n" path="res://Scenes/Objects/object.tscn" id="2_guotd"]
@@ -14,8 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://fcpww4bklqi3" path="res://Art/Tilesets/livingroom_objects/decorations/paper_4.png" id="10_tsu73"]
 [ext_resource type="PackedScene" uid="uid://bd0phxy4l7q1x" path="res://Scenes/Minigames/MinigameObjects/paper.tscn" id="11_6taxj"]
 [ext_resource type="FontFile" uid="uid://bjtck5npkyvn7" path="res://Art/Fonts/LowresPixel-Regular.otf" id="12_6taxj"]
+[ext_resource type="Texture2D" uid="uid://p68u8od3jwym" path="res://Art/Tilesets/under_basement/generator_on.png" id="13_rgwko"]
+[ext_resource type="Texture2D" uid="uid://dsykvi7cjbjtj" path="res://Art/Tilesets/under_basement/generator.png" id="13_rsd0s"]
+[ext_resource type="Script" uid="uid://bfse4axn0qh0k" path="res://Scripts/objects/appear_when_item.gd" id="14_b0liv"]
 [ext_resource type="Texture2D" uid="uid://byn0cj0g6lmb4" path="res://Art/Tilesets/under_basement/wires.png" id="14_dvquf"]
+[ext_resource type="Texture2D" uid="uid://10s60dmhrl55" path="res://Art/Tilesets/under_basement/wires_complete.png" id="16_b0liv"]
 [ext_resource type="PackedScene" uid="uid://cxlmehkq1u15k" path="res://Scenes/Minigames/sliding_2.tscn" id="16_kxofi"]
+[ext_resource type="PackedScene" uid="uid://b8wjaguc6f1rh" path="res://Scenes/Minigames/generator_opening.tscn" id="17_8ehgv"]
+[ext_resource type="Texture2D" uid="uid://blly73qu0d88h" path="res://Art/Tilesets/under_basement/combo.png" id="17_lqhxi"]
+[ext_resource type="Texture2D" uid="uid://ca2dddvhi6weg" path="res://Art/Tilesets/under_basement/combo_on.png" id="18_qks7h"]
+[ext_resource type="PackedScene" uid="uid://bdap0ta7e5355" path="res://Scenes/Minigames/combination_2.tscn" id="23_e0kvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl55y"]
 shader = ExtResource("3_gq4ce")
@@ -34,6 +42,70 @@ shader_parameter/shinopacity = 0.05
 shader = ExtResource("3_gq4ce")
 shader_parameter/shadopacity = 0.2
 shader_parameter/shinopacity = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqhxi"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_0fmfl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2i2di"]
+resource_name = "needkey"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.3, 1.0666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ag57v"]
+_data = {
+&"RESET": SubResource("Animation_0fmfl"),
+&"needkey": SubResource("Animation_2i2di")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tsu73"]
 shader = ExtResource("3_gq4ce")
@@ -56,6 +128,9 @@ tile_map_data = PackedByteArray("AAAKAPr/AAACAAAAAAAKAPv/AAACAAAAAAAKAPz/AAACAAA
 [node name="WallsL" parent="." index="5"]
 modulate = Color(0.39315128, 0.16015941, 1.2032687e-07, 1)
 tile_map_data = PackedByteArray("AAAEAPv/AAADAAAAAAAFAPv/AAADAAAAAAAGAPv/AAADAAAAAAAHAPv/AAADAAAAAAAEAPr/AAADAAAAAAAFAPr/AAADAAAAAAAGAPr/AAADAAAAAAAHAPr/AAADAAAAAAAIAPr/AAADAAAAAAAEAPn/AAADAAAAAAAFAPn/AAADAAAAAAAGAPn/AAADAAAAAAAHAPn/AAADAAAAAAAIAPn/AAADAAAAAAAJAPn/AAADAAAAAAAEAPj/AAADAAAAAAAFAPj/AAADAAAAAAAGAPj/AAADAAAAAAAHAPj/AAADAAAAAAAIAPj/AAADAAAAAAAJAPj/AAADAAAAAAAKAPj/AAADAAAAAAADAPf/AAADAAAAAAAEAPf/AAADAAAAAAAFAPf/AAADAAAAAAAGAPf/AAADAAAAAAAHAPf/AAADAAAAAAAIAPf/AAADAAAAAAAJAPf/AAADAAAAAAAKAPf/AAADAAAAAAALAPf/AAADAAAAAAD+//z/AAADAAAAAAD///v/AAADAAAAAAAAAPr/AAADAAAAAAAAAPv/AAADAAAAAAABAPn/AAADAAAAAAABAPr/AAADAAAAAAABAPv/AAADAAAAAAACAPj/AAADAAAAAAACAPn/AAADAAAAAAACAPr/AAADAAAAAAACAPv/AAADAAAAAAADAPj/AAADAAAAAAADAPn/AAADAAAAAAADAPr/AAADAAAAAAADAPv/AAADAAAAAAD9//z/AAADAAAAAAD+//v/AAADAAAAAAD///r/AAADAAAAAAAAAPn/AAADAAAAAAABAPj/AAADAAAAAAD8//z/AAADAAAAAAD9//v/AAADAAAAAAD+//r/AAADAAAAAAD///n/AAADAAAAAAAAAPj/AAADAAAAAAD7//z/AAADAAAAAAD8//v/AAADAAAAAAD9//r/AAADAAAAAAD+//n/AAADAAAAAAD///j/AAADAAAAAAD6//3/AAADAAAAAAD5//7/AAADAAAAAAD4////AAADAAAAAAD3////AAADAAAAAAD4//7/AAADAAAAAAD5//3/AAADAAAAAAD6//z/AAADAAAAAAD7//v/AAADAAAAAAA=")
+
+[node name="Decorations" parent="." index="6"]
+tile_map_data = PackedByteArray("AAAKAAMAAwAAAAAAAAAKAAIAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAAAAwAAAAAAAAAKAP//AwAAAAAAAAAKAP7/AwAAAAAAAAAKAP3/AwAAAAAAAAAKAPz/AwAAAAAAAAALAAQAAwAAAAAAAAALAAUAAwAAAAAAAAALAAYAAwAAAAAAAAA=")
 
 [node name="oils" parent="SceneObjects" index="0" instance=ExtResource("2_guotd")]
 position = Vector2(128, 52)
@@ -145,15 +220,58 @@ texture = ExtResource("10_tsu73")
 
 [node name="Paper2" type="Sprite2D" parent="SceneObjects/desk/Paper3" index="1"]
 material = SubResource("ShaderMaterial_dild0")
-position = Vector2(2, 0)
+position = Vector2(1, -1)
 texture = ExtResource("8_k6k0u")
 
 [node name="Door" parent="SceneObjects" index="2" instance=ExtResource("10_dvquf")]
 position = Vector2(145, 18)
+to_room = "res://Scenes/Menu.tscn"
 keys = Array[String](["Power", "Wires", "Code"])
 disappearWhen = ""
 
-[node name="euler" parent="SceneObjects" index="3" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+[node name="CollisionShape2D" parent="SceneObjects/Door/Detection" index="0"]
+shape = SubResource("CircleShape2D_lqhxi")
+
+[node name="Prompt2" type="Label" parent="SceneObjects/Door" index="5"]
+visible = false
+z_index = 10
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 53.0
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("12_6taxj")
+theme_override_font_sizes/font_size = 20
+text = "LOCKED"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneObjects/Door/Prompt2" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_ag57v")
+}
+
+[node name="genratr" parent="SceneObjects" index="3" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+position = Vector2(46, -35)
+minigame = NodePath("../../Minigames/activategenrator")
+disappearWhen = ""
+
+[node name="Prompt" parent="SceneObjects/genratr" index="2"]
+offset_left = -19.0
+offset_top = -34.0
+offset_right = 8.0
+offset_bottom = -11.0
+
+[node name="Generator" type="Sprite2D" parent="SceneObjects/genratr" index="3"]
+position = Vector2(-2, -15)
+texture = ExtResource("13_rsd0s")
+
+[node name="GeneratorOn" type="Sprite2D" parent="SceneObjects/genratr" index="4"]
+position = Vector2(-5, -19)
+texture = ExtResource("13_rgwko")
+script = ExtResource("14_b0liv")
+item = "Power"
+
+[node name="euler" parent="SceneObjects" index="4" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
 position = Vector2(64, -7)
 minigame = NodePath("../../Minigames/BarrelPaper")
 disappearWhen = ""
@@ -166,10 +284,10 @@ rotation = 1.9117112
 polygon = PackedVector2Array(40, 8, 34, 12, 18, 9, 10, 13, -23, -2, -23, -20)
 
 [node name="Prompt" parent="SceneObjects/euler" index="2"]
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 7.0
-offset_bottom = 0.0
+offset_left = -15.0
+offset_top = -29.0
+offset_right = 12.0
+offset_bottom = -6.0
 
 [node name="OilDrum" type="Sprite2D" parent="SceneObjects/euler" index="3"]
 material = SubResource("ShaderMaterial_sl55y")
@@ -216,7 +334,7 @@ material = SubResource("ShaderMaterial_tsu73")
 position = Vector2(14, 4)
 texture = ExtResource("7_sl55y")
 
-[node name="log" parent="SceneObjects" index="4" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+[node name="log" parent="SceneObjects" index="5" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
 position = Vector2(-31, 42)
 minigame = NodePath("../../Minigames/Log")
 disappearWhen = ""
@@ -233,7 +351,7 @@ offset_top = -24.0
 offset_right = 12.0
 offset_bottom = -1.0
 
-[node name="wires" parent="SceneObjects" index="5" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+[node name="wires" parent="SceneObjects" index="6" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
 position = Vector2(118, 2)
 minigame = NodePath("../../Minigames/SlidingMinigame")
 disappearWhen = ""
@@ -245,8 +363,35 @@ offset_right = 11.0
 offset_bottom = -11.0
 
 [node name="Wires" type="Sprite2D" parent="SceneObjects/wires" index="3"]
-position = Vector2(-1, -19)
+position = Vector2(-2, -21)
 texture = ExtResource("14_dvquf")
+
+[node name="WiresComplete" type="Sprite2D" parent="SceneObjects/wires" index="4"]
+position = Vector2(-2, -20)
+texture = ExtResource("16_b0liv")
+script = ExtResource("14_b0liv")
+item = "Wires"
+
+[node name="combolock" parent="SceneObjects" index="7" node_paths=PackedStringArray("minigame") instance=ExtResource("5_guotd")]
+position = Vector2(174, 31)
+minigame = NodePath("../../Minigames/combination")
+disappearWhen = ""
+
+[node name="Prompt" parent="SceneObjects/combolock" index="2"]
+offset_left = -4.0
+offset_top = -28.0
+offset_right = 23.0
+offset_bottom = -5.0
+
+[node name="Combo" type="Sprite2D" parent="SceneObjects/combolock" index="3"]
+position = Vector2(-7, -17)
+texture = ExtResource("17_lqhxi")
+
+[node name="ComboOn" type="Sprite2D" parent="SceneObjects/combolock" index="4"]
+visible = false
+position = Vector2(-8, -19)
+texture = ExtResource("18_qks7h")
+script = ExtResource("14_b0liv")
 
 [node name="Deskpapers" parent="Minigames" index="0" instance=ExtResource("10_k6k0u")]
 visible = false
@@ -455,7 +600,7 @@ theme_override_fonts/font = ExtResource("12_6taxj")
 theme_override_font_sizes/font_size = 22
 text = "FOUND MORE FUEL, GOT MORE OIL, FIXED MY BACK.
 
-PAID SOME POLICE TO LOOK AWAY FROM SOME AREAS."
+PAID SOME POLICE TO LOOK THE OTHER WAY."
 autowrap_mode = 2
 
 [node name="Paper5" parent="Minigames/Log" index="2" instance=ExtResource("11_6taxj")]
@@ -697,12 +842,21 @@ color = Color(0.76862746, 0, 0, 1)
 [node name="SlidingMinigame" parent="Minigames" index="3" instance=ExtResource("16_kxofi")]
 visible = false
 
+[node name="activategenrator" parent="Minigames" index="4" instance=ExtResource("17_8ehgv")]
+visible = false
+
+[node name="combination" parent="Minigames" index="5" instance=ExtResource("23_e0kvg")]
+visible = false
+
 [editable path="HUD/Transition"]
 [editable path="SceneObjects/oils"]
 [editable path="SceneObjects/desk"]
+[editable path="SceneObjects/Door"]
+[editable path="SceneObjects/genratr"]
 [editable path="SceneObjects/euler"]
 [editable path="SceneObjects/log"]
 [editable path="SceneObjects/wires"]
+[editable path="SceneObjects/combolock"]
 [editable path="Minigames/Deskpapers/Paper"]
 [editable path="Minigames/Deskpapers/Paper3"]
 [editable path="Minigames/Deskpapers/Paper2"]
